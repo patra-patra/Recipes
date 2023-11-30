@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Pars {
-    private Recipe GetRecipe(String path) throws IOException{
+    public Recipe GetRecipe(String path) throws IOException{
 
         Recipe temp_ = new Recipe();
         Document doc1 = Jsoup.connect(path).get();
@@ -19,7 +19,13 @@ public class Pars {
         temp_.name = NameRecipe(doc1);
         temp_.time = Time(doc1);
         temp_.Ingr = new ArrayList<>(Arrays.asList(Ingridients(doc1)));
-        temp_.steps = new ArrayList<>(Arrays.asList(Steps(doc1)));
+        //temp_.steps = new ArrayList<>(Arrays.asList(Steps(doc1)));
+        temp_.category = Category(doc1);
+
+        //System.out.println(temp_.name);
+        //System.out.println(temp_.time);
+        // System.out.println(temp_.category);
+        //System.out.println(temp_.Ingr);
 
         return temp_;
     }
@@ -59,26 +65,30 @@ public class Pars {
         Step[] steps = new Step[1];
 
         for (Element a : text23) {
+            //System.out.println(a.text());
+
             steps = new Step[a.children().size()];
 
-            for (Integer i = 0; i < a.children().size(); i++) {
+            for (int i = 0; i < a.children().size(); i++) {
 
-                if (a.child(i).text().length() != 0){
-                    steps[i].text = a.child(i).text();
-                }
+                //System.out.println(a.child(i).text());
+
                 if (a.child(i).tagName() == "p"){
-                    steps[i-1].img.add(a.child(i).text());
+                    //steps[i].img.add(a.child(i).text());
+                    steps[i-1].img.add("path");
+                }
+                else{
+                    steps[i].text = a.child(i).text();
                 }
             }
         }
         return steps;
     }
-    public void Category(String path) throws IOException {
-        Document doc1 = Jsoup.connect(path).get();
-        Elements text2 = doc1.getElementsByClass("cat_some");
-        String nutrition = text2.text();
+    public String Category(Document doc1) throws IOException {
+        Elements text2 = doc1.getElementsByClass("cat_razd");
+        String cat = text2.text();
 
-        System.out.println(nutrition);
+        return cat;
     }
     private String DifficultyLevel(Integer time, ArrayList<String> steps){
         if (time > 120 || steps.size() > 10){

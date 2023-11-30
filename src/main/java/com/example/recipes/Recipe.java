@@ -9,27 +9,25 @@ import java.util.Comparator;
 //import static org.graalvm.compiler.debug.DebugOptions.Log;
 
 public class Recipe {
-    Integer id;
+    //Integer id;
     String name;
-    ArrayList<String> category;
-    String main_img;
+    String category;
+    //String main_img;
     String time;
-    String difficulty_level;
+    //String difficulty_level;
     Product products;
     ArrayList<String> Ingr;
-    String favorite;
+    //String favorite;
     ArrayList<Step> steps;
-    //ArrayList<String> steps;
 
     public Recipe() {
-
         name = "empty";
         //category = "empty";
         //main_img = new URL("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPm4OafJsXDQRBuPD3DlTaf64EYDyx_mA-sQ&usqp=CAU");
         time = "empty";
-        difficulty_level = "empty";
+        //difficulty_level = "empty";
         products = new Product();
-        favorite = "empty";
+        //favorite = "empty";
     }
 
     public Recipe(String _name, String _category, String _time, String _di) {
@@ -37,18 +35,18 @@ public class Recipe {
         //category = "empty";
         //main_img = new URL("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPm4OafJsXDQRBuPD3DlTaf64EYDyx_mA-sQ&usqp=CAU");
         time = "empty";
-        difficulty_level = "empty";
+        //difficulty_level = "empty";
         products = new Product();
-        favorite = "empty";
+        //favorite = "empty";
     }
     public Recipe(String _name) {
         name = _name;
         //category = "empty";
         //main_img = new URL("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPm4OafJsXDQRBuPD3DlTaf64EYDyx_mA-sQ&usqp=CAU");
         time = "empty";
-        difficulty_level = "empty";
+        //difficulty_level = "empty";
         products = new Product();
-        favorite = "empty";
+        //favorite = "empty";
     }
 
     private void GetAll(){
@@ -58,6 +56,21 @@ public class Recipe {
 
     }
 
+
+
+    public int compareTo(Recipe o) {
+        return name.compareTo(o.name);
+    }
+
+    public String getName() {
+        return name;
+    }
+/*
+    public double getAvgMark() {
+        return avgMark;
+    }
+
+*/
     private ArrayList<String> SortByAlphabet(ArrayList<String> arr){
 
         Collections.sort(arr);

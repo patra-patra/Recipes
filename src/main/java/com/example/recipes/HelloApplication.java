@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -13,7 +14,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
 import java.util.ArrayList;
-
+import java.util.Arrays;
+import java.util.Collections;
 
 public class HelloApplication extends Application {
     @Override
@@ -22,12 +24,36 @@ public class HelloApplication extends Application {
     }
     public static void main( String[] args ) throws IOException{
         Pars pars = new Pars();
-        String path = "https://saechka.ru/recipes/recipe_sloenye_morkovki";//"https://saechka.ru/recipes/recipe_pryaniki_dlya_rospisi_morkovki";//"https://saechka.ru/recipes/recipe_5163";//= "https://saechka.ru/recipes/recipe_sloenye_morkovki";
-        //String path = "https://saechka.ru/recipes/recipe_blinnyy_tort_s_makom";
+
+        String path = "https://saechka.ru/recipes/recipe_2202";
+        String path1 = "https://saechka.ru/recipes/recipe_pryaniki_dlya_rospisi_morkovki";
+        String path2 = "https://saechka.ru/recipes/recipe_5163";
+        String path3 = "https://saechka.ru/recipes/recipe_sloenye_morkovki";
+        String path4 = "https://saechka.ru/recipes/recipe_blinnyy_tort_s_makom";
 
         Recipe a = new Recipe();
-        Document doc1 = Jsoup.connect(path).get();
-        pars.Steps(doc1);
+
+        a = pars.GetRecipe(path4);
+
+        Recipe b, c, d = new Recipe();
+
+        b = pars.GetRecipe(path);
+        c = pars.GetRecipe(path2);
+        d = pars.GetRecipe(path3);
+
+        ArrayList<Recipe> book = new ArrayList<>();
+        book.add(a);
+        book.add(b);
+        book.add(c);
+        book.add(d);
+
+        Collections.sort(book, new CompByName());
+
+        for (Recipe r : book) {
+            System.out.println(r.name);
+
+
+        }
 
         /*
         URL img = new URL ("https://saechka.ru/upload/iblock/884/001.jpg");
