@@ -12,46 +12,22 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
+import java.util.ArrayList;
 
 
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
-        stage.show();
+
     }
-/*
-* function createRandomString(sumString){
-const symbolArr = "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
-var randomString = "";
-for (let i=0; i<sumString; i++){
-	var index = Math.floor(Math.random()*symbolArr.length);
-	randomString +=symbolArr[index];
-}
-return randomString;
-}
-
-console.log(createRandomString(10));
-*
-*
-* */
     public static void main( String[] args ) throws IOException{
-
-        String file = "111111"+".jpg";
         Pars pars = new Pars();
-        String path = "https://saechka.ru/recipes/recipe_4445";
-        //https://saechka.ru/
-        //pars.NameRecipe(path);
-        //pars.Time(path);
-        //pars.Nutrition(path);
-        //pars.Ingridients(path);
-        pars.Steps(path);
-        //pars.Category(path);
+        String path = "https://saechka.ru/recipes/recipe_sloenye_morkovki";//"https://saechka.ru/recipes/recipe_pryaniki_dlya_rospisi_morkovki";//"https://saechka.ru/recipes/recipe_5163";//= "https://saechka.ru/recipes/recipe_sloenye_morkovki";
+        //String path = "https://saechka.ru/recipes/recipe_blinnyy_tort_s_makom";
 
-
+        Recipe a = new Recipe();
+        Document doc1 = Jsoup.connect(path).get();
+        pars.Steps(doc1);
 
         /*
         URL img = new URL ("https://saechka.ru/upload/iblock/884/001.jpg");

@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac776215-f60e-4816-bfce-980eb88cf38a" name="Changes" comment="Начало парсинга">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Step.java" afterDir="false" />
+    <list default="true" id="ac776215-f60e-4816-bfce-980eb88cf38a" name="Changes" comment="Иконка с котёнком поварёнком">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Pars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Pars.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Recipe.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +18,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -25,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="application" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -58,6 +59,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;parsing&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/user/IdeaProjects/Recipes/src/main/resources/com/example/recipes&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/Distr/jsoup-1.16.2.jar&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
@@ -65,6 +67,12 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\IdeaProjects\Recipes\src\main\resources" />
+      <recent name="C:\Users\user\IdeaProjects\Recipes\src\main\resources\com\example\recipes" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -90,7 +98,39 @@
       <option name="project" value="LOCAL" />
       <updated>1699524679759</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="поля сущностей">
+      <option name="closed" value="true" />
+      <created>1700710578012</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1700710578012</updated>
+    </task>
+    <task id="LOCAL-00004" summary="поля сущностей">
+      <option name="closed" value="true" />
+      <created>1700710586777</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1700710586777</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Иконка с котёнком поварёнком">
+      <option name="closed" value="true" />
+      <created>1700750303034</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1700750303034</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Иконка с котёнком поварёнком">
+      <option name="closed" value="true" />
+      <created>1700750319932</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1700750319932</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -118,6 +158,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Начало парсинга" />
-    <option name="LAST_COMMIT_MESSAGE" value="Начало парсинга" />
+    <MESSAGE value="поля сущностей" />
+    <MESSAGE value="Иконка с котёнком поварёнком" />
+    <option name="LAST_COMMIT_MESSAGE" value="Иконка с котёнком поварёнком" />
   </component>
 </project>

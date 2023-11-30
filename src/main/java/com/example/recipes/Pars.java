@@ -1,51 +1,40 @@
 package com.example.recipes;
-
+import javafx.scene.Parent;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class Pars {
     private Recipe GetRecipe(String path) throws IOException{
-        Recipe temp_ = new Recipe();
 
+        Recipe temp_ = new Recipe();
         Document doc1 = Jsoup.connect(path).get();
 
-        //String title_dish = doc1.select("h1").text();
-        // String time = text2.text();
-        //Elements text3 = doc1.getElementsByClass("nutrition_nutrition");
-        //String nutrition = text3.text();
-        //Elements text5 = doc1.getElementsByClass("cook");
-        //String tips = text5.text();
-        //Elements text6 = doc1.getElementsByClass("cat_some");
-        //String cat = text2.text();
-
-        temp_.name = doc1.select("h1").text();
-        temp_.time = doc1.getElementsByClass("time_cook").text();
-
-        Elements text4 = doc1.getElementsByClass("ingredients");
-        String nutrition2 = text4.text();
-
-        //temp_.tips = doc1.getElementsByClass("cook").text();
-        //temp_.category = doc1.getElementsByClass("cat_some").text();
+        temp_.name = NameRecipe(doc1);
+        temp_.time = Time(doc1);
+        temp_.Ingr = new ArrayList<>(Arrays.asList(Ingridients(doc1)));
+        temp_.steps = new ArrayList<>(Arrays.asList(Steps(doc1)));
 
         return temp_;
     }
-    public void NameRecipe(String path) throws IOException {
-        Document doc1 = Jsoup.connect(path).get();
+    public String NameRecipe(Document doc1) throws IOException {
         String title_dish = doc1.select("h1").text();
 
-        System.out.println(title_dish);
+        return title_dish;
     }
-    public void Time(String path) throws IOException {
-        Document doc1 = Jsoup.connect(path).get();
+    public String Time(Document doc1) throws IOException {
         Elements text2 = doc1.getElementsByClass("time_cook");
         String time = text2.text();
 
-        System.out.println(time);
+        return time;
     }
+    /*
     public void Nutrition(String path) throws IOException {
         Document doc1 = Jsoup.connect(path).get();
         Elements text2 = doc1.getElementsByClass("nutrition_nutrition");
@@ -53,31 +42,36 @@ public class Pars {
 
         System.out.println(nutrition);
     }
-    public void Ingridients(String path) throws IOException {
-        Document doc1 = Jsoup.connect(path).get();
+    */
+    public String[] Ingridients(Document doc1) throws IOException {
         Elements text2 = doc1.getElementsByClass("ingredients");
-        String nutrition = text2.text();
+        String pre_ingr = text2.text();
 
-        System.out.println(nutrition);
+        pre_ingr = pre_ingr.substring(0, pre_ingr.length() - 1);
+        String[] ingredients;
+        ingredients = pre_ingr.split(", ");
+
+        return ingredients;
     }
-    public void Steps(String path) throws IOException {
-        Document doc1 = Jsoup.connect(path).get();
-        Elements text2 = doc1.getElementsByClass("cook");
-        Elements ol = doc1.getElementsByTag("ol");
-        
-        String s = doc1.select("h2").text();
-        //Elements aaa = doc1.select("li");
+    public Step[] Steps(Document doc1) throws IOException {
+        Elements text23 = doc1.select("ol");
 
+        Step[] steps = new Step[1];
 
-        Elements text = doc1.select("cook");
+        for (Element a : text23) {
+            steps = new Step[a.children().size()];
 
-        //String tips = text2.text();
-        for (Element a: ol){
-            System.out.println(a + "\n\n\n");
+            for (Integer i = 0; i < a.children().size(); i++) {
+
+                if (a.child(i).text().length() != 0){
+                    steps[i].text = a.child(i).text();
+                }
+                if (a.child(i).tagName() == "p"){
+                    steps[i-1].img.add(a.child(i).text());
+                }
+            }
         }
-
-
-       //System.out.println(s);
+        return steps;
     }
     public void Category(String path) throws IOException {
         Document doc1 = Jsoup.connect(path).get();
@@ -86,5 +80,15 @@ public class Pars {
 
         System.out.println(nutrition);
     }
-
+    private String DifficultyLevel(Integer time, ArrayList<String> steps){
+        if (time > 120 || steps.size() > 10){
+            return "Высокая";
+        }
+        else if(30 < time && time < 60 || steps.size() > 5 && steps.size() < 10){
+            return "Cредняя";
+        }
+        else {
+            return "Низкая";
+        }
+    }
 }
