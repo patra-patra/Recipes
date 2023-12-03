@@ -53,33 +53,29 @@ public class Pars {
 
         for (Element a : text23) {
             steps = new Step[a.children().size()];
-            //System.out.println(a.children().size());
 
             for (int i = 0; i < a.children().size(); i++) {
                 String t;
                 Step step = new Step();
+                ArrayList<String> list_img = new ArrayList<>();
                 if (a.child(i).tagName() == "p"){
-                    //steps[i].img.add("path");
-                    t = "PATH";
-
-                    //step.img.add("PATH");
-                    //steps[i].img.add(t);
-                    //System.out.println(t);
+                    t = a.child(i).child(0).attr("href");
+                    list_img.add(t);
+                    steps[i-1].img = list_img;
                 }
-                else{
-                    //steps[i].text = a.child(i).text();
+                if (a.child(i).tagName() != "p") {
                     t = a.child(i).text();
                     step.text = t;
                 }
+                //step.img = list_img;
                 steps[i] = step;
+
             }
         }
 
-        int count = 0;
-        for (Step s : steps) {
-            count++;
-            System.out.println(count + " " + s.text);
-        }
+        //System.out.println(steps[1].text);
+        //String a = "https://saechka.ru/" + steps[1].img.get(0);
+        //System.out.println(a);
         return steps;
     }
     private String Category(Document doc1) throws IOException {
@@ -100,7 +96,7 @@ public class Pars {
         }
     }
 
-    public String GetMainImg(Document doc1){
+    private String GetMainImg(Document doc1){
         Elements meta = doc1.select("meta[property=og:image]");
         String path_img = "";
         for (Element s : meta) {

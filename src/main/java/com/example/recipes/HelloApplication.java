@@ -37,14 +37,12 @@ public class HelloApplication extends Application {
 
         Document doc1 = Jsoup.connect(path1).get();
 
-        pars.GetMainImg(doc1);
-/*
         Recipe b, c, d = new Recipe();
 
-        b = pars.GetRecipe(path4);
-        c = pars.GetRecipe(path2);
-        d = pars.GetRecipe(path3);
-
+       // b = pars.GetRecipe(path4);
+       // c = pars.GetRecipe(path2);
+        d = pars.GetRecipe(path);
+/*
         ArrayList<Recipe> book = new ArrayList<>();
         book.add(a);
         book.add(b);
@@ -53,7 +51,7 @@ public class HelloApplication extends Application {
 
         Collections.sort(book, new CompByName());
 
-
+*/
 
         /*
         URL img = new URL ("https://saechka.ru/upload/iblock/884/001.jpg");
