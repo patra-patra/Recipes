@@ -33,11 +33,15 @@ public class HelloApplication extends Application {
 
         Recipe a = new Recipe();
 
-        a = pars.GetRecipe(path4);
+        //a = pars.GetRecipe(path1);
 
+        Document doc1 = Jsoup.connect(path1).get();
+
+        pars.GetMainImg(doc1);
+/*
         Recipe b, c, d = new Recipe();
 
-        b = pars.GetRecipe(path);
+        b = pars.GetRecipe(path4);
         c = pars.GetRecipe(path2);
         d = pars.GetRecipe(path3);
 
@@ -49,11 +53,7 @@ public class HelloApplication extends Application {
 
         Collections.sort(book, new CompByName());
 
-        for (Recipe r : book) {
-            System.out.println(r.name);
 
-
-        }
 
         /*
         URL img = new URL ("https://saechka.ru/upload/iblock/884/001.jpg");

@@ -12,13 +12,13 @@ public class Recipe {
     //Integer id;
     String name;
     String category;
-    //String main_img;
+    String main_img;
     String time;
     //String difficulty_level;
     Product products;
     ArrayList<String> Ingr;
     //String favorite;
-    ArrayList<Step> steps;
+    public ArrayList<Step> steps;
 
     public Recipe() {
         name = "empty";

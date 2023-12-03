@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac776215-f60e-4816-bfce-980eb88cf38a" name="Changes" comment="Парсинг названия, времени, шагов, ингридиентов, нахождения уровня сложности.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/CompByName.java" afterDir="false" />
+    <list default="true" id="ac776215-f60e-4816-bfce-980eb88cf38a" name="Changes" comment="Исправление парсинга шагов, сортировка по названию в алфавитном порядке">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_11_2023_13_45_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_11_2023_13_45__Changes_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_11_2023_14_29_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_11_2023_14_29__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_11_2023_13_47_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_11_2023_13_47__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Pars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Pars.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Recipe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Step.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Step.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +145,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701337040383</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Исправление парсинга шагов, сортировка по названию в алфавитном порядке">
+      <option name="closed" value="true" />
+      <created>1701346150430</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1701346150430</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -170,7 +184,8 @@
     <MESSAGE value="поля сущностей" />
     <MESSAGE value="Иконка с котёнком поварёнком" />
     <MESSAGE value="Парсинг названия, времени, шагов, ингридиентов, нахождения уровня сложности." />
-    <option name="LAST_COMMIT_MESSAGE" value="Парсинг названия, времени, шагов, ингридиентов, нахождения уровня сложности." />
+    <MESSAGE value="Исправление парсинга шагов, сортировка по названию в алфавитном порядке" />
+    <option name="LAST_COMMIT_MESSAGE" value="Исправление парсинга шагов, сортировка по названию в алфавитном порядке" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

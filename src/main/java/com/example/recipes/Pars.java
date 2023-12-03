@@ -17,39 +17,26 @@ public class Pars {
         Document doc1 = Jsoup.connect(path).get();
 
         temp_.name = NameRecipe(doc1);
+        temp_.main_img = GetMainImg(doc1);
         temp_.time = Time(doc1);
         temp_.Ingr = new ArrayList<>(Arrays.asList(Ingridients(doc1)));
-        //temp_.steps = new ArrayList<>(Arrays.asList(Steps(doc1)));
+        temp_.steps = new ArrayList<>(Arrays.asList(Steps(doc1)));
         temp_.category = Category(doc1);
-
-        //System.out.println(temp_.name);
-        //System.out.println(temp_.time);
-        // System.out.println(temp_.category);
-        //System.out.println(temp_.Ingr);
 
         return temp_;
     }
-    public String NameRecipe(Document doc1) throws IOException {
+    private String NameRecipe(Document doc1) throws IOException {
         String title_dish = doc1.select("h1").text();
 
         return title_dish;
     }
-    public String Time(Document doc1) throws IOException {
+    private String Time(Document doc1) throws IOException {
         Elements text2 = doc1.getElementsByClass("time_cook");
         String time = text2.text();
 
         return time;
     }
-    /*
-    public void Nutrition(String path) throws IOException {
-        Document doc1 = Jsoup.connect(path).get();
-        Elements text2 = doc1.getElementsByClass("nutrition_nutrition");
-        String nutrition = text2.text();
-
-        System.out.println(nutrition);
-    }
-    */
-    public String[] Ingridients(Document doc1) throws IOException {
+    private String[] Ingridients(Document doc1) throws IOException {
         Elements text2 = doc1.getElementsByClass("ingredients");
         String pre_ingr = text2.text();
 
@@ -59,32 +46,43 @@ public class Pars {
 
         return ingredients;
     }
-    public Step[] Steps(Document doc1) throws IOException {
+    private Step[] Steps(Document doc1) throws IOException {
         Elements text23 = doc1.select("ol");
 
-        Step[] steps = new Step[1];
+        Step[] steps = new Step[0];
 
         for (Element a : text23) {
-            //System.out.println(a.text());
-
             steps = new Step[a.children().size()];
+            //System.out.println(a.children().size());
 
             for (int i = 0; i < a.children().size(); i++) {
-
-                //System.out.println(a.child(i).text());
-
+                String t;
+                Step step = new Step();
                 if (a.child(i).tagName() == "p"){
-                    //steps[i].img.add(a.child(i).text());
-                    steps[i-1].img.add("path");
+                    //steps[i].img.add("path");
+                    t = "PATH";
+
+                    //step.img.add("PATH");
+                    //steps[i].img.add(t);
+                    //System.out.println(t);
                 }
                 else{
-                    steps[i].text = a.child(i).text();
+                    //steps[i].text = a.child(i).text();
+                    t = a.child(i).text();
+                    step.text = t;
                 }
+                steps[i] = step;
             }
+        }
+
+        int count = 0;
+        for (Step s : steps) {
+            count++;
+            System.out.println(count + " " + s.text);
         }
         return steps;
     }
-    public String Category(Document doc1) throws IOException {
+    private String Category(Document doc1) throws IOException {
         Elements text2 = doc1.getElementsByClass("cat_razd");
         String cat = text2.text();
 
@@ -100,5 +98,14 @@ public class Pars {
         else {
             return "Низкая";
         }
+    }
+
+    public String GetMainImg(Document doc1){
+        Elements meta = doc1.select("meta[property=og:image]");
+        String path_img = "";
+        for (Element s : meta) {
+            path_img = s.attr("content");
+        }
+        return path_img;
     }
 }
