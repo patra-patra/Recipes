@@ -3,11 +3,12 @@ import java.util.*;
 
 public class Product {
     int id;
-    String name;
-    double protein;
-    double carbohydrates;
-    double fats;
-    double calories;
+    public String name;
+    public double protein;
+    public double carbohydrates;
+    public double fats;
+    public double calories;
+    public double temp_weight;
 
 
     @Override
@@ -25,13 +26,15 @@ public class Product {
     public Product() {
     }
 
-    public Product(int id, String name, double protein, double carbohydrates, double fats, double calories) {
+    public Product(int id, String name, double protein, double carbohydrates, double fats, double calories,
+                   double temp_weight) {
         this.id = id;
         this.name = name;
         this.protein = protein;
         this.carbohydrates = carbohydrates;
         this.fats = fats;
         this.calories = calories;
+        this.temp_weight = temp_weight;
     }
 
     public int getId() {

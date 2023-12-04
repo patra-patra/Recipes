@@ -7,6 +7,7 @@ public class Step {
     int rec_id;
     int step_id;
     String text;
+    public ArrayList<String> img;
 
     @Override
     public String toString() {

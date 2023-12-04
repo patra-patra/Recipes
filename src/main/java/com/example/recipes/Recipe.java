@@ -1,14 +1,20 @@
 package com.example.recipes;
 
 
+import java.util.ArrayList;
+
 public class Recipe {
-    Integer id;
-    String name;
-    String category;
-    String main_img;
-    String time;
-    String difficulty_level;
-    Integer favorite;
+    public Integer id;
+    public String name;
+    public String category;
+    public String main_img;
+    public String time;
+    public String difficulty_level;
+    public Integer favorite;
+    public ArrayList<String> Ingr;
+    public ArrayList<Step> steps;
+
+
 
     @Override
     public String toString() {;
@@ -26,6 +32,19 @@ public class Recipe {
     public Recipe(int rec_id, int step_id, String text) {
     }
 
+    public Double[] Count_p_c_f_cl (ArrayList<Product> Ingr){
+        Double[] p_c_f_cl = {0.0, 0.0, 0.0, 0.0};
+
+
+        for (Product ing: Ingr) {
+            p_c_f_cl[0] += ing.temp_weight/100 * ing.protein;
+            p_c_f_cl[1] += ing.temp_weight/100 * ing.carbohydrates;
+            p_c_f_cl[2] += ing.temp_weight/100 * ing.fats;
+            p_c_f_cl[3] += ing.temp_weight/100 * ing.calories;
+        }
+
+        return p_c_f_cl;
+    }
     public Recipe(Integer id, String name, String category, String main_img, String time, String difficulty_level,
                   Integer favorite) {
         this.id = id;
@@ -35,6 +54,15 @@ public class Recipe {
         this.time = time;
         this.difficulty_level = difficulty_level;
         this.favorite = favorite;
+    }
+    public Recipe() {
+        id = 0;
+        name = "empty";
+        category = "empty";
+        main_img = "empty";
+        time = "empty";
+        difficulty_level = "empty";
+        //favorite = "empty";
     }
 
 
