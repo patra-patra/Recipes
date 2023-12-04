@@ -7,9 +7,9 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 
-public class Pars {
+/*public class Pars {
     private Recipe GetRecipe(String path) throws IOException{
-        Recipe temp_ = new Recipe();
+        Recipe temp_ = new Recipe(id, name, category, main_img, time, difficulty_level, favorite);
 
         Document doc1 = Jsoup.connect(path).get();
 
@@ -87,4 +87,4 @@ public class Pars {
         System.out.println(nutrition);
     }
 
-}
+} */

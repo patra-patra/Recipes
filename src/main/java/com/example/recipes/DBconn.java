@@ -1,6 +1,7 @@
 package com.example.recipes;
 import java.sql.*;
 public class DBconn {
+
     private static String url = "jdbc:mysql://localhost:3306/recipes";
     private static String user = "root";
     private static String password = "root";
