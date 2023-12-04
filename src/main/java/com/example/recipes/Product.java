@@ -20,6 +20,7 @@ public class Product {
                 ", carbohydrates=" + carbohydrates +
                 ", fats=" + fats +
                 ", calories=" + calories +
+                ", temp_weight=" + temp_weight +
                 '}';
     }
 
@@ -34,6 +35,14 @@ public class Product {
         this.carbohydrates = carbohydrates;
         this.fats = fats;
         this.calories = calories;
+        this.temp_weight = temp_weight;
+    }
+
+    public double getTemp_weight() {
+        return temp_weight;
+    }
+
+    public void setTemp_weight(double temp_weight) {
         this.temp_weight = temp_weight;
     }
 
