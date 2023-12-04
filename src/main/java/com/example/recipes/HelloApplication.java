@@ -14,7 +14,7 @@ import java.io.OutputStream;
 import java.net.URL;
 
 
-public class HelloApplication extends Application {
+/*public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
@@ -38,7 +38,7 @@ console.log(createRandomString(10));
 *
 *
 * */
-    public static void main( String[] args ) throws IOException{
+   /* public static void main( String[] args ) throws IOException{
 
         String file = "111111"+".jpg";
         Pars pars = new Pars();
@@ -51,7 +51,7 @@ console.log(createRandomString(10));
         pars.Steps(path);
         //pars.Category(path);
 
-
+*/
 
         /*
         URL img = new URL ("https://saechka.ru/upload/iblock/884/001.jpg");
@@ -65,5 +65,5 @@ console.log(createRandomString(10));
         is.close();
         os.close();
 */
-    }
-}
+ /*   }
+} */

@@ -1,47 +1,96 @@
 package com.example.recipes;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
 
 public class Recipe {
     Integer id;
     String name;
-    ArrayList<String> category;
+    String category;
     String main_img;
     String time;
     String difficulty_level;
-    Product products;
-    String favorite;
-    ArrayList<Step> steps;
+    Integer favorite;
 
-
-    public Recipe() {
-
-        name = "empty";
-        //category = "empty";
-        //main_img = new URL("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPm4OafJsXDQRBuPD3DlTaf64EYDyx_mA-sQ&usqp=CAU");
-        time = "empty";
-        difficulty_level = "empty";
-        products = new Product();
-        favorite = "empty";
+    @Override
+    public String toString() {;
+        return "Recipe{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", category='" + category + '\'' +
+                ", main_img='" + main_img + '\'' +
+                ", time='" + time + '\'' +
+                ", difficulty_level='" + difficulty_level + '\'' +
+                ", favorite=" + favorite +
+                '}';
     }
 
-    public Recipe(String _name, String _category, String _time, String _di) {
-        name = "empty";
-        //category = "empty";
-        //main_img = new URL("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPm4OafJsXDQRBuPD3DlTaf64EYDyx_mA-sQ&usqp=CAU");
-        time = "empty";
-        difficulty_level = "empty";
-        products = new Product();
-        favorite = "empty";
+    public Recipe(int rec_id, int step_id, String text) {
     }
 
-    private void GetAll(){
-
+    public Recipe(Integer id, String name, String category, String main_img, String time, String difficulty_level,
+                  Integer favorite) {
+        this.id = id;
+        this.name = name;
+        this.category = category;
+        this.main_img = main_img;
+        this.time = time;
+        this.difficulty_level = difficulty_level;
+        this.favorite = favorite;
     }
-    private void Change(){
 
+
+    public Integer getId() {
+        return id;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getMain_img() {
+        return main_img;
+    }
+
+    public void setMain_img(String main_img) {
+        this.main_img = main_img;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getDifficulty_level() {
+        return difficulty_level;
+    }
+
+    public void setDifficulty_level(String difficulty_level) {
+        this.difficulty_level = difficulty_level;
+    }
+
+    public Integer getFavorite() {
+        return favorite;
+    }
+
+    public void setFavorite(Integer favorite) {
+        this.favorite = favorite;
+    }
 }
