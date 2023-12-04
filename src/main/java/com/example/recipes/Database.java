@@ -88,23 +88,33 @@ public class Database {
 
 
 
-
     //показать продукты рецепта
-   /* public static List<Product> showProducts(int rec_id){
-        List<Product> prosucts = new ArrayList<>();
+   public static List<Product> showProducts(int rec_id){
+        List<Product> products = new ArrayList<>();
         String query = "SELECT prod_id FROM prod_rec  WHERE rec_id = ?";
         String query1 = "SELECT * FROM products WHERE prod_id = ?";
         try (Connection connection = DBconn.GetConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setInt(2,rec_id);
+            preparedStatement.setInt(1,rec_id);
             ResultSet rs = preparedStatement.executeQuery();
 
-            PreparedStatement addToCart = connection.prepareStatement(query1);
+            PreparedStatement showProducts = connection.prepareStatement(query1);
 
             while (rs.next()){
                 int prod_id = rs.getInt("prod_id");
-                addToCart.setInt(1,prod_id);
-                addToCart.executeUpdate();
+                showProducts.setInt(1,prod_id);
+                ResultSet res = showProducts.executeQuery();
+
+                while (res.next()){
+                    String prod_name = res.getString("prod_name");
+                    double protein = res.getDouble("protein");
+                    double carbohydrates = res.getDouble("protein");
+                    double fats = res.getDouble("fats");
+                    double calories = res.getDouble("calories");
+                    double temp_weight = res.getDouble("temp_weight");
+
+                    products.add(new Product(prod_id,prod_name,protein,carbohydrates,fats,calories,temp_weight));
+                }
             }
 
         } catch(SQLException throwables){
@@ -112,7 +122,7 @@ public class Database {
         }
 
         return products;
-    } */
+    }
 
 
     //показать шаги рецепта
@@ -137,7 +147,7 @@ public class Database {
         return steps;
     }
 
-    //показать картинку рецепта
+    //показать картинку шага
 
     public static List<Step_img> showStepImg(int step_id){
         List<Step_img> img = new ArrayList<>();
@@ -186,19 +196,14 @@ public class Database {
 
     //добавить шаги рецепта
 
-    public static void addStep(String rec_name, String category, String main_img, String time,
-                                 String difficulty_level,int favorite){
-        String query = "INSERT INTO recipes(rec_name,category,main_img,cooking_time,difficulty_level,favorite) VALUES(?,?,?,?,?,?)";
+    public static void addStep(int rec_id, String step_text){
+        String query = "INSERT INTO steps(rec_id,step_text) VALUES(?,?)";
         try (Connection connection = DBconn.GetConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
 
-            preparedStatement.setString(1,rec_name);
-            preparedStatement.setString(2, category);
-            preparedStatement.setString(3,main_img);
-            preparedStatement.setString(4,time);
-            preparedStatement.setString(5,difficulty_level);
-            preparedStatement.setInt(6,favorite);
+            preparedStatement.setInt(1,rec_id);
+            preparedStatement.setString(2, step_text);
 
             preparedStatement.executeUpdate();
 
@@ -210,7 +215,69 @@ public class Database {
 
     //добавить картинку рецепта
 
-    //добавить продукты в рецепт
+    public static void addStepImg(int step_id, String img_url){
+        String query = "INSERT INTO step_img(step_id,img_url) VALUES(?,?)";
+        try (Connection connection = DBconn.GetConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+
+            preparedStatement.setInt(1,step_id);
+            preparedStatement.setString(2, img_url);
+
+            preparedStatement.executeUpdate();
+
+
+        } catch(SQLException throwables){
+            throwables.printStackTrace();
+        }
+    }
+
+
+    //добавить продукты в рецепт(создание связи в таблице)
+
+    public static void addProductToRecipe(int prod_id, int rec_id){
+        String query = "INSERT INTO prod_rec(prod_id,rec_id) VALUES(?,?)";
+        try (Connection connection = DBconn.GetConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+
+            preparedStatement.setInt(1,prod_id);
+            preparedStatement.setInt(2, rec_id);
+
+            preparedStatement.executeUpdate();
+
+
+        } catch(SQLException throwables){
+            throwables.printStackTrace();
+        }
+    }
+
+    //добавить продукт в базу
+
+    public static void addProduct(String prod_name, double protein, double carbohydrates,double fats, double calories,
+                                  double temp_weight){
+        String query = "INSERT INTO products(prod_name,protein,carbohydrates,fats,calories,temp_weight) " +
+                "VALUES(?,?,?,?,?,?)";
+        try (Connection connection = DBconn.GetConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+
+            preparedStatement.setString(1,prod_name);
+            preparedStatement.setDouble(2, protein);
+            preparedStatement.setDouble(3, carbohydrates);
+            preparedStatement.setDouble(4, fats);
+            preparedStatement.setDouble(5, calories);
+            preparedStatement.setDouble(6, temp_weight);
+
+            preparedStatement.executeUpdate();
+
+
+        } catch(SQLException throwables){
+            throwables.printStackTrace();
+        }
+    }
+
+
 
 
     //добавить в избранное
@@ -253,5 +320,36 @@ public class Database {
             throwables.printStackTrace();
         }
     }
+
+    //поиск ингридиента по названию
+
+    public static Product searchProduct(String prod_name) {
+        String query = "SELECT * FROM products WHERE prod_name = ?";
+        Product product = null;
+        try (Connection connection = DBconn.GetConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, prod_name);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while(rs.next()){
+                int prod_id = rs.getInt("prod_id");
+                double protein = rs.getDouble("protein");
+                double carbohydrates = rs.getDouble("protein");
+                double fats = rs.getDouble("fats");
+                double calories = rs.getDouble("calories");
+                double temp_weight = rs.getDouble("temp_weight");
+
+                product = new Product(prod_id, prod_name, protein, carbohydrates, fats, calories, temp_weight);
+            }
+
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return product;
+    }
+
+
     
 }

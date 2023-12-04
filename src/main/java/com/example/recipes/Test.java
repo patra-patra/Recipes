@@ -4,10 +4,10 @@ public class Test {
     public static void main(String[] args) {
 
 
-        List<Recipe> recipes = Database.showAllRecipe();
-        System.out.println(recipes.get(0).name);
-        System.out.println(recipes.get(0).id);
-        System.out.println(recipes.size());
+
+        Product product = Database.searchProduct("паddd");
+        System.out.println(product);
+        Database.addProduct("sss", 1,1,1,1,1);
 
     }
 }
