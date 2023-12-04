@@ -25,7 +25,7 @@ public class HelloApplication extends Application {
     public static void main( String[] args ) throws IOException{
         Pars pars = new Pars();
 
-        String path = "https://saechka.ru/recipes/recipe_2202";
+        String path = "https://saechka.ru/recipes/recipe_2337";//https://saechka.ru/recipes/recipe_2202";
         String path1 = "https://saechka.ru/recipes/recipe_pryaniki_dlya_rospisi_morkovki";
         String path2 = "https://saechka.ru/recipes/recipe_5163";
         String path3 = "https://saechka.ru/recipes/recipe_sloenye_morkovki";
@@ -37,11 +37,36 @@ public class HelloApplication extends Application {
 
         Document doc1 = Jsoup.connect(path1).get();
 
-        Recipe b, c, d = new Recipe();
+        Recipe b, c = null, d = new Recipe();
+
+        Product product = new Product("j", 21.0, 3.0, 5.0, 145.0, 500.0);
+        Product product2 = new Product("j", 2.9, 4.8, 2.5, 54.0, 200.0);
+        Product product3 = new Product("j", 12.7, 0.7, 11.5, 157.0, 240.0);
+
+        ArrayList<Product> book = new ArrayList<>();
+
+
+
+        book.add(product2);
+        book.add(product);
+        book.add(product3);
+        Double[] e = d.Count_p_c_f_cl(book);
+
+        for (Double y : e){
+            String result = String.format("%.2f", y);
+            System.out.println(result);
+
+        }
+
 
        // b = pars.GetRecipe(path4);
        // c = pars.GetRecipe(path2);
+        /*
         d = pars.GetRecipe(path);
+        for (String g : d.Ingr){
+            System.out.println(g);
+
+        }
 /*
         ArrayList<Recipe> book = new ArrayList<>();
         book.add(a);
@@ -53,17 +78,5 @@ public class HelloApplication extends Application {
 
 */
 
-        /*
-        URL img = new URL ("https://saechka.ru/upload/iblock/884/001.jpg");
-        InputStream is = img.openStream();
-        OutputStream os = new FileOutputStream(file);
-        byte[] b = new byte[2048];
-        int lenght;
-        while ((lenght = is.read(b)) != -1){
-            os.write(b, 0, lenght);
-        }
-        is.close();
-        os.close();
-*/
     }
 }

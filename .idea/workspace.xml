@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac776215-f60e-4816-bfce-980eb88cf38a" name="Changes" comment="Исправление парсинга шагов(2), получение ссылки на главную картинку рецепта">
+    <list default="true" id="ac776215-f60e-4816-bfce-980eb88cf38a" name="Changes" comment="парсинг картинок шагов">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Data.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Pars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Pars.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Recipe.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +156,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701602427270</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="парсинг картинок шагов">
+      <option name="closed" value="true" />
+      <created>1701609584434</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1701609584434</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -186,7 +197,8 @@
     <MESSAGE value="Парсинг названия, времени, шагов, ингридиентов, нахождения уровня сложности." />
     <MESSAGE value="Исправление парсинга шагов, сортировка по названию в алфавитном порядке" />
     <MESSAGE value="Исправление парсинга шагов(2), получение ссылки на главную картинку рецепта" />
-    <option name="LAST_COMMIT_MESSAGE" value="Исправление парсинга шагов(2), получение ссылки на главную картинку рецепта" />
+    <MESSAGE value="парсинг картинок шагов" />
+    <option name="LAST_COMMIT_MESSAGE" value="парсинг картинок шагов" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

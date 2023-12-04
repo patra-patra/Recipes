@@ -4,7 +4,13 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -22,6 +28,7 @@ public class Pars {
         temp_.Ingr = new ArrayList<>(Arrays.asList(Ingridients(doc1)));
         temp_.steps = new ArrayList<>(Arrays.asList(Steps(doc1)));
         temp_.category = Category(doc1);
+        temp_.difficulty_level = DifficultyLevel(temp_.time, temp_.steps);
 
         return temp_;
     }
@@ -42,6 +49,7 @@ public class Pars {
 
         pre_ingr = pre_ingr.substring(0, pre_ingr.length() - 1);
         String[] ingredients;
+
         ingredients = pre_ingr.split(", ");
 
         return ingredients;
@@ -67,9 +75,7 @@ public class Pars {
                     t = a.child(i).text();
                     step.text = t;
                 }
-                //step.img = list_img;
                 steps[i] = step;
-
             }
         }
 
@@ -84,18 +90,20 @@ public class Pars {
 
         return cat;
     }
-    private String DifficultyLevel(Integer time, ArrayList<String> steps){
-        if (time > 120 || steps.size() > 10){
+    private String DifficultyLevel(String time, ArrayList<Step> steps){
+
+        String[] time_el = time.split("");
+
+        if (time_el[1] == "ч." || steps.size() > 10){
             return "Высокая";
         }
-        else if(30 < time && time < 60 || steps.size() > 5 && steps.size() < 10){
+        else if(time_el[1] == "мин." && (30 < Integer.parseInt(time_el[0]) && Integer.parseInt(time_el[0]) < 60) || steps.size() > 5 && steps.size() < 10){
             return "Cредняя";
         }
         else {
             return "Низкая";
         }
     }
-
     private String GetMainImg(Document doc1){
         Elements meta = doc1.select("meta[property=og:image]");
         String path_img = "";
@@ -103,5 +111,20 @@ public class Pars {
             path_img = s.attr("content");
         }
         return path_img;
+    }
+    private void DownloadImg(String path, String name) throws IOException {
+
+        String file = name+".jpg";
+
+        URL img = new URL (path);
+        InputStream is = img.openStream();
+        OutputStream os = new FileOutputStream(file);
+        byte[] b = new byte[2048];
+        int lenght;
+        while ((lenght = is.read(b)) != -1){
+            os.write(b, 0, lenght);
+        }
+        is.close();
+        os.close();
     }
 }

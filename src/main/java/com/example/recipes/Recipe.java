@@ -2,11 +2,10 @@ package com.example.recipes;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-
-//import static org.graalvm.compiler.debug.DebugOptions.Log;
 
 public class Recipe {
     //Integer id;
@@ -14,99 +13,56 @@ public class Recipe {
     String category;
     String main_img;
     String time;
-    //String difficulty_level;
-    Product products;
+    String difficulty_level;
     ArrayList<String> Ingr;
     //String favorite;
     public ArrayList<Step> steps;
 
     public Recipe() {
         name = "empty";
-        //category = "empty";
-        //main_img = new URL("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPm4OafJsXDQRBuPD3DlTaf64EYDyx_mA-sQ&usqp=CAU");
+        category = "empty";
+        main_img = "empty";
         time = "empty";
-        //difficulty_level = "empty";
-        products = new Product();
+        difficulty_level = "empty";
         //favorite = "empty";
     }
+    public Double[] Count_p_c_f_cl (ArrayList<Product> Ingr){
+        Double[] p_c_f_cl = {0.0, 0.0, 0.0, 0.0};
 
-    public Recipe(String _name, String _category, String _time, String _di) {
-        name = "empty";
-        //category = "empty";
-        //main_img = new URL("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPm4OafJsXDQRBuPD3DlTaf64EYDyx_mA-sQ&usqp=CAU");
-        time = "empty";
-        //difficulty_level = "empty";
-        products = new Product();
-        //favorite = "empty";
+
+        for (Product ing: Ingr) {
+            p_c_f_cl[0] += ing.temp_weight/100 * ing.protein;
+            p_c_f_cl[1] += ing.temp_weight/100 * ing.carbohydrates;
+            p_c_f_cl[2] += ing.temp_weight/100 * ing.fats;
+            p_c_f_cl[3] += ing.temp_weight/100 * ing.calories;
+        }
+
+        return p_c_f_cl;
     }
-    public Recipe(String _name) {
-        name = _name;
-        //category = "empty";
-        //main_img = new URL("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPm4OafJsXDQRBuPD3DlTaf64EYDyx_mA-sQ&usqp=CAU");
-        time = "empty";
-        //difficulty_level = "empty";
-        products = new Product();
-        //favorite = "empty";
+    private Double GetWeight(String j){
+        return 0.0;
     }
-
-    private void GetAll(){
-
+    private ArrayList<Recipe> GetAll(){
+        ArrayList<Recipe> all = new ArrayList<>();
+        return all;
     }
-    private void Change(){
-
+    private void Change(String _name, Recipe recipe){
+        recipe.name = _name;
     }
-
-
-
     public int compareTo(Recipe o) {
         return name.compareTo(o.name);
     }
-
     public String getName() {
         return name;
     }
-/*
-    public double getAvgMark() {
-        return avgMark;
-    }
-
-*/
-    private ArrayList<String> SortByAlphabet(ArrayList<String> arr){
-
-        Collections.sort(arr);
-        return arr;
-    }
-
     public static final Comparator<Recipe> COMPARE_BY_COUNT = new Comparator<Recipe>() {
         @Override
         public int compare(Recipe lhs, Recipe rhs) {
             return lhs.getCount() - rhs.getCount();
         }
     };
-
     private int getCount() {
         return 0;
     }
-
-    public ArrayList<Recipe> SortByAlphabet_rec(ArrayList<Recipe> arr){
-
-        //Collections.sort(arr);
-
-
-        ArrayList<Recipe> songs = new ArrayList<>();
-        songs.add(new Recipe("z"));
-        songs.add(new Recipe("f"));
-        songs.add(new Recipe("a"));
-        songs.add(new Recipe("w"));
-
-
-        Collections.sort(songs, Recipe.COMPARE_BY_COUNT);
-
-        for (Recipe A: songs){
-            System.out.println(A.name);
-        }
-        return arr;
-    }
-
 }
 
