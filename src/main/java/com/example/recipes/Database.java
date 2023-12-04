@@ -90,7 +90,7 @@ public class Database {
 
 
     //показать продукты рецепта
-    public static List<Product> showProducts(int rec_id){
+   /* public static List<Product> showProducts(int rec_id){
         List<Product> prosucts = new ArrayList<>();
         String query = "SELECT prod_id FROM prod_rec  WHERE rec_id = ?";
         String query1 = "SELECT * FROM products WHERE prod_id = ?";
@@ -111,8 +111,8 @@ public class Database {
             throwables.printStackTrace();
         }
 
-        return prosucts;
-    }
+        return products;
+    } */
 
 
     //показать шаги рецепта

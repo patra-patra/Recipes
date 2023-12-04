@@ -25,10 +25,10 @@ public class Pars {
         temp_.name = NameRecipe(doc1);
         temp_.main_img = GetMainImg(doc1);
         temp_.time = Time(doc1);
-        temp_.Ingr = new ArrayList<>(Arrays.asList(Ingridients(doc1)));
-        temp_.steps = new ArrayList<>(Arrays.asList(Steps(doc1)));
+       // temp_.Ingr = new ArrayList<>(Arrays.asList(Ingridients(doc1)));
+       // temp_.steps = new ArrayList<>(Arrays.asList(Steps(doc1)));
         temp_.category = Category(doc1);
-        temp_.difficulty_level = DifficultyLevel(temp_.time, temp_.steps);
+        //temp_.difficulty_level = DifficultyLevel(temp_.time, temp_.steps);
 
         return temp_;
     }

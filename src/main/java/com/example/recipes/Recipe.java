@@ -11,8 +11,7 @@ public class Recipe {
     public String time;
     public String difficulty_level;
     public Integer favorite;
-    public ArrayList<String> Ingr;
-    public ArrayList<Step> steps;
+
 
 
 
