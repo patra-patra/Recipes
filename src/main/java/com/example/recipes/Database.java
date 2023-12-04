@@ -90,7 +90,7 @@ public class Database {
 
 
     //показать продукты рецепта
-    public static List<Product> showProducts(int rec_id){
+   /* public static List<Product> showProducts(int rec_id){
         List<Product> prosucts = new ArrayList<>();
         String query = "SELECT prod_id FROM prod_rec  WHERE rec_id = ?";
         String query1 = "SELECT * FROM products WHERE prod_id = ?";
@@ -111,8 +111,8 @@ public class Database {
             throwables.printStackTrace();
         }
 
-        return prosucts;
-    }
+        return products;
+    } */
 
 
     //показать шаги рецепта
@@ -185,6 +185,28 @@ public class Database {
     }
 
     //добавить шаги рецепта
+
+    public static void addStep(String rec_name, String category, String main_img, String time,
+                                 String difficulty_level,int favorite){
+        String query = "INSERT INTO recipes(rec_name,category,main_img,cooking_time,difficulty_level,favorite) VALUES(?,?,?,?,?,?)";
+        try (Connection connection = DBconn.GetConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+
+            preparedStatement.setString(1,rec_name);
+            preparedStatement.setString(2, category);
+            preparedStatement.setString(3,main_img);
+            preparedStatement.setString(4,time);
+            preparedStatement.setString(5,difficulty_level);
+            preparedStatement.setInt(6,favorite);
+
+            preparedStatement.executeUpdate();
+
+
+        } catch(SQLException throwables){
+            throwables.printStackTrace();
+        }
+    }
 
     //добавить картинку рецепта
 

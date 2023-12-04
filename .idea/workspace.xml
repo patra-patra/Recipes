@@ -4,19 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac776215-f60e-4816-bfce-980eb88cf38a" name="Changes" comment="prikol">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Cart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Database.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Step_img.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/DBconn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/DBconn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/HelloApplication.java" afterDir="false" />
+    <list default="true" id="ac776215-f60e-4816-bfce-980eb88cf38a" name="Changes" comment="изменение класса рецептов и парсинг">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Database.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Pars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Pars.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Recipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Step.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Step.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,6 +81,28 @@
       <option name="presentableId" value="Default" />
       <updated>1699160569174</updated>
     </task>
+    <task id="LOCAL-00001" summary="абдя">
+      <option name="closed" value="true" />
+      <created>1701674715102</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1701674715102</updated>
+    </task>
+    <task id="LOCAL-00002" summary="изменение класса рецептов и парсинг">
+      <option name="closed" value="true" />
+      <created>1701677585670</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1701677585670</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="абдя" />
+    <MESSAGE value="изменение класса рецептов и парсинг" />
+    <option name="LAST_COMMIT_MESSAGE" value="изменение класса рецептов и парсинг" />
   </component>
 </project>
