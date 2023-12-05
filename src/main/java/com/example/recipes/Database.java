@@ -382,6 +382,104 @@ public class Database {
         return recipe;
     }
 
+    //удалить рецепт
+    public static void deleteRecipe(int id) {
+        String query = "DELETE FROM recipes WHERE id = ?";
+        Recipe recipe = null;
+        try (Connection connection = DBconn.GetConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+    }
+
+    //обноывить название рецепта
+    public static void updateRecipeName(int id, String rec_name) {
+        String query =  "UPDATE recipes SET rec_name = ? WHERE id = ?";
+        Recipe recipe = null;
+        try (Connection connection = DBconn.GetConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, rec_name);
+            preparedStatement.setInt(2, id);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+    }
+
+    //обноывить категорию рецепта
+    public static void updateRecipeCategory(int id, String category) {
+        String query =  "UPDATE recipes SET category = ? WHERE id = ?";
+        Recipe recipe = null;
+        try (Connection connection = DBconn.GetConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, category);
+            preparedStatement.setInt(2, id);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+    }
+
+    //обновить картинку рецепта
+
+    public static void updateRecipeImg(int id, String main_img) {
+        String query =  "UPDATE recipes SET main_img = ? WHERE id = ?";
+        Recipe recipe = null;
+        try (Connection connection = DBconn.GetConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, main_img);
+            preparedStatement.setInt(2, id);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+    }
+
+    //обновить время рецепта
+
+    public static void updateRecipeTime(int id, String cooking_time) {
+        String query =  "UPDATE recipes SET cooking_time = ? WHERE id = ?";
+        Recipe recipe = null;
+        try (Connection connection = DBconn.GetConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, cooking_time);
+            preparedStatement.setInt(2, id);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+    }
+
+    //обновить сложность рецепта
+
+    public static void updateRecipeDifficulty(int id, String difficulty_level) {
+        String query =  "UPDATE recipes SET difficulty_level = ? WHERE id = ?";
+        Recipe recipe = null;
+        try (Connection connection = DBconn.GetConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, difficulty_level);
+            preparedStatement.setInt(2, id);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+    }
+
 
     
 }
