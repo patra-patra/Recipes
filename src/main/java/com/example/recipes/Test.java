@@ -11,17 +11,19 @@ public class Test {
         Pars pars = new Pars();
 
         String path = "https://saechka.ru/recipes/recipe_2337";
-        /*
+
         String path1 = "https://saechka.ru/recipes/recipe_pryaniki_dlya_rospisi_morkovki";
         String path2 = "https://saechka.ru/recipes/recipe_5163";
         String path3 = "https://saechka.ru/recipes/recipe_sloenye_morkovki";
         String path4 = "https://saechka.ru/recipes/recipe_blinnyy_tort_s_makom";
-*/
+
         Recipe a = new Recipe();
 
-        a = pars.GetRecipe(path);
+        a = pars.GetRecipe("https://saechka.ru/recipes/recipe_kvas_iz_revenya");
 
         System.out.println(a.name);
+
+        Database.addRecipe(a.name, a.category, a.main_img, a.time, "сложно", 0);
 
         //Document doc1 = Jsoup.connect(path1).get();
 
