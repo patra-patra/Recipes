@@ -1,16 +1,21 @@
 package com.example.recipes;
 
-
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class Recipe {
-    public Integer id;
-    public String name;
-    public String category;
-    public String main_img;
-    public String time;
-    public String difficulty_level;
-    public Integer favorite;
+    Integer id;
+    String name;
+    String category;
+    String main_img;
+    String time;
+    String difficulty_level;
+    Product products;
+    Integer favorite;
+    ///ArrayList<Step> steps;
+
+
 
 
 
@@ -44,8 +49,7 @@ public class Recipe {
 
         return p_c_f_cl;
     }
-    public Recipe(Integer id, String name, String category, String main_img, String time, String difficulty_level,
-                  Integer favorite) {
+    public Recipe(Integer id, String name, String category, String main_img, String time, String difficulty_level, Integer favorite) {
         this.id = id;
         this.name = name;
         this.category = category;
@@ -54,70 +58,34 @@ public class Recipe {
         this.difficulty_level = difficulty_level;
         this.favorite = favorite;
     }
+
     public Recipe() {
-        id = 0;
+
         name = "empty";
-        category = "empty";
-        main_img = "empty";
+        //category = "empty";
+        //main_img = new URL("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPm4OafJsXDQRBuPD3DlTaf64EYDyx_mA-sQ&usqp=CAU");
         time = "empty";
         difficulty_level = "empty";
+        products = new Product();
         //favorite = "empty";
     }
 
+/*
+    public Recipe(String _name, String _category, String _time, String _di) {
+        name = "empty";
+        //category = "empty";
+        //main_img = new URL("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPm4OafJsXDQRBuPD3DlTaf64EYDyx_mA-sQ&usqp=CAU");
+        time = "empty";
+        difficulty_level = "empty";
+        products = new Product();
+        favorite = "empty";
+    }
+*/
+    private void GetAll(){
 
-    public Integer getId() {
-        return id;
+    }
+    private void Change(){
+
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public String getMain_img() {
-        return main_img;
-    }
-
-    public void setMain_img(String main_img) {
-        this.main_img = main_img;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public String getDifficulty_level() {
-        return difficulty_level;
-    }
-
-    public void setDifficulty_level(String difficulty_level) {
-        this.difficulty_level = difficulty_level;
-    }
-
-    public Integer getFavorite() {
-        return favorite;
-    }
-
-    public void setFavorite(Integer favorite) {
-        this.favorite = favorite;
-    }
 }
