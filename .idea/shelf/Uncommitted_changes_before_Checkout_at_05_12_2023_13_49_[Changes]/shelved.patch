@@ -1,0 +1,448 @@
+Index: src/main/java/com/example/recipes/Recipe.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.recipes;\r\n\r\nimport java.net.MalformedURLException;\r\nimport java.net.URL;\r\nimport java.text.DecimalFormat;\r\nimport java.util.ArrayList;\r\nimport java.util.Collections;\r\nimport java.util.Comparator;\r\n\r\npublic class Recipe {\r\n    //Integer id;\r\n    String name;\r\n    String category;\r\n    String main_img;\r\n    String time;\r\n    String difficulty_level;\r\n    ArrayList<String> Ingr;\r\n    //String favorite;\r\n    public ArrayList<Step> steps;\r\n\r\n    public Recipe() {\r\n        name = \"empty\";\r\n        category = \"empty\";\r\n        main_img = \"empty\";\r\n        time = \"empty\";\r\n        difficulty_level = \"empty\";\r\n        //favorite = \"empty\";\r\n    }\r\n    public Double[] Count_p_c_f_cl (ArrayList<Product> Ingr){\r\n        Double[] p_c_f_cl = {0.0, 0.0, 0.0, 0.0};\r\n\r\n\r\n        for (Product ing: Ingr) {\r\n            p_c_f_cl[0] += ing.temp_weight/100 * ing.protein;\r\n            p_c_f_cl[1] += ing.temp_weight/100 * ing.carbohydrates;\r\n            p_c_f_cl[2] += ing.temp_weight/100 * ing.fats;\r\n            p_c_f_cl[3] += ing.temp_weight/100 * ing.calories;\r\n        }\r\n\r\n        return p_c_f_cl;\r\n    }\r\n    private Double GetWeight(String j){\r\n        return 0.0;\r\n    }\r\n    private ArrayList<Recipe> GetAll(){\r\n        ArrayList<Recipe> all = new ArrayList<>();\r\n        return all;\r\n    }\r\n    private void Change(String _name, Recipe recipe){\r\n        recipe.name = _name;\r\n    }\r\n    public int compareTo(Recipe o) {\r\n        return name.compareTo(o.name);\r\n    }\r\n    public String getName() {\r\n        return name;\r\n    }\r\n    public static final Comparator<Recipe> COMPARE_BY_COUNT = new Comparator<Recipe>() {\r\n        @Override\r\n        public int compare(Recipe lhs, Recipe rhs) {\r\n            return lhs.getCount() - rhs.getCount();\r\n        }\r\n    };\r\n    private int getCount() {\r\n        return 0;\r\n    }\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/recipes/Recipe.java b/src/main/java/com/example/recipes/Recipe.java
+--- a/src/main/java/com/example/recipes/Recipe.java	(revision 07166389fb641e13a1a831a892d87cddaadd6765)
++++ b/src/main/java/com/example/recipes/Recipe.java	(date 1701699212967)
+@@ -16,7 +16,7 @@
+     String difficulty_level;
+     ArrayList<String> Ingr;
+     //String favorite;
+-    public ArrayList<Step> steps;
++    //public ArrayList<Step> steps;
+ 
+     public Recipe() {
+         name = "empty";
+Index: src/main/java/com/example/recipes/Pars.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.recipes;\r\nimport javafx.scene.Parent;\r\nimport org.jsoup.Jsoup;\r\nimport org.jsoup.nodes.Document;\r\nimport org.jsoup.nodes.Element;\r\nimport org.jsoup.select.Elements;\r\n\r\nimport java.io.FileOutputStream;\r\nimport java.io.IOException;\r\nimport java.io.InputStream;\r\nimport java.io.OutputStream;\r\nimport java.net.MalformedURLException;\r\nimport java.net.URL;\r\nimport java.util.ArrayList;\r\nimport java.util.Arrays;\r\nimport java.util.Collections;\r\nimport java.util.List;\r\n\r\npublic class Pars {\r\n    public Recipe GetRecipe(String path) throws IOException{\r\n\r\n        Recipe temp_ = new Recipe();\r\n        Document doc1 = Jsoup.connect(path).get();\r\n\r\n        temp_.name = NameRecipe(doc1);\r\n        temp_.main_img = GetMainImg(doc1);\r\n        temp_.time = Time(doc1);\r\n        temp_.Ingr = new ArrayList<>(Arrays.asList(Ingridients(doc1)));\r\n        temp_.steps = new ArrayList<>(Arrays.asList(Steps(doc1)));\r\n        temp_.category = Category(doc1);\r\n        temp_.difficulty_level = DifficultyLevel(temp_.time, temp_.steps);\r\n\r\n        return temp_;\r\n    }\r\n    private String NameRecipe(Document doc1) throws IOException {\r\n        String title_dish = doc1.select(\"h1\").text();\r\n\r\n        return title_dish;\r\n    }\r\n    private String Time(Document doc1) throws IOException {\r\n        Elements text2 = doc1.getElementsByClass(\"time_cook\");\r\n        String time = text2.text();\r\n\r\n        return time;\r\n    }\r\n    private String[] Ingridients(Document doc1) throws IOException {\r\n        Elements text2 = doc1.getElementsByClass(\"ingredients\");\r\n        String pre_ingr = text2.text();\r\n\r\n        pre_ingr = pre_ingr.substring(0, pre_ingr.length() - 1);\r\n        String[] ingredients;\r\n\r\n        ingredients = pre_ingr.split(\", \");\r\n\r\n        return ingredients;\r\n    }\r\n    private Step[] Steps(Document doc1) throws IOException {\r\n        Elements text23 = doc1.select(\"ol\");\r\n\r\n        Step[] steps = new Step[0];\r\n\r\n        for (Element a : text23) {\r\n            steps = new Step[a.children().size()];\r\n\r\n            for (int i = 0; i < a.children().size(); i++) {\r\n                String t;\r\n                Step step = new Step();\r\n                ArrayList<String> list_img = new ArrayList<>();\r\n                if (a.child(i).tagName() == \"p\"){\r\n                    t = a.child(i).child(0).attr(\"href\");\r\n                    list_img.add(t);\r\n                    steps[i-1].img = list_img;\r\n                }\r\n                if (a.child(i).tagName() != \"p\") {\r\n                    t = a.child(i).text();\r\n                    step.text = t;\r\n                }\r\n                steps[i] = step;\r\n            }\r\n        }\r\n\r\n        //System.out.println(steps[1].text);\r\n        //String a = \"https://saechka.ru/\" + steps[1].img.get(0);\r\n        //System.out.println(a);\r\n        return steps;\r\n    }\r\n    private String Category(Document doc1) throws IOException {\r\n        Elements text2 = doc1.getElementsByClass(\"cat_razd\");\r\n        String cat = text2.text();\r\n\r\n        return cat;\r\n    }\r\n    private String DifficultyLevel(String time, ArrayList<Step> steps){\r\n\r\n        String[] time_el = time.split(\"\");\r\n\r\n        if (time_el[1] == \"ч.\" || steps.size() > 10){\r\n            return \"Высокая\";\r\n        }\r\n        else if(time_el[1] == \"мин.\" && (30 < Integer.parseInt(time_el[0]) && Integer.parseInt(time_el[0]) < 60) || steps.size() > 5 && steps.size() < 10){\r\n            return \"Cредняя\";\r\n        }\r\n        else {\r\n            return \"Низкая\";\r\n        }\r\n    }\r\n    private String GetMainImg(Document doc1){\r\n        Elements meta = doc1.select(\"meta[property=og:image]\");\r\n        String path_img = \"\";\r\n        for (Element s : meta) {\r\n            path_img = s.attr(\"content\");\r\n        }\r\n        return path_img;\r\n    }\r\n    private void DownloadImg(String path, String name) throws IOException {\r\n\r\n        String file = name+\".jpg\";\r\n\r\n        URL img = new URL (path);\r\n        InputStream is = img.openStream();\r\n        OutputStream os = new FileOutputStream(file);\r\n        byte[] b = new byte[2048];\r\n        int lenght;\r\n        while ((lenght = is.read(b)) != -1){\r\n            os.write(b, 0, lenght);\r\n        }\r\n        is.close();\r\n        os.close();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/recipes/Pars.java b/src/main/java/com/example/recipes/Pars.java
+--- a/src/main/java/com/example/recipes/Pars.java	(revision 07166389fb641e13a1a831a892d87cddaadd6765)
++++ b/src/main/java/com/example/recipes/Pars.java	(date 1701747950720)
+@@ -11,24 +11,20 @@
+ import java.io.OutputStream;
+ import java.net.MalformedURLException;
+ import java.net.URL;
+-import java.util.ArrayList;
+-import java.util.Arrays;
+-import java.util.Collections;
+-import java.util.List;
++import java.util.*;
+ 
+ public class Pars {
+     public Recipe GetRecipe(String path) throws IOException{
+-
+         Recipe temp_ = new Recipe();
+         Document doc1 = Jsoup.connect(path).get();
+ 
+         temp_.name = NameRecipe(doc1);
+         temp_.main_img = GetMainImg(doc1);
+         temp_.time = Time(doc1);
+-        temp_.Ingr = new ArrayList<>(Arrays.asList(Ingridients(doc1)));
+-        temp_.steps = new ArrayList<>(Arrays.asList(Steps(doc1)));
++        //temp_.Ingr = new ArrayList<>(Arrays.asList(Ingridients(doc1)));
++        //temp_.steps = new ArrayList<>(Arrays.asList(Steps(doc1)));
+         temp_.category = Category(doc1);
+-        temp_.difficulty_level = DifficultyLevel(temp_.time, temp_.steps);
++        temp_.difficulty_level = null;
+ 
+         return temp_;
+     }
+@@ -43,18 +39,131 @@
+ 
+         return time;
+     }
+-    private String[] Ingridients(Document doc1) throws IOException {
++    public Product[] Ingridients(Document doc1) throws IOException {
+         Elements text2 = doc1.getElementsByClass("ingredients");
+         String pre_ingr = text2.text();
+ 
+         pre_ingr = pre_ingr.substring(0, pre_ingr.length() - 1);
++
+         String[] ingredients;
+-
+         ingredients = pre_ingr.split(", ");
+ 
+-        return ingredients;
+-    }
+-    private Step[] Steps(Document doc1) throws IOException {
++        Product[] ingredients_prod = new Product[ingredients.length];
++
++
++
++        for (int i = 0; i < ingredients.length; i++){
++
++            Product tem = new Product();
++
++            //System.out.println(ingredients[i]);
++            tem.name = ingredients[i];
++
++            Boolean switcher = false;
++
++            String[] parts = ingredients[i].split(" ");
++
++            for (int g = 0; g < parts.length; g++){
++                if (switcher){
++                    tem.name += parts[i];
++                }
++                if (Objects.equals(parts[g], "г")){
++                    tem.temp_weight = Double.parseDouble(parts[g-1]);
++                    //System.out.println(ingredients_prod[i].temp_weight);
++                    switcher = true;
++                    tem.name = "";
++
++                }
++            }
++
++            tem.fats = 0.0;
++            tem.protein = 0.0;
++            tem.carbohydrates = 0.0;
++            tem.calories = 0.0;
++
++            /*
++
++            ingredients_prod[i].name = temt_prod;
++
++            Boolean switcher = false;
++
++            String[] parts = temt_prod.split(" ");
++
++            for (int g = 0; g < parts.length; g++){
++                if (switcher){
++                    ingredients_prod[i].name += parts[i];
++                }
++                if (Objects.equals(parts[g], "г")){
++
++                    ingredients_prod[i].temp_weight = Double.parseDouble(parts[g-1]);
++                    System.out.println(ingredients_prod[i].temp_weight);
++                    switcher = true;
++                    ingredients_prod[i].name = "";
++
++                }
++            }
++
++
++
++            ingredients_prod[i].fats = 0.0;
++            ingredients_prod[i].protein = 0.0;
++            ingredients_prod[i].carbohydrates = 0.0;
++            ingredients_prod[i].calories = 0.0;
++*/
++/*
++        for (int i = 0; i < ingredients.length; i++){
++            String temt_prod = ingredients[i];
++            ingredients_prod[i].name = temt_prod;
++
++            Boolean switcher = false;
++
++            String[] parts = temt_prod.split(" ");
++
++            for (int g = 0; g < parts.length; g++){
++                if (switcher){
++                    ingredients_prod[i].name += parts[i];
++                }
++                if (Objects.equals(parts[g], "г")){
++
++                    ingredients_prod[i].temp_weight = Double.parseDouble(parts[g-1]);
++                    System.out.println(ingredients_prod[i].temp_weight);
++                    switcher = true;
++                    ingredients_prod[i].name = "";
++
++                }
++            }
++
++            ingredients_prod[i].fats = 0.0;
++            ingredients_prod[i].protein = 0.0;
++            ingredients_prod[i].carbohydrates = 0.0;
++            ingredients_prod[i].calories = 0.0;
++
++/*
++            String[] measures;
++            measures = y.split(" ");
++
++            for (int i = 0; i < measures.length; i++){
++                Boolean name_start = false;
++                if (Objects.equals(measures[i], "г.") || Objects.equals(measures[i], "г")){
++
++                    //System.out.print(measures[i-1] + " ");
++                    //System.out.println(measures[i+1]);
++                }
++            }
++
++
++        }*/
++
++            ingredients_prod[i] = tem;
++            System.out.println(tem.name);
++
++       }
++
++
++        return ingredients_prod;
++    }
++
++    public Step[] Steps(Document doc1) throws IOException {
+         Elements text23 = doc1.select("ol");
+ 
+         Step[] steps = new Step[0];
+@@ -79,9 +188,9 @@
+             }
+         }
+ 
+-        //System.out.println(steps[1].text);
+-        //String a = "https://saechka.ru/" + steps[1].img.get(0);
+-        //System.out.println(a);
++        System.out.println(steps[1].text);
++        String a = "https://saechka.ru/" + steps[1].img.get(0);
++        System.out.println(a);
+         return steps;
+     }
+     private String Category(Document doc1) throws IOException {
+@@ -90,20 +199,6 @@
+ 
+         return cat;
+     }
+-    private String DifficultyLevel(String time, ArrayList<Step> steps){
+-
+-        String[] time_el = time.split("");
+-
+-        if (time_el[1] == "ч." || steps.size() > 10){
+-            return "Высокая";
+-        }
+-        else if(time_el[1] == "мин." && (30 < Integer.parseInt(time_el[0]) && Integer.parseInt(time_el[0]) < 60) || steps.size() > 5 && steps.size() < 10){
+-            return "Cредняя";
+-        }
+-        else {
+-            return "Низкая";
+-        }
+-    }
+     private String GetMainImg(Document doc1){
+         Elements meta = doc1.select("meta[property=og:image]");
+         String path_img = "";
+Index: src/main/java/com/example/recipes/HelloApplication.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.recipes;\r\n\r\nimport javafx.application.Application;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.Scene;\r\nimport javafx.stage.Stage;\r\nimport org.jsoup.Jsoup;\r\nimport org.jsoup.nodes.Document;\r\nimport org.jsoup.nodes.Element;\r\n\r\nimport java.io.FileOutputStream;\r\nimport java.io.IOException;\r\nimport java.io.InputStream;\r\nimport java.io.OutputStream;\r\nimport java.net.URL;\r\nimport java.util.ArrayList;\r\nimport java.util.Arrays;\r\nimport java.util.Collections;\r\n\r\npublic class HelloApplication extends Application {\r\n    @Override\r\n    public void start(Stage stage) throws IOException {\r\n\r\n    }\r\n    public static void main( String[] args ) throws IOException{\r\n        Pars pars = new Pars();\r\n\r\n        String path = \"https://saechka.ru/recipes/recipe_2337\";//https://saechka.ru/recipes/recipe_2202\";\r\n        String path1 = \"https://saechka.ru/recipes/recipe_pryaniki_dlya_rospisi_morkovki\";\r\n        String path2 = \"https://saechka.ru/recipes/recipe_5163\";\r\n        String path3 = \"https://saechka.ru/recipes/recipe_sloenye_morkovki\";\r\n        String path4 = \"https://saechka.ru/recipes/recipe_blinnyy_tort_s_makom\";\r\n\r\n        Recipe a = new Recipe();\r\n\r\n        //a = pars.GetRecipe(path1);\r\n\r\n        Document doc1 = Jsoup.connect(path1).get();\r\n\r\n        Recipe b, c = null, d = new Recipe();\r\n\r\n        Product product = new Product(\"j\", 21.0, 3.0, 5.0, 145.0, 500.0);\r\n        Product product2 = new Product(\"j\", 2.9, 4.8, 2.5, 54.0, 200.0);\r\n        Product product3 = new Product(\"j\", 12.7, 0.7, 11.5, 157.0, 240.0);\r\n\r\n        ArrayList<Product> book = new ArrayList<>();\r\n\r\n\r\n\r\n        book.add(product2);\r\n        book.add(product);\r\n        book.add(product3);\r\n        Double[] e = d.Count_p_c_f_cl(book);\r\n\r\n        for (Double y : e){\r\n            String result = String.format(\"%.2f\", y);\r\n            System.out.println(result);\r\n\r\n        }\r\n\r\n\r\n       // b = pars.GetRecipe(path4);\r\n       // c = pars.GetRecipe(path2);\r\n        /*\r\n        d = pars.GetRecipe(path);\r\n        for (String g : d.Ingr){\r\n            System.out.println(g);\r\n\r\n        }\r\n/*\r\n        ArrayList<Recipe> book = new ArrayList<>();\r\n        book.add(a);\r\n        book.add(b);\r\n        book.add(c);\r\n        book.add(d);\r\n\r\n        Collections.sort(book, new CompByName());\r\n\r\n*/\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/recipes/HelloApplication.java b/src/main/java/com/example/recipes/HelloApplication.java
+--- a/src/main/java/com/example/recipes/HelloApplication.java	(revision 07166389fb641e13a1a831a892d87cddaadd6765)
++++ b/src/main/java/com/example/recipes/HelloApplication.java	(date 1701747950734)
+@@ -33,8 +33,6 @@
+ 
+         Recipe a = new Recipe();
+ 
+-        //a = pars.GetRecipe(path1);
+-
+         Document doc1 = Jsoup.connect(path1).get();
+ 
+         Recipe b, c = null, d = new Recipe();
+@@ -45,22 +43,23 @@
+ 
+         ArrayList<Product> book = new ArrayList<>();
+ 
+-
++        String p = "https://saechka.ru/recipes/recipe_tort_lyagushka";
++        Recipe g = pars.GetRecipe(p);
+ 
+         book.add(product2);
+         book.add(product);
+         book.add(product3);
+-        Double[] e = d.Count_p_c_f_cl(book);
++        //Double[] e = d.Count_p_c_f_cl(book);
++
++        Step[] f = pars.Steps(doc1);
+ 
++
++/*
+         for (Double y : e){
+             String result = String.format("%.2f", y);
+             System.out.println(result);
+ 
+         }
+-
+-
+-       // b = pars.GetRecipe(path4);
+-       // c = pars.GetRecipe(path2);
+         /*
+         d = pars.GetRecipe(path);
+         for (String g : d.Ingr){
+@@ -68,15 +67,13 @@
+ 
+         }
+ /*
+-        ArrayList<Recipe> book = new ArrayList<>();
++         ArrayList<Recipe> book = new ArrayList<>();
+         book.add(a);
+         book.add(b);
+         book.add(c);
+         book.add(d);
+ 
+         Collections.sort(book, new CompByName());
+-
+ */
+-
+     }
+ }
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"ac776215-f60e-4816-bfce-980eb88cf38a\" name=\"Changes\" comment=\"парсинг картинок шагов\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/recipes/Data.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/recipes/Data.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/recipes/HelloApplication.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/recipes/HelloApplication.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/recipes/Pars.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/recipes/Pars.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/recipes/Product.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/recipes/Product.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/recipes/Recipe.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/recipes/Recipe.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"application\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GithubDefaultAccount\">\r\n    <option name=\"defaultAccountId\" value=\"b9c564d6-85f2-4d3e-bd47-3fdac4e192c0\" />\r\n  </component>\r\n  <component name=\"HighlightingSettingsPerFile\">\r\n    <setting file=\"file://$PROJECT_DIR$/src/main/java/com/example/recipes/Pars.java\" root0=\"FORCE_HIGHLIGHTING\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"mavenHome\" value=\"Use Maven wrapper\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 3\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2Xk67yBtNNI8tHDRNludMATKdPF\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;parsing&quot;,\r\n    &quot;last_directory_selection&quot;: &quot;C:/Users/user/IdeaProjects/Recipes/src/main/resources/com/example/recipes&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;D:/Distr/jsoup-1.16.2.jar&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.36355475&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\user\\IdeaProjects\\Recipes\\src\\main\\resources\" />\r\n      <recent name=\"C:\\Users\\user\\IdeaProjects\\Recipes\\src\\main\\resources\\com\\example\\recipes\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"ac776215-f60e-4816-bfce-980eb88cf38a\" name=\"Changes\" comment=\"\" />\r\n      <created>1699160569174</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1699160569174</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Начало парсинга\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1699524629204</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1699524629204</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Начало парсинга\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1699524679759</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1699524679759</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"поля сущностей\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1700710578012</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1700710578012</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"поля сущностей\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1700710586777</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1700710586777</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Иконка с котёнком поварёнком\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1700750303034</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1700750303034</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Иконка с котёнком поварёнком\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1700750319932</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1700750319932</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Парсинг названия, времени, шагов, ингридиентов, нахождения уровня сложности.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1701337040383</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1701337040383</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Исправление парсинга шагов, сортировка по названию в алфавитном порядке\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1701346150430</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1701346150430</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"Исправление парсинга шагов(2), получение ссылки на главную картинку рецепта\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1701602427270</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1701602427270</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"парсинг картинок шагов\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1701609584434</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1701609584434</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"11\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"parsing\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Начало парсинга\" />\r\n    <MESSAGE value=\"поля сущностей\" />\r\n    <MESSAGE value=\"Иконка с котёнком поварёнком\" />\r\n    <MESSAGE value=\"Парсинг названия, времени, шагов, ингридиентов, нахождения уровня сложности.\" />\r\n    <MESSAGE value=\"Исправление парсинга шагов, сортировка по названию в алфавитном порядке\" />\r\n    <MESSAGE value=\"Исправление парсинга шагов(2), получение ссылки на главную картинку рецепта\" />\r\n    <MESSAGE value=\"парсинг картинок шагов\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"парсинг картинок шагов\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <breakpoint enabled=\"true\" type=\"java-exception\">\r\n          <properties class=\"java.lang.reflect.InvocationTargetException\" package=\"java.lang.reflect\" />\r\n          <option name=\"timeStamp\" value=\"3\" />\r\n        </breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 07166389fb641e13a1a831a892d87cddaadd6765)
++++ b/.idea/workspace.xml	(date 1701742787137)
+@@ -4,12 +4,12 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="ac776215-f60e-4816-bfce-980eb88cf38a" name="Changes" comment="парсинг картинок шагов">
++    <list default="true" id="ac776215-f60e-4816-bfce-980eb88cf38a" name="Changes" comment="скачивание картинок и подсчет бжу в рецепте, новое поле в классе продукта">
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_11_2023_13_45__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_11_2023_13_45__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_11_2023_15_33__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_11_2023_15_33__Changes_.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Data.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/HelloApplication.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Pars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Pars.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Product.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Recipe.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -20,7 +20,6 @@
+   <component name="FileTemplateManagerImpl">
+     <option name="RECENT_TEMPLATES">
+       <list>
+-        <option value="FxmlFile" />
+         <option value="Class" />
+       </list>
+     </option>
+@@ -28,7 +27,7 @@
+   <component name="Git.Settings">
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="application" />
++        <entry key="$PROJECT_DIR$" value="master" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -61,7 +60,6 @@
+     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+     &quot;git-widget-placeholder&quot;: &quot;parsing&quot;,
+-    &quot;last_directory_selection&quot;: &quot;C:/Users/user/IdeaProjects/Recipes/src/main/resources/com/example/recipes&quot;,
+     &quot;last_opened_file_path&quot;: &quot;D:/Distr/jsoup-1.16.2.jar&quot;,
+     &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+@@ -69,12 +67,6 @@
+     &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
+   }
+ }</component>
+-  <component name="RecentsManager">
+-    <key name="MoveFile.RECENT_KEYS">
+-      <recent name="C:\Users\user\IdeaProjects\Recipes\src\main\resources" />
+-      <recent name="C:\Users\user\IdeaProjects\Recipes\src\main\resources\com\example\recipes" />
+-    </key>
+-  </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+@@ -100,71 +92,7 @@
+       <option name="project" value="LOCAL" />
+       <updated>1699524679759</updated>
+     </task>
+-    <task id="LOCAL-00003" summary="поля сущностей">
+-      <option name="closed" value="true" />
+-      <created>1700710578012</created>
+-      <option name="number" value="00003" />
+-      <option name="presentableId" value="LOCAL-00003" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1700710578012</updated>
+-    </task>
+-    <task id="LOCAL-00004" summary="поля сущностей">
+-      <option name="closed" value="true" />
+-      <created>1700710586777</created>
+-      <option name="number" value="00004" />
+-      <option name="presentableId" value="LOCAL-00004" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1700710586777</updated>
+-    </task>
+-    <task id="LOCAL-00005" summary="Иконка с котёнком поварёнком">
+-      <option name="closed" value="true" />
+-      <created>1700750303034</created>
+-      <option name="number" value="00005" />
+-      <option name="presentableId" value="LOCAL-00005" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1700750303034</updated>
+-    </task>
+-    <task id="LOCAL-00006" summary="Иконка с котёнком поварёнком">
+-      <option name="closed" value="true" />
+-      <created>1700750319932</created>
+-      <option name="number" value="00006" />
+-      <option name="presentableId" value="LOCAL-00006" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1700750319932</updated>
+-    </task>
+-    <task id="LOCAL-00007" summary="Парсинг названия, времени, шагов, ингридиентов, нахождения уровня сложности.">
+-      <option name="closed" value="true" />
+-      <created>1701337040383</created>
+-      <option name="number" value="00007" />
+-      <option name="presentableId" value="LOCAL-00007" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1701337040383</updated>
+-    </task>
+-    <task id="LOCAL-00008" summary="Исправление парсинга шагов, сортировка по названию в алфавитном порядке">
+-      <option name="closed" value="true" />
+-      <created>1701346150430</created>
+-      <option name="number" value="00008" />
+-      <option name="presentableId" value="LOCAL-00008" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1701346150430</updated>
+-    </task>
+-    <task id="LOCAL-00009" summary="Исправление парсинга шагов(2), получение ссылки на главную картинку рецепта">
+-      <option name="closed" value="true" />
+-      <created>1701602427270</created>
+-      <option name="number" value="00009" />
+-      <option name="presentableId" value="LOCAL-00009" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1701602427270</updated>
+-    </task>
+-    <task id="LOCAL-00010" summary="парсинг картинок шагов">
+-      <option name="closed" value="true" />
+-      <created>1701609584434</created>
+-      <option name="number" value="00010" />
+-      <option name="presentableId" value="LOCAL-00010" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1701609584434</updated>
+-    </task>
+-    <option name="localTasksCounter" value="11" />
++    <option name="localTasksCounter" value="3" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -192,13 +120,7 @@
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="Начало парсинга" />
+-    <MESSAGE value="поля сущностей" />
+-    <MESSAGE value="Иконка с котёнком поварёнком" />
+-    <MESSAGE value="Парсинг названия, времени, шагов, ингридиентов, нахождения уровня сложности." />
+-    <MESSAGE value="Исправление парсинга шагов, сортировка по названию в алфавитном порядке" />
+-    <MESSAGE value="Исправление парсинга шагов(2), получение ссылки на главную картинку рецепта" />
+-    <MESSAGE value="парсинг картинок шагов" />
+-    <option name="LAST_COMMIT_MESSAGE" value="парсинг картинок шагов" />
++    <option name="LAST_COMMIT_MESSAGE" value="Начало парсинга" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
