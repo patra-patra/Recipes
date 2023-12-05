@@ -21,7 +21,7 @@ public class Test {
 
         a = pars.GetRecipe("https://saechka.ru/recipes/recipe_kvas_iz_revenya");
 
-        System.out.println(a.name);
+        //System.out.println(a.name);
 
         Database.addRecipe(a.name, a.category, a.main_img, a.time, "сложно", 0);
 
@@ -48,8 +48,8 @@ public class Test {
         }
 */
 
-        Product product = Database.searchProduct("паddd");
-        System.out.println(product);
+
+
 
 
     }
