@@ -29,7 +29,7 @@ public class HelloApplication extends Application {
 
         stage.setTitle("Recipes");
 
-        Parent root = FXMLLoader.load(getClass().getResource("recipe_scene.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("main_page.fxml"));
 
         Scene scene = new Scene(root);
 
