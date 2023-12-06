@@ -43,4 +43,12 @@ public class NewRecipe {
         stage.setScene(scene2);
         stage.show();
     }
+    public void NewStep(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("add_step.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene2 = new Scene(root);
+        stage.setScene(scene2);
+        stage.show();
+    }
 }

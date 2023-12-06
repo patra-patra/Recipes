@@ -4,15 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac776215-f60e-4816-bfce-980eb88cf38a" name="Changes" comment="переключение между сценами">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Cart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/NewRecipe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/recipes/cart.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/recipes/new_recipe.fxml" afterDir="false" />
+    <list default="true" id="ac776215-f60e-4816-bfce-980eb88cf38a" name="Changes" comment="удалить списки из классов">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/AddStep.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/recipes/add_step.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_12_2023_21_05__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_12_2023_21_05__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_12_2023_20_27__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_12_2023_20_27__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/SceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/SceneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/recipes/main_page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/recipes/main_page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/MainPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/NewRecipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/NewRecipe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/recipes/MainPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/recipes/new_recipe.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/recipes/new_recipe.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="KotyataApp" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -61,14 +63,9 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.JavaFX"
+    "settings.editor.selected.configurable": "preferences.pathVariables"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\user\IdeaProjects\Recipes\src\main\resources\com\example\recipes" />
-    </key>
-  </component>
   <component name="RunManager" selected="Application.HelloApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.recipes.HelloApplication" />
@@ -99,6 +96,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
@@ -144,26 +142,13 @@
       <option name="project" value="LOCAL" />
       <updated>1701678124397</updated>
     </task>
-    <task id="LOCAL-00005" summary="переключение между сценами">
-      <option name="closed" value="true" />
-      <created>1701874746985</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1701874746985</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="абдя" />
     <MESSAGE value="изменение класса рецептов и парсинг" />
     <MESSAGE value="удалить списки из классов" />
-    <MESSAGE value="переключение между сценами" />
-    <option name="LAST_COMMIT_MESSAGE" value="переключение между сценами" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
+    <option name="LAST_COMMIT_MESSAGE" value="удалить списки из классов" />
   </component>
 </project>

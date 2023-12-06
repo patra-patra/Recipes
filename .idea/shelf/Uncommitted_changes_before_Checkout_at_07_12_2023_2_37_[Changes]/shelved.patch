@@ -1,0 +1,17 @@
+Index: src/main/java/com/example/recipes/NewRecipe.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.recipes;\r\n\r\nimport javafx.event.ActionEvent;\r\nimport javafx.fxml.FXML;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.Node;\r\nimport javafx.scene.Parent;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.control.ListView;\r\nimport javafx.scene.control.TextField;\r\nimport javafx.stage.Stage;\r\n\r\nimport java.io.IOException;\r\nimport java.net.URL;\r\nimport java.util.ResourceBundle;\r\n\r\npublic class NewRecipe {\r\n\r\n    @FXML\r\n    private TextField Name;\r\n\r\n    @FXML\r\n    private TextField Time;\r\n\r\n    private Parent root;\r\n\r\n    Recipe NewOne = new Recipe();\r\n\r\n    public void Input(ActionEvent event){\r\n        NewOne.name = Name.getText();\r\n        NewOne.time = Time.getText();\r\n        System.out.println(NewOne.name);\r\n        System.out.println(NewOne.time);\r\n\r\n    }\r\n\r\n\r\n    public void SwitchToMain(ActionEvent event) throws IOException {\r\n\r\n        Parent root = FXMLLoader.load(getClass().getResource(\"main_page.fxml\"));\r\n        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();\r\n        Scene scene2 = new Scene(root);\r\n        stage.setScene(scene2);\r\n        stage.show();\r\n    }\r\n}\r\n
+===================================================================
+diff --git a/src/main/java/com/example/recipes/NewRecipe.java b/src/main/java/com/example/recipes/NewRecipe.java
+--- a/src/main/java/com/example/recipes/NewRecipe.java	
++++ b/src/main/java/com/example/recipes/NewRecipe.java	
+@@ -33,8 +33,6 @@
+         System.out.println(NewOne.time);
+ 
+     }
+-
+-
+     public void SwitchToMain(ActionEvent event) throws IOException {
+ 
+         Parent root = FXMLLoader.load(getClass().getResource("main_page.fxml"));

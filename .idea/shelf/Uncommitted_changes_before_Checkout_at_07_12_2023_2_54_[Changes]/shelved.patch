@@ -1,0 +1,118 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"ac776215-f60e-4816-bfce-980eb88cf38a\" name=\"Changes\" comment=\"удалить списки из классов\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/recipes/Database.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/recipes/Database.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/recipes/Product.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/recipes/Product.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/recipes/Test.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/recipes/Test.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"mavenHome\" value=\"Use Maven wrapper\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 3\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2Xk67yBtNNI8tHDRNludMATKdPF\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/Alinochka/Desktop/mysql-connector-j-8.2.0/mysql-connector-j-8.2.0.jar&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pathVariables&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Test\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.example.recipes.Test\" />\r\n      <module name=\"Recipes\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.example.recipes.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Test\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"ac776215-f60e-4816-bfce-980eb88cf38a\" name=\"Changes\" comment=\"\" />\r\n      <created>1699160569174</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1699160569174</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"абдя\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1701674715102</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1701674715102</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"изменение класса рецептов и парсинг\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1701677585670</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1701677585670</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"удалить списки из классов\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1701678065611</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1701678065611</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"удалить списки из классов\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1701678124397</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1701678124397</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"5\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"абдя\" />\r\n    <MESSAGE value=\"изменение класса рецептов и парсинг\" />\r\n    <MESSAGE value=\"удалить списки из классов\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"удалить списки из классов\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 81f78e5f7ea06d157feecd13ec2d776edb9116b6)
++++ b/.idea/workspace.xml	(date 1701881623735)
+@@ -4,11 +4,8 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="ac776215-f60e-4816-bfce-980eb88cf38a" name="Changes" comment="удалить списки из классов">
++    <list default="true" id="ac776215-f60e-4816-bfce-980eb88cf38a" name="Changes" comment="прототип корзины(тележки), гачало считывания данных их текстовых полей, отображение списка">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Database.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Product.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Test.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -18,11 +15,17 @@
+   <component name="FileTemplateManagerImpl">
+     <option name="RECENT_TEMPLATES">
+       <list>
++        <option value="FxmlFile" />
+         <option value="Class" />
+       </list>
+     </option>
+   </component>
+   <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="application" />
++      </map>
++    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="MavenImportPreferences">
+@@ -46,14 +49,33 @@
+     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Alinochka/Desktop/mysql-connector-j-8.2.0/mysql-connector-j-8.2.0.jar&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
++    &quot;last_directory_selection&quot;: &quot;C:/Users/user/IdeaProjects/Recipes/src/main/resources/com/example/recipes&quot;,
++    &quot;last_opened_file_path&quot;: &quot;D:/Distr/mysql-connector-j-8.2.0.zip&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pathVariables&quot;
++    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;
+   }
+ }</component>
+-  <component name="RunManager">
++  <component name="RecentsManager">
++    <key name="MoveFile.RECENT_KEYS">
++      <recent name="C:\Users\user\IdeaProjects\Recipes\src\main\resources\com\example\recipes" />
++    </key>
++  </component>
++  <component name="RunManager" selected="Application.Test">
++    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="com.example.recipes.HelloApplication" />
++      <module name="Recipes" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="com.example.recipes.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
+     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="com.example.recipes.Test" />
+       <module name="Recipes" />
+@@ -70,6 +92,8 @@
+     <recent_temporary>
+       <list>
+         <item itemvalue="Application.Test" />
++        <item itemvalue="Application.HelloApplication" />
++        <item itemvalue="Application.Test" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -114,13 +138,26 @@
+       <option name="project" value="LOCAL" />
+       <updated>1701678124397</updated>
+     </task>
+-    <option name="localTasksCounter" value="5" />
++    <task id="LOCAL-00005" summary="переключение между сценами">
++      <option name="closed" value="true" />
++      <created>1701874746985</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1701874746985</updated>
++    </task>
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="абдя" />
+     <MESSAGE value="изменение класса рецептов и парсинг" />
+     <MESSAGE value="удалить списки из классов" />
+-    <option name="LAST_COMMIT_MESSAGE" value="удалить списки из классов" />
++    <MESSAGE value="переключение между сценами" />
++    <option name="LAST_COMMIT_MESSAGE" value="переключение между сценами" />
++  </component>
++  <component name="XSLT-Support.FileAssociations.UIState">
++    <expand />
++    <select />
+   </component>
+ </project>
+\ No newline at end of file
