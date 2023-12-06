@@ -29,17 +29,17 @@ public class HelloApplication extends Application {
 
         stage.setTitle("Recipes");
 
-        Parent root = FXMLLoader.load(getClass().getResource("main_page.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("recipe_scene.fxml"));
 
         Scene scene = new Scene(root);
 
         Image icon = new Image("kitty.jpg");
         stage.getIcons().add(icon);
 
-        stage.setWidth(500);
-        stage.setHeight(500);
+        //stage.setWidth(500);
+       // stage.setHeight(500);
 
-        stage.setResizable(false);
+        //stage.setResizable(false);
 
         stage.setScene(scene);
         stage.show();
