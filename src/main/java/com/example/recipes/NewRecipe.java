@@ -31,9 +31,6 @@ public class NewRecipe implements Initializable {
     private TextField Difflevel;
     @FXML
     private ListView NewSteps;
-
-    private Parent root;
-
     Recipe NewOne = new Recipe();
 
 

@@ -13,11 +13,6 @@ public class Recipe {
     String difficulty_level;
     Product products;
     Integer favorite;
-    ///ArrayList<Step> steps;
-
-
-
-
 
 
     @Override

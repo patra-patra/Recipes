@@ -28,7 +28,6 @@ public class Pars {
         //temp_.Ingr = new ArrayList<>(Arrays.asList(Ingridients(doc1)));
         //temp_.steps = new ArrayList<>(Arrays.asList(Steps(doc1)));
         temp_.category = Category(doc1);
-        temp_.difficulty_level = "просто";
 
         return temp_;
     }
@@ -90,20 +89,7 @@ public class Pars {
 
         return cat;
     }
-    private String DifficultyLevel(String time, ArrayList<Step> steps){
 
-        String[] time_el = time.split("");
-
-        if (time_el[1] == "ч." || steps.size() > 10){
-            return "Высокая";
-        }
-        else if(time_el[1] == "мин." && (30 < Integer.parseInt(time_el[0]) && Integer.parseInt(time_el[0]) < 60) || steps.size() > 5 && steps.size() < 10){
-            return "Cредняя";
-        }
-        else {
-            return "Низкая";
-        }
-    }
     private String GetMainImg(Document doc1){
         Elements meta = doc1.select("meta[property=og:image]");
         String path_img = "";

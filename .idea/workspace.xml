@@ -4,18 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac776215-f60e-4816-bfce-980eb88cf38a" name="Changes" comment=" первая попытка соединения">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/RecipePars.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/recipes/recipe_pars.fxml" afterDir="false" />
+    <list default="true" id="ac776215-f60e-4816-bfce-980eb88cf38a" name="Changes" comment="добавление рецептов в базу через приложение с помощью ручного ввода и парсинга">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/AddStep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/AddStep.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/NewRecipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/NewRecipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Pars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Pars.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Recipe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/RecipePars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/RecipePars.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/recipes/hello-view.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/recipes/main_page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/recipes/main_page.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/recipes/new_recipe.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/recipes/new_recipe.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +79,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ListViewWithButton" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.recipes.ListViewWithButton" />
+      <module name="Recipes" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.recipes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.recipes.Test" />
       <module name="Recipes" />
@@ -97,6 +108,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="Application.ListViewWithButton" />
         <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
@@ -158,7 +170,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701919870402</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="добавление рецептов в базу через приложение с помощью ручного ввода и парсинга">
+      <option name="closed" value="true" />
+      <created>1701930369247</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1701930369247</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -177,6 +197,7 @@
     <MESSAGE value="изменение класса рецептов и парсинг" />
     <MESSAGE value="удалить списки из классов" />
     <MESSAGE value=" первая попытка соединения" />
-    <option name="LAST_COMMIT_MESSAGE" value=" первая попытка соединения" />
+    <MESSAGE value="добавление рецептов в базу через приложение с помощью ручного ввода и парсинга" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавление рецептов в базу через приложение с помощью ручного ввода и парсинга" />
   </component>
 </project>

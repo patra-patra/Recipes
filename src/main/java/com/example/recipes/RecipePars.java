@@ -34,7 +34,6 @@ public class RecipePars implements Initializable {
     }
 
     public void Input(ActionEvent event) throws IOException {
-        //Data.link_to_parse = LinkToPars.getText();
 
         Pars pars = new Pars();
         Data.current_recipe = pars.GetRecipe(LinkToPars.getText());

@@ -4,19 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Data {
-    public static ArrayList<String> favorite;
     public static ArrayList<String> shopping_bag;
     //public static List<String> all_recipe;
     public static List<String> all_recipe = Get();
 
-
     public  static List<Step> steps_from_new = new ArrayList<>();
-    public  static String name_from_new;
-    public  static String category_from_new;
 
-
-    public static Recipe parsed_recipe;
     public static Recipe current_recipe;
+
+    public static String mediator_to_recipe;
 
 
 
