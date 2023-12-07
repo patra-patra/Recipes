@@ -22,6 +22,10 @@ public class NewRecipe implements Initializable {
     @FXML
     public Button ToMain;
     @FXML
+    public Button AddIgr;
+    @FXML
+    public Button AddStep;
+    @FXML
     private TextField Name;
     @FXML
     private TextField Category;
@@ -44,7 +48,12 @@ public class NewRecipe implements Initializable {
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        if (Data.current_recipe != null){
+        Name.setText(Data.current_recipe.name);
+        Category.setText(Data.current_recipe.category);
+        Time.setText(Data.current_recipe.time);
+        LinkToMainIMG.setText(Data.current_recipe.main_img);
+
+        if (Data.current_recipe.steps != null){
             String[] arr = new String[Data.current_recipe.steps.size()];
 
             for (int i = 0; i < Data.current_recipe.steps.size(); i++)
@@ -64,6 +73,9 @@ public class NewRecipe implements Initializable {
             Time.setText(Data.current_recipe.time);
             LinkToMainIMG.setText(Data.current_recipe.main_img);
         }
+
+
+
     }
 
     public void Input(ActionEvent event){
@@ -104,6 +116,14 @@ public class NewRecipe implements Initializable {
     public void NewStep(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("add_step.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene2 = new Scene(root);
+        stage.setScene(scene2);
+        stage.show();
+    }
+    public void NewProd(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("new_exist_product.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene2 = new Scene(root);
         stage.setScene(scene2);

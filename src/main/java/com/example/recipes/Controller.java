@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -29,13 +30,16 @@ public class Controller implements Initializable {
     public Button ToCart;
 
     @FXML
+    public HBox Steps;
+
+    @FXML
     public ImageView MainPageIMG;
     @FXML
     private ListView<String> myList;
 
     @FXML
     private Button ParsButton;
-    @FXML
+
     private Stage stage;
     private Scene scene;
 
@@ -98,7 +102,7 @@ public class Controller implements Initializable {
     }
     public void SwitchToPars (ActionEvent event) throws IOException {
 
-        Parent root2 = FXMLLoader.load(getClass().getResource("parse_modalwindow.fxml"));
+        Parent root2 = FXMLLoader.load(getClass().getResource("recipe_pars.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene (root2);
         stage.setScene(scene);

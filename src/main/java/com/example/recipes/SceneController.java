@@ -13,11 +13,14 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class SceneController implements Initializable {
@@ -31,6 +34,8 @@ public class SceneController implements Initializable {
     public Label Difficult;
     @FXML
     public ImageView CurrentRecipeIMG;
+
+
     private Stage stage;
     private Scene scene;
     private Image img;
@@ -43,6 +48,8 @@ public class SceneController implements Initializable {
 
         img = new Image(Data.current_recipe.main_img);
         CurrentRecipeIMG.setImage(img);
+
+        //String[] arr = new String[Data.current_recipe.steps.size()];
 
 
     }

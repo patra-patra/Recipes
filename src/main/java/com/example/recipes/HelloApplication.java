@@ -34,6 +34,9 @@ public class HelloApplication extends Application {
 
         stage.setScene(scene);
         stage.show();
+
+
+        //Database.addProduct("Картофель", 2.0, 50.0, 0.2, 20.0,0);
     }
 
     public static void main( String[] args ) throws IOException{
