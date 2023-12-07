@@ -91,7 +91,7 @@ public class Database {
     //показать продукты рецепта
    public static List<Product> showProducts(int rec_id){
         List<Product> products = new ArrayList<>();
-        String query = "SELECT prod_id FROM prod_rec  WHERE rec_id = ?";
+        String query = "SELECT prod_id FROM prod_in_rec  WHERE rec_id = ?";
         String query1 = "SELECT * FROM products WHERE prod_id = ?";
         try (Connection connection = DBconn.GetConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -235,14 +235,15 @@ public class Database {
 
     //добавить продукты в рецепт(создание связи в таблице)
 
-    public static void addProductToRecipe(int prod_id, int rec_id){
-        String query = "INSERT INTO prod_rec(prod_id,rec_id) VALUES(?,?)";
+    public static void addProductToRecipe(int prod_id, int rec_id, double weight){
+        String query = "INSERT INTO prod_in_rec(prod_id,rec_id,weight) VALUES(?,?,?)";
         try (Connection connection = DBconn.GetConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
 
             preparedStatement.setInt(1,prod_id);
             preparedStatement.setInt(2, rec_id);
+            preparedStatement.setDouble(3, weight);
 
             preparedStatement.executeUpdate();
 
@@ -300,7 +301,7 @@ public class Database {
 
     //добавить в корзину
     public static void addRecipeToCart(int rec_id){
-        String query = "SELECT prod_id FROM prod_rec WHERE rec_id = ?";
+        String query = "SELECT prod_id FROM prod_in_rec WHERE rec_id = ?";
         String query1 = "INSERT INTO cart VALUES(?)";
         try (Connection connection = DBconn.GetConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
