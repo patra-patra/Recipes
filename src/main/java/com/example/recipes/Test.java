@@ -9,11 +9,8 @@ public class Test {
 
 
     public static void main(String[] args) throws IOException {
-        Recipe recipe = new Recipe();
 
-        //Data.current_recipe.id = 3;
-        //Data.current_recipe.id = Database.searchRecipe("Квас из ревеня").id;
-        System.out.println(Database.searchRecipe("Квас из ревеня").id);
+
 
 /*
         Product product = new Product("j", 21.0, 3.0, 5.0, 145.0, 500.0);

@@ -16,6 +16,7 @@ public class Recipe {
     public Integer favorite;
 
     public List<Step> steps;
+    public List<String> ingrgredients;
 
     @Override
     public String toString() {;

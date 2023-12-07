@@ -18,10 +18,8 @@ public class Cart implements Initializable {
 
     @FXML
     private ListView<String> myCart;
-
-    private Parent root;
     String[] food2 = {"ля", "ля", "ля"};
-    String current;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

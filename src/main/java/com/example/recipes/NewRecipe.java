@@ -8,8 +8,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -31,20 +33,31 @@ public class NewRecipe implements Initializable {
     private TextField Difflevel;
     @FXML
     private ListView NewSteps;
+    @FXML
+    private ListView Ingredients;
+    @FXML
+    private Label Warning;
+    @FXML
+    private ImageView WarningImg;
     Recipe NewOne = new Recipe();
 
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        String[] arr = new String[Data.current_recipe.steps.size()];
-
-        for (int i = 0; i < Data.current_recipe.steps.size(); i++)
-            arr[i] = Data.current_recipe.steps.get(i).text;
-
-        NewSteps.getItems().addAll(arr);
-
-
         if (Data.current_recipe != null){
+            String[] arr = new String[Data.current_recipe.steps.size()];
+
+            for (int i = 0; i < Data.current_recipe.steps.size(); i++)
+                arr[i] = Data.current_recipe.steps.get(i).text;
+
+            NewSteps.getItems().addAll(arr);
+
+            String[] arr2 = new String[Data.current_recipe.ingrgredients.size()];
+
+            for (int i = 0; i < Data.current_recipe.ingrgredients.size(); i++)
+                arr2[i] = Data.current_recipe.ingrgredients.get(i);
+
+            Ingredients.getItems().addAll(arr2);
 
             Name.setText(Data.current_recipe.name);
             Category.setText(Data.current_recipe.category);
@@ -63,16 +76,30 @@ public class NewRecipe implements Initializable {
         NewOne.category = Category.getText();
         NewOne.difficulty_level = Difflevel.getText();
 
-        Database.addRecipe(NewOne.name, NewOne.category, NewOne.main_img, NewOne.time, NewOne.difficulty_level, 0);
-        Data.current_recipe.id = Database.searchRecipe(NewOne.name).id;
+        if (NewOne.name != null && NewOne.time != null && NewOne.main_img != null && NewOne.category != null && NewOne.difficulty_level != null){
+            Database.addRecipe(NewOne.name, NewOne.category, NewOne.main_img, NewOne.time, NewOne.difficulty_level, 0);
 
-        for (Step step: Data.current_recipe.steps) {
-            Database.addStep(Data.current_recipe.id, step.text);
+            NewOne.id = Database.searchRecipe(NewOne.name).id;
+
+            for (Step step: Data.current_recipe.steps) {
+                Database.addStep(NewOne.id, step.text);
+            }
+
+            for (Step step: Data.current_recipe.steps) {
+                Database.addStep(NewOne.id, step.text);
+            }
+
+            Data.all_recipe.add(Data.current_recipe.name);
+
+            Data.current_recipe = null;
+        }
+        else{
+            Warning.setText("Для добавления заполните все поля!");
+            WarningImg.setOpacity(1);
+
         }
 
-        Data.all_recipe.add(Data.current_recipe.name);
 
-        Data.current_recipe = null;
     }
 
 

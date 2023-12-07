@@ -7,7 +7,6 @@ public class Data {
     public static ArrayList<String> shopping_bag;
     public static List<String> all_recipe = Get();
 
-
     public static Recipe current_recipe;
 
     public static String mediator_to_recipe;
