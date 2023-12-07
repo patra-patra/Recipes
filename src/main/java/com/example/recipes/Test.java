@@ -10,6 +10,8 @@ public class Test {
 
     public static void main(String[] args) throws IOException {
 
+        /*
+
         Pars pars = new Pars();
 
         String path = "https://saechka.ru/recipes/recipe_2337";

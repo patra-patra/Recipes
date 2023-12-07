@@ -33,6 +33,9 @@ public class AddStep implements Initializable {
     @FXML
     private ListView<String> Links;
 
+    Stage stage;
+    Scene scene;
+
     Step NewStep = new Step();
 
     ArrayList<String> img = new ArrayList<>();
@@ -44,17 +47,22 @@ public class AddStep implements Initializable {
     public void initialize() {
         Links.getItems().addAll(img);
     }
-    public void Input(ActionEvent event){
+    public void Input(ActionEvent event) throws IOException {
 
         NewStep.text = Text.getText();
         NewStep.img = img;
 
+        Data.AddToTempSteps(NewStep);
 
+        ToMain(event);
+    }
 
-/*
-        for (String str: img) {
-            System.out.println(str);
-        }*/
+    public void ToMain(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("new_recipe.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene (root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void AddToLinks(ActionEvent event){

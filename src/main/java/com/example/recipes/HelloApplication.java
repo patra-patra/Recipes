@@ -19,31 +19,21 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.GenericArrayType;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class HelloApplication extends Application {
 
-    Button button;
-    @Override
     public void start(Stage stage) throws IOException {
-
         stage.setTitle("Recipes");
-
         Parent root = FXMLLoader.load(getClass().getResource("main_page.fxml"));
-
         Scene scene = new Scene(root);
-
         Image icon = new Image("kitty.jpg");
         stage.getIcons().add(icon);
 
-        //stage.setWidth(500);
-       // stage.setHeight(500);
-
-        //stage.setResizable(false);
-
         stage.setScene(scene);
         stage.show();
-
     }
 
     public static void main( String[] args ) throws IOException{
