@@ -3,30 +3,37 @@ package com.example.recipes;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Cart implements Initializable {
+public class NewRecipe {
 
     @FXML
-    private ListView<String> myCart;
+    private TextField Name;
+
+    @FXML
+    private TextField Time;
 
     private Parent root;
-    String[] food2 = {"ля", "ля", "ля"};
-    String current;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        myCart.getItems().addAll(food2);
+    Recipe NewOne = new Recipe();
+
+    public void Input(ActionEvent event){
+        NewOne.name = Name.getText();
+        NewOne.time = Time.getText();
+        System.out.println(NewOne.name);
+        System.out.println(NewOne.time);
+
     }
+
 
     public void SwitchToMain(ActionEvent event) throws IOException {
 
@@ -36,5 +43,12 @@ public class Cart implements Initializable {
         stage.setScene(scene2);
         stage.show();
     }
+    public void NewStep(ActionEvent event) throws IOException {
 
+        Parent root = FXMLLoader.load(getClass().getResource("add_step.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene2 = new Scene(root);
+        stage.setScene(scene2);
+        stage.show();
+    }
 }
