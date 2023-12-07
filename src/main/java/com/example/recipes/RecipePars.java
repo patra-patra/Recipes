@@ -38,6 +38,8 @@ public class RecipePars implements Initializable {
         Pars pars = new Pars();
         Data.current_recipe = pars.GetRecipe(LinkToPars.getText());
 
+
+
         SwitchToNewRecipe(event);
     }
 

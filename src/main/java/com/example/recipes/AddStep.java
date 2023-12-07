@@ -35,12 +35,9 @@ public class AddStep implements Initializable {
 
     Stage stage;
     Scene scene;
-
     Step NewStep = new Step();
-
     ArrayList<String> img = new ArrayList<>();
 
-    //@Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Links.getItems().addAll(img);
     }
@@ -52,7 +49,9 @@ public class AddStep implements Initializable {
         NewStep.text = Text.getText();
         NewStep.img = img;
 
-        Data.AddToTempSteps(NewStep);
+        Data.current_recipe.steps.add(NewStep);
+
+        //Data.AddToTempSteps(NewStep);
 
         ToMain(event);
     }

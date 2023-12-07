@@ -365,20 +365,18 @@ public class Database {
                 int id = rs.getInt("id");
                 String category = rs.getString("category");
                 String main_img = rs.getString("main_img");
-                String cooking_rime = rs.getString("cooking_rime");
+                String cooking_time = rs.getString("cooking_time");
                 String difficulty_level = rs.getString("difficulty_level");
                 int favorite = rs.getInt("favorite");
 
-                recipe = new Recipe(id, rec_name, category, main_img, cooking_rime, difficulty_level, favorite);
+                recipe = new Recipe(id, rec_name, category, main_img, cooking_time, difficulty_level, favorite);
             }
-
-
-
 
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+
         return recipe;
     }
 

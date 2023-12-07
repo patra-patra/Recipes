@@ -13,17 +13,22 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Collections;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
 public class Controller implements Initializable {
     @FXML
     public Button ToCart;
+    @FXML
+    public ImageView MainPageIMG;
     @FXML
     private ListView<String> myList;
     @FXML
@@ -33,12 +38,10 @@ public class Controller implements Initializable {
     @FXML
     private Stage stage;
     private Scene scene;
-    String current;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        ListView<String> listView = new ListView<>();
         myList.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
             @Override
             public ListCell<String> call(ListView<String> param) {
@@ -47,6 +50,13 @@ public class Controller implements Initializable {
         });
 
         Data.all_recipe = Data.Get();
+        //List<Recipe> t = Database.showAllRecipe();
+        //Collections.sort(t, new CompByName());
+/*
+        for (Recipe tt: t) {
+            //System.out.println(tt.name);
+        }
+        */
 
         String[] arr = new String[Data.all_recipe.size()];
 

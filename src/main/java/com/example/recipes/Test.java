@@ -9,31 +9,11 @@ public class Test {
 
 
     public static void main(String[] args) throws IOException {
+        Recipe recipe = new Recipe();
 
-        /*
-
-        Pars pars = new Pars();
-
-        String path = "https://saechka.ru/recipes/recipe_2337";
-
-        String path1 = "https://saechka.ru/recipes/recipe_pryaniki_dlya_rospisi_morkovki";
-        String path2 = "https://saechka.ru/recipes/recipe_5163";
-        String path3 = "https://saechka.ru/recipes/recipe_sloenye_morkovki";
-        String path4 = "https://saechka.ru/recipes/recipe_blinnyy_tort_s_makom";
-
-        Recipe a = new Recipe();
-
-        a = pars.GetRecipe(path4);
-
-        Database.addRecipe(a.name, a.category, a.main_img, a.time, "сложно", 0);
-        List<Recipe> recipes = Database.showAllRecipe();
-
-        for (Recipe y : recipes){
-            //String result = String.format("%.2f", y);
-            System.out.println(y.name);
-
-        }
-        //Document doc1 = Jsoup.connect(path1).get();
+        //Data.current_recipe.id = 3;
+        //Data.current_recipe.id = Database.searchRecipe("Квас из ревеня").id;
+        System.out.println(Database.searchRecipe("Квас из ревеня").id);
 
 /*
         Product product = new Product("j", 21.0, 3.0, 5.0, 145.0, 500.0);

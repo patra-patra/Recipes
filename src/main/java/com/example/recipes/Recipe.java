@@ -3,17 +3,19 @@ package com.example.recipes;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
 public class Recipe {
-    Integer id;
-    String name;
-    String category;
-    String main_img;
-    String time;
-    String difficulty_level;
-    Product products;
-    Integer favorite;
+    public Integer id;
+    public String name;
+    public String category;
+    public String main_img;
+    public String time;
+    public String difficulty_level;
+    public Integer favorite;
 
+    public List<Step> steps;
 
     @Override
     public String toString() {;
@@ -27,23 +29,9 @@ public class Recipe {
                 ", favorite=" + favorite +
                 '}';
     }
-
-    public Recipe(int rec_id, int step_id, String text) {
+    public Recipe() {
     }
 
-    public Double[] Count_p_c_f_cl (ArrayList<Product> Ingr){
-        Double[] p_c_f_cl = {0.0, 0.0, 0.0, 0.0};
-
-
-        for (Product ing: Ingr) {
-            p_c_f_cl[0] += ing.temp_weight/100 * ing.protein;
-            p_c_f_cl[1] += ing.temp_weight/100 * ing.carbohydrates;
-            p_c_f_cl[2] += ing.temp_weight/100 * ing.fats;
-            p_c_f_cl[3] += ing.temp_weight/100 * ing.calories;
-        }
-
-        return p_c_f_cl;
-    }
     public Recipe(Integer id, String name, String category, String main_img, String time, String difficulty_level, Integer favorite) {
         this.id = id;
         this.name = name;
@@ -54,33 +42,35 @@ public class Recipe {
         this.favorite = favorite;
     }
 
-    public Recipe() {
 
-        name = "empty";
-        //category = "empty";
-        //main_img = new URL("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPm4OafJsXDQRBuPD3DlTaf64EYDyx_mA-sQ&usqp=CAU");
-        time = "empty";
-        difficulty_level = "empty";
-        products = new Product();
-        //favorite = "empty";
+
+    public Double[] Count_p_c_f_cl (ArrayList<Product> Ingr){
+        Double[] p_c_f_cl = {0.0, 0.0, 0.0, 0.0};
+
+        for (Product ing: Ingr) {
+            p_c_f_cl[0] += ing.temp_weight/100 * ing.protein;
+            p_c_f_cl[1] += ing.temp_weight/100 * ing.carbohydrates;
+            p_c_f_cl[2] += ing.temp_weight/100 * ing.fats;
+            p_c_f_cl[3] += ing.temp_weight/100 * ing.calories;
+        }
+
+        return p_c_f_cl;
     }
 
-/*
-    public Recipe(String _name, String _category, String _time, String _di) {
-        name = "empty";
-        //category = "empty";
-        //main_img = new URL("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPm4OafJsXDQRBuPD3DlTaf64EYDyx_mA-sQ&usqp=CAU");
-        time = "empty";
-        difficulty_level = "empty";
-        products = new Product();
-        favorite = "empty";
+    public int compareTo(Recipe o) {
+        return name.compareTo(o.name);
     }
-*/
-    private void GetAll(){
-
+    public String getName() {
+        return name;
     }
-    private void Change(){
+    public static final Comparator<Recipe> COMPARE_BY_COUNT = new Comparator<Recipe>() {
 
+        public int compare(Recipe lhs, Recipe rhs) {
+            return lhs.getCount() - rhs.getCount();
+        }
+    };
+    private int getCount() {
+        return 0;
     }
 
 }

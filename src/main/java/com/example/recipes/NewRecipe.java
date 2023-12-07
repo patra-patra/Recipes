@@ -36,10 +36,10 @@ public class NewRecipe implements Initializable {
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        String[] arr = new String[Data.steps_from_new.size()];
+        String[] arr = new String[Data.current_recipe.steps.size()];
 
-        for (int i = 0; i < Data.steps_from_new.size(); i++)
-            arr[i] = Data.steps_from_new.get(i).text;
+        for (int i = 0; i < Data.current_recipe.steps.size(); i++)
+            arr[i] = Data.current_recipe.steps.get(i).text;
 
         NewSteps.getItems().addAll(arr);
 
@@ -51,6 +51,9 @@ public class NewRecipe implements Initializable {
             Time.setText(Data.current_recipe.time);
             LinkToMainIMG.setText(Data.current_recipe.main_img);
         }
+
+
+
     }
 
     public void Input(ActionEvent event){
@@ -61,6 +64,14 @@ public class NewRecipe implements Initializable {
         NewOne.difficulty_level = Difflevel.getText();
 
         Database.addRecipe(NewOne.name, NewOne.category, NewOne.main_img, NewOne.time, NewOne.difficulty_level, 0);
+        Data.current_recipe.id = Database.searchRecipe(NewOne.name).id;
+
+        for (Step step: Data.current_recipe.steps) {
+            Database.addStep(Data.current_recipe.id, step.text);
+        }
+
+        Data.all_recipe.add(Data.current_recipe.name);
+
         Data.current_recipe = null;
     }
 

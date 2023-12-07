@@ -5,16 +5,12 @@ import java.util.List;
 
 public class Data {
     public static ArrayList<String> shopping_bag;
-    //public static List<String> all_recipe;
     public static List<String> all_recipe = Get();
 
-    public  static List<Step> steps_from_new = new ArrayList<>();
 
     public static Recipe current_recipe;
 
     public static String mediator_to_recipe;
-
-
 
 
     public static List<String> Get(){
@@ -35,9 +31,6 @@ public class Data {
         shopping_bag.add(recipe);
         all_recipe = Get();
     }
-    public static void AddToTempSteps(Step step){
-        steps_from_new.add(step);
-        //all_recipe = Get();
-    }
+
 
 }

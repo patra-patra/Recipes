@@ -3,7 +3,6 @@ package com.example.recipes;
 import java.util.ArrayList;
 
 public class Step {
-
     int rec_id;
     int step_id;
     String text;
