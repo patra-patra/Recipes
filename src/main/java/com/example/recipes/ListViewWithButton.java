@@ -14,41 +14,27 @@ import javafx.util.Callback;
 
 import java.io.IOException;
 
-public class ListViewWithButton extends Application {
-
-    @Override
-    public void start(Stage primaryStage) {
-
-        ListView<String> listView = new ListView<>();
-        listView.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
-            @Override
-            public ListCell<String> call(ListView<String> param) {
-                return new ButtonListCell();
-            }
-        });
-
-        listView.getItems().addAll(Data.all_recipe);
-
-        VBox vbox = new VBox(listView);
-        Scene scene = new Scene(vbox, 300, 200);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
+public class ListViewWithButton {
 
     public static class ButtonListCell extends ListCell<String> {
         private final Button button;
         Stage stage;
         Scene scene;
+        String item;
 
-        public ButtonListCell() {
+        public  ButtonListCell() {
+
+            //String item;
             button = new Button("Посмотреть");
             button.setOnAction(event -> {
-                String item = getItem();
+                item = getItem();
                 if (item != null) {
 
                     Parent root = null;
                     try {
+                        Data.current_recipe = Database.searchRecipe(item);
                         root = FXMLLoader.load(getClass().getResource("recipe_scene.fxml"));
+
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
@@ -57,8 +43,11 @@ public class ListViewWithButton extends Application {
                     stage.setScene(scene);
 
                     stage.show();
+
                 }
             });
+
+
         }
 
         @Override

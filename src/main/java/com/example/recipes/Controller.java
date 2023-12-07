@@ -27,12 +27,12 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
     @FXML
     public Button ToCart;
+
     @FXML
     public ImageView MainPageIMG;
     @FXML
     private ListView<String> myList;
-    @FXML
-    private Label name;
+
     @FXML
     private Button ParsButton;
     @FXML
@@ -98,7 +98,7 @@ public class Controller implements Initializable {
     }
     public void SwitchToPars (ActionEvent event) throws IOException {
 
-        Parent root2 = FXMLLoader.load(getClass().getResource("recipe_pars.fxml"));
+        Parent root2 = FXMLLoader.load(getClass().getResource("parse_modalwindow.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene (root2);
         stage.setScene(scene);

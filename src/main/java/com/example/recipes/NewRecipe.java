@@ -64,9 +64,6 @@ public class NewRecipe implements Initializable {
             Time.setText(Data.current_recipe.time);
             LinkToMainIMG.setText(Data.current_recipe.main_img);
         }
-
-
-
     }
 
     public void Input(ActionEvent event){
@@ -93,13 +90,6 @@ public class NewRecipe implements Initializable {
 
             Data.current_recipe = null;
         }
-        else{
-            Warning.setText("Для добавления заполните все поля!");
-            WarningImg.setOpacity(1);
-
-        }
-
-
     }
 
 

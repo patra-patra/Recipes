@@ -23,7 +23,11 @@ public class Pars {
         Document doc1 = Jsoup.connect(path).get();
 
         temp_.name = NameRecipe(doc1);
+
         temp_.main_img = GetMainImg(doc1);
+        //DownloadImg(temp_.main_img, temp_.name);
+        //temp_.main_img = temp_.name + ".jpg";
+
         temp_.time = Time(doc1);
         temp_.ingrgredients = new ArrayList<>(Arrays.asList(Ingridients(doc1)));
         temp_.steps = new ArrayList<>(Arrays.asList(Steps(doc1)));
