@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 public class Test {
+
+
     public static void main(String[] args) throws IOException {
 
         Pars pars = new Pars();
@@ -19,12 +21,16 @@ public class Test {
 
         Recipe a = new Recipe();
 
-        a = pars.GetRecipe("https://saechka.ru/recipes/recipe_kvas_iz_revenya");
-
-        //System.out.println(a.name);
+        a = pars.GetRecipe(path4);
 
         Database.addRecipe(a.name, a.category, a.main_img, a.time, "сложно", 0);
+        List<Recipe> recipes = Database.showAllRecipe();
 
+        for (Recipe y : recipes){
+            //String result = String.format("%.2f", y);
+            System.out.println(y.name);
+
+        }
         //Document doc1 = Jsoup.connect(path1).get();
 
 /*
