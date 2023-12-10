@@ -480,6 +480,61 @@ public class Database {
         }
 
     }
+    //получение веса продукта
+    public static Double showWeight(int rec_id, int prod_id) {
+        String query =  "SELECT weight FROM prod_in_rec WHERE rec_id = ? AND prod_id = ?";
+        Double weight = null;
+        try (Connection connection = DBconn.GetConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, rec_id);
+            preparedStatement.setInt(2, prod_id);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()){
+                weight = rs.getDouble("weight");
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return weight;
+
+    }
+
+    //показать корзину
+    public static List<Product> showCart(){
+        List<Product> products = new ArrayList<>();
+        String query = "SELECT prod_id  FROM cart";
+        String query1 = "SELECT * FROM products WHERE prod_id = ?";
+        try (Connection connection = DBconn.GetConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet rs = preparedStatement.executeQuery();
+
+            PreparedStatement showProducts = connection.prepareStatement(query1);
+
+            while (rs.next()){
+                int prod_id = rs.getInt("prod_id");
+                showProducts.setInt(1,prod_id);
+                ResultSet res = showProducts.executeQuery();
+
+                while (res.next()){
+                    String prod_name = res.getString("prod_name");
+                    double protein = res.getDouble("protein");
+                    double carbohydrates = res.getDouble("protein");
+                    double fats = res.getDouble("fats");
+                    double calories = res.getDouble("calories");
+                    double temp_weight = res.getDouble("temp_weight");
+
+                    products.add(new Product(prod_id,prod_name,protein,carbohydrates,fats,calories,temp_weight));
+                }
+            }
+
+        } catch(SQLException throwables){
+            throwables.printStackTrace();
+        }
+
+        return products;
+    }
 
 
     
