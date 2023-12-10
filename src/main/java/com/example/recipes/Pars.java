@@ -79,8 +79,9 @@ public class Pars {
                 ArrayList<String> list_img = new ArrayList<>();
                 if (a.child(i).tagName() == "p"){
                     t = a.child(i).child(0).attr("href");
-                    list_img.add(t);
+                    list_img.add("https://saechka.ru" + t);
                     steps[i-1].img = list_img;
+
                 }
                 if (a.child(i).tagName() != "p") {
                     t = a.child(i).text();
@@ -99,10 +100,10 @@ public class Pars {
             }
         }
 
+        for (Step s: steps_fin) {
+            System.out.println(s.text + " " + s.img);
+        }
 
-        //System.out.println(steps[1].text);
-        //String a = "https://saechka.ru/" + steps[1].img.get(0);
-        //System.out.println(a);
         return steps_fin;
     }
     private String Category(Document doc1) throws IOException {

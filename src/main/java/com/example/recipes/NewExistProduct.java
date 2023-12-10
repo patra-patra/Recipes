@@ -44,16 +44,6 @@ public class NewExistProduct implements Initializable {
             pr.temp_weight = Double.valueOf(Weight.getText());
             Data.current_recipe.ingredients.add(pr);
 
-            //System.out.println(pr);
-
-
-
-            Recipe r = new Recipe();
-            Double[] d = r.Count_p_c_f_cl(Data.current_recipe.ingredients);
-
-            for (Double dd: d){
-                System.out.println(dd);
-            }
 
             SwitchToNewRec(event);
         }

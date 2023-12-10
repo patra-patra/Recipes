@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <ScrollPane prefHeight="2106.0" prefWidth="1480.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.recipes.SceneController">
    <content>
@@ -84,12 +83,12 @@
                               </Label>
                               <HBox prefHeight="78.0" prefWidth="780.0">
                                  <children>
-                                    <Button fx:id="ToCart" mnemonicParsing="false" onAction="#AddToCart" prefHeight="27.0" prefWidth="294.0" style="-fx-border-radius: 15; -fx-border-color: #6a6a6a; -fx-background-radius: 15; -fx-background-color: #FFFFFF;" text="Добавить в корзину">
+                                    <Button fx:id="AddToCart" mnemonicParsing="false" onAction="#AddToCart" prefHeight="27.0" prefWidth="294.0" style="-fx-border-radius: 15; -fx-border-color: #6a6a6a; -fx-background-radius: 15; -fx-background-color: #FFFFFF;" text="Добавить в корзину">
                                        <HBox.margin>
                                           <Insets right="44.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button fx:id="ToFav" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#ToFav" prefHeight="32.0" prefWidth="280.0" style="-fx-border-radius: 15; -fx-border-color: #6a6a6a; -fx-background-radius: 15; -fx-background-color: #FFFFFF;" text="Добавить в избранное">
+                                    <Button fx:id="ToFav" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#AddToFav" prefHeight="32.0" prefWidth="280.0" style="-fx-border-radius: 15; -fx-border-color: #6a6a6a; -fx-background-radius: 15; -fx-background-color: #FFFFFF;" text="Добавить в избранное">
                                        <HBox.margin>
                                           <Insets right="44.0" />
                                        </HBox.margin>
@@ -110,11 +109,11 @@
                         <Insets bottom="36.0" />
                      </VBox.margin>
                   </HBox>
-                  <VBox alignment="CENTER" prefHeight="142.0" prefWidth="1440.0">
+                  <VBox alignment="CENTER" prefHeight="933.0" prefWidth="1226.0">
                      <children>
                         <HBox alignment="CENTER">
                            <children>
-                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: #6A6A6A; -fx-background-color: #CFEEFF; -fx-border-radius: 15; -fx-background-radius: 15;">
+                              <VBox alignment="CENTER" prefHeight="90.0" prefWidth="164.0" style="-fx-border-color: #6A6A6A; -fx-background-color: #CFEEFF; -fx-border-radius: 15; -fx-background-radius: 15;">
                                  <children>
                                     <Label text="Калории" textFill="#6a6a6a">
                                        <font>
@@ -123,7 +122,7 @@
                                     </Label>
                                     <VBox alignment="CENTER" style="-fx-border-radius: 15; -fx-border-color: #6A6A6A; -fx-background-color: #FFFFFF; -fx-background-radius: 15;">
                                        <children>
-                                          <Label fx:id="Calories" text="100,1">
+                                          <Label fx:id="Calories" prefHeight="35.0" prefWidth="86.0" text="100,1">
                                              <font>
                                                 <Font size="24.0" />
                                              </font>
@@ -139,7 +138,7 @@
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
                                  </padding>
                               </VBox>
-                              <VBox alignment="CENTER" layoutX="579.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: #6A6A6A; -fx-background-color: #CFEEFF; -fx-border-radius: 15; -fx-background-radius: 15;">
+                              <VBox alignment="CENTER" layoutX="579.0" layoutY="10.0" prefHeight="90.0" prefWidth="166.0" style="-fx-border-color: #6A6A6A; -fx-background-color: #CFEEFF; -fx-border-radius: 15; -fx-background-radius: 15;">
                                  <children>
                                     <Label text="Белки" textFill="#6a6a6a">
                                        <font>
@@ -148,7 +147,7 @@
                                     </Label>
                                     <VBox alignment="CENTER" style="-fx-border-radius: 15; -fx-border-color: #6A6A6A; -fx-background-color: #FFFFFF; -fx-background-radius: 15;">
                                        <children>
-                                          <Label fx:id="Protein" text="100,1">
+                                          <Label fx:id="Protein" prefHeight="35.0" prefWidth="66.0" text="100,1">
                                              <font>
                                                 <Font size="24.0" />
                                              </font>
@@ -164,7 +163,7 @@
                                     <Insets right="27.0" />
                                  </HBox.margin>
                               </VBox>
-                              <VBox alignment="CENTER" layoutX="656.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: #6A6A6A; -fx-background-color: #CFEEFF; -fx-border-radius: 15; -fx-background-radius: 15;">
+                              <VBox alignment="CENTER" layoutX="656.0" layoutY="10.0" prefHeight="90.0" prefWidth="154.0" style="-fx-border-color: #6A6A6A; -fx-background-color: #CFEEFF; -fx-border-radius: 15; -fx-background-radius: 15;">
                                  <children>
                                     <Label text="Жиры" textFill="#6a6a6a">
                                        <font>
@@ -173,7 +172,7 @@
                                     </Label>
                                     <VBox alignment="CENTER" style="-fx-border-radius: 15; -fx-border-color: #6A6A6A; -fx-background-color: #FFFFFF; -fx-background-radius: 15;">
                                        <children>
-                                          <Label fx:id="Fat" text="100,1">
+                                          <Label fx:id="Fat" prefHeight="35.0" prefWidth="68.0" text="100,1" textAlignment="CENTER">
                                              <font>
                                                 <Font size="24.0" />
                                              </font>
@@ -189,7 +188,7 @@
                                     <Insets right="27.0" />
                                  </HBox.margin>
                               </VBox>
-                              <VBox alignment="CENTER" layoutX="706.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: #6A6A6A; -fx-background-color: #CFEEFF; -fx-border-radius: 15; -fx-background-radius: 15;">
+                              <VBox alignment="CENTER" layoutX="706.0" layoutY="10.0" prefHeight="90.0" prefWidth="152.0" style="-fx-border-color: #6A6A6A; -fx-background-color: #CFEEFF; -fx-border-radius: 15; -fx-background-radius: 15;">
                                  <children>
                                     <Label text="Углеводы" textFill="#6a6a6a">
                                        <font>
@@ -198,7 +197,7 @@
                                     </Label>
                                     <VBox alignment="CENTER" style="-fx-border-radius: 15; -fx-border-color: #6A6A6A; -fx-background-color: #FFFFFF; -fx-background-radius: 15;">
                                        <children>
-                                          <Label fx:id="Carb" text="100,1">
+                                          <Label fx:id="Carb" prefHeight="35.0" prefWidth="60.0" text="100,1" textAlignment="CENTER">
                                              <font>
                                                 <Font size="24.0" />
                                              </font>
@@ -216,218 +215,7 @@
                               <Insets top="36.0" />
                            </VBox.margin>
                         </HBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: #6A6A6A; -fx-border-radius: 15;">
-                           <children>
-                              <Label alignment="CENTER" depthTest="DISABLE" text="Ингридиенты" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="System Bold" size="36.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                              </Label>
-                              <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                       <HBox.margin>
-                                          <Insets right="20.0" />
-                                       </HBox.margin>
-                                       <image>
-<!--                                          <Image url="@../../../media%20files/smurf%20cat.jpg" />-->
-                                       </image>
-                                    </ImageView>
-                                    <Label text="Ингридиент">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets right="780.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                    <Label text="100">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets right="10.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                    <Label text="Гр.">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets right="40.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                    <Button mnemonicParsing="false" text="Добавить в корзину">
-                                       <graphic>
-                                          <ImageView fitHeight="28.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-<!--                                                <Image url="@../../../media%20files/Vector.png" />-->
-                                             </image>
-                                          </ImageView>
-                                       </graphic>
-                                    </Button>
-                                 </children>
-                                 <padding>
-                                    <Insets right="10.0" />
-                                 </padding>
-                                 <VBox.margin>
-                                    <Insets bottom="20.0" />
-                                 </VBox.margin>
-                              </HBox>
-                              <HBox alignment="CENTER_LEFT" layoutX="51.0" layoutY="84.0" prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                       <HBox.margin>
-                                          <Insets right="20.0" />
-                                       </HBox.margin>
-                                       <image>
-<!--                                          <Image url="@../../../media%20files/smurf%20cat.jpg" />-->
-                                       </image>
-                                    </ImageView>
-                                    <Label text="Ингридиент">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets right="780.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                    <Label text="100">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets right="10.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                    <Label text="Гр.">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets right="40.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                    <Button mnemonicParsing="false" text="Добавить в корзину">
-                                       <graphic>
-                                          <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-<!--                                                <Image url="@../../../media%20files/Vector.png" />-->
-                                             </image>
-                                          </ImageView>
-                                       </graphic>
-                                    </Button>
-                                 </children>
-                                 <padding>
-                                    <Insets right="10.0" />
-                                 </padding>
-                                 <VBox.margin>
-                                    <Insets bottom="20.0" />
-                                 </VBox.margin>
-                              </HBox>
-                              <HBox alignment="CENTER_LEFT" layoutX="51.0" layoutY="155.0" prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                       <HBox.margin>
-                                          <Insets right="20.0" />
-                                       </HBox.margin>
-                                       <image>
-<!--                                          <Image url="@../../../media%20files/smurf%20cat.jpg" />-->
-                                       </image>
-                                    </ImageView>
-                                    <Label text="Ингридиент">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets right="780.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                    <Label text="100">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets right="10.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                    <Label text="Гр.">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets right="40.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                    <Button mnemonicParsing="false" text="Добавить в корзину">
-                                       <graphic>
-                                          <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-<!--                                                <Image url="@../../../media%20files/Vector.png" />-->
-                                             </image>
-                                          </ImageView>
-                                       </graphic>
-                                    </Button>
-                                 </children>
-                                 <padding>
-                                    <Insets right="10.0" />
-                                 </padding>
-                                 <VBox.margin>
-                                    <Insets bottom="20.0" />
-                                 </VBox.margin>
-                              </HBox>
-                              <HBox alignment="CENTER_LEFT" layoutX="51.0" layoutY="205.0" prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                       <HBox.margin>
-                                          <Insets right="20.0" />
-                                       </HBox.margin>
-                                       <image>
-<!--                                          <Image url="@../../../media%20files/smurf%20cat.jpg" />-->
-                                       </image>
-                                    </ImageView>
-                                    <Label text="Ингридиент">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets right="780.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                    <Label text="100">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets right="10.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                    <Label text="Гр.">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets right="40.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                    <Button mnemonicParsing="false" text="Добавить в корзину">
-                                       <graphic>
-                                          <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-<!--                                                <Image url="@../../../media%20files/Vector.png" />-->
-                                             </image>
-                                          </ImageView>
-                                       </graphic>
-                                    </Button>
-                                 </children>
-                                 <padding>
-                                    <Insets right="10.0" />
-                                 </padding>
-                              </HBox>
-                           </children>
+                        <VBox fx:id="Ingred" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: #6A6A6A; -fx-border-radius: 15;">
                            <VBox.margin>
                               <Insets bottom="36.0" top="30.0" />
                            </VBox.margin>
@@ -435,40 +223,14 @@
                               <Insets bottom="20.0" left="40.0" right="40.0" top="20.0" />
                            </padding>
                         </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: #6A6A6A; -fx-border-radius: 15;">
+                        <VBox prefHeight="200.0" prefWidth="1228.0" style="-fx-border-color: #6A6A6A; -fx-border-radius: 15;">
                            <children>
                               <Label depthTest="DISABLE" text="Пошаговый рецепт">
                                  <font>
                                     <Font name="System Bold" size="36.0" />
                                  </font>
                               </Label>
-                              <VBox fx:id="Steps" prefHeight="200.0" prefWidth="100.0">
-                                 <children>
-                                    <Label style="-fx-background-color: #CFEEFF; -fx-border-color: #6A6A6A; -fx-border-radius: 15; -fx-background-radius: 15;" text="Шаг 1" textFill="#6a6a6a">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                       <padding>
-                                          <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
-                                       </padding>
-                                       <VBox.margin>
-                                          <Insets bottom="10.0" top="20.0" />
-                                       </VBox.margin>
-                                    </Label>
-                                    <ImageView fitHeight="442.0" fitWidth="1182.0" pickOnBounds="true" preserveRatio="true">
-                                       <VBox.margin>
-                                          <Insets bottom="10.0" />
-                                       </VBox.margin>
-                                       <image>
-<!--                                          <Image url="@../../../media%20files/smurf%20cat.jpg" />-->
-                                       </image>
-                                    </ImageView>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт Рецепт" wrappingWidth="1178.9363942146301">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
+                              <VBox fx:id="Steps" prefHeight="84.0" prefWidth="1144.0">
                                  <VBox.margin>
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
@@ -486,6 +248,7 @@
                         <Insets />
                      </VBox.margin>
                   </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" />
                </children>
                <padding>
                   <Insets left="126.0" right="126.0" />

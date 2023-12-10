@@ -14,6 +14,8 @@ import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class NewRecipe implements Initializable {
@@ -108,11 +110,23 @@ public class NewRecipe implements Initializable {
                 Database.addStep(NewOne.id, step.text);
             }
 
+            List<Step> steps = Database.showSteps(NewOne.id);
+
+
+            for (Step step: Data.current_recipe.steps) {
+                if (step.img != null){
+                    for (Step step_get: steps){
+                        if (Objects.equals(step_get.text, step.text)){
+                            Database.addStepImg(step_get.step_id, step.img.get(0));
+                        }
+                    }
+                }
+            }
+
             for (Product product: Data.current_recipe.ingredients) {
                 Database.addProductToRecipe(product.id, NewOne.id, product.temp_weight);
             }
 
-            //Database.addProductToRecipe(Data.current_recipe.id, pr.id, Double.valueOf(Weight.getText()));
 
             Data.all_recipe.add(Data.current_recipe.name);
             Data.current_recipe = null;

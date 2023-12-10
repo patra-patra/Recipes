@@ -18,28 +18,24 @@ public class Cart implements Initializable {
 
     @FXML
     private ListView<String> myCart;
-    //String[] food2 = {"ля", "ля", "ля"};
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        Data.shopping_bag = Database.showCart();
 
         String[] arr = new String[Data.shopping_bag.size()];
 
         for (int i = 0; i < Data.shopping_bag.size(); i++) {
-            //arr[i] = Data.all_recipe.get(i);
             arr[i] = Data.shopping_bag.get(i).name;
+
         }
-
         myCart.getItems().addAll(arr);
-
-
     }
 
     public void SwitchToMain(ActionEvent event) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("main_page.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("mainpage_scene.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene2 = new Scene(root);
         stage.setScene(scene2);

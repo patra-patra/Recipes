@@ -49,7 +49,7 @@ public class Controller implements Initializable {
         myList.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
             @Override
             public ListCell<String> call(ListView<String> param) {
-                return new ListViewWithButton.ButtonListCell("Посмотреть");
+                return new ListViewWithButton.ButtonListCell();
             }
         });
 

@@ -37,6 +37,7 @@ public class RecipePars implements Initializable {
         Pars pars = new Pars();
         Data.current_recipe = pars.GetRecipe(LinkToPars.getText());
         Data.ingredients_from_pars = pars.Ingridients(LinkToPars.getText());
+        //Data.current_recipe_img =
 
         SwitchToNewRecipe(event);
     }
