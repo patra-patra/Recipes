@@ -18,12 +18,23 @@ public class Cart implements Initializable {
 
     @FXML
     private ListView<String> myCart;
-    String[] food2 = {"ля", "ля", "ля"};
+    //String[] food2 = {"ля", "ля", "ля"};
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        myCart.getItems().addAll(food2);
+
+
+        String[] arr = new String[Data.shopping_bag.size()];
+
+        for (int i = 0; i < Data.shopping_bag.size(); i++) {
+            //arr[i] = Data.all_recipe.get(i);
+            arr[i] = Data.shopping_bag.get(i).name;
+        }
+
+        myCart.getItems().addAll(arr);
+
+
     }
 
     public void SwitchToMain(ActionEvent event) throws IOException {

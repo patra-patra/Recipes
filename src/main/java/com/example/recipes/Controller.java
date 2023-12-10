@@ -30,7 +30,7 @@ public class Controller implements Initializable {
     public Button ToCart;
 
     @FXML
-    public HBox Steps;
+    public Button Date;
 
     @FXML
     public ImageView MainPageIMG;
@@ -49,26 +49,63 @@ public class Controller implements Initializable {
         myList.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
             @Override
             public ListCell<String> call(ListView<String> param) {
+                return new ListViewWithButton.ButtonListCell("Посмотреть");
+            }
+        });
+
+        Data.all_recipe = Data.Get();
+
+        String[] arr = new String[Data.all_recipe.size()];
+
+        for (int i = 0; i < Data.all_recipe.size(); i++) {
+            //arr[i] = Data.all_recipe.get(i);
+            arr[i] = Data.all_recipe.get(i);
+        }
+
+        myList.getItems().addAll(arr);
+
+    }
+
+    public void initialize() {
+
+        myList.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
+            @Override
+            public ListCell<String> call(ListView<String> param) {
                 return new ListViewWithButton.ButtonListCell();
             }
         });
 
         Data.all_recipe = Data.Get();
-        //List<Recipe> t = Database.showAllRecipe();
-        //Collections.sort(t, new CompByName());
-/*
-        for (Recipe tt: t) {
-            //System.out.println(tt.name);
-        }
-        */
 
         String[] arr = new String[Data.all_recipe.size()];
 
         for (int i = 0; i < Data.all_recipe.size(); i++) {
+            //arr[i] = Data.all_recipe.get(i);
             arr[i] = Data.all_recipe.get(i);
         }
 
+        myList.getItems().clear();
         myList.getItems().addAll(arr);
+
+    }
+
+    public void SortByAlph(ActionEvent event) throws IOException {
+
+        Data.all_recipe = Data.Get();
+
+        List<Recipe> t = Database.showAllRecipe();
+        Collections.sort(t, new CompByName());
+
+        String[] arr = new String[Data.all_recipe.size()];
+
+        for (int i = 0; i < Data.all_recipe.size(); i++) {
+
+            arr[i] = t.get(i).name;
+            System.out.println(arr[i]);
+        }
+        myList.getItems().clear();
+        myList.getItems().addAll(arr);
+
 
     }
 

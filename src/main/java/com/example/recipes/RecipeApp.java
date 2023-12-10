@@ -23,11 +23,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class HelloApplication extends Application {
+public class RecipeApp extends Application {
 
     public void start(Stage stage) throws IOException {
+        Data data = new Data();
+
         stage.setTitle("Recipes");
-        Parent root = FXMLLoader.load(getClass().getResource("main_page.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("main_page.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("mainpage_scene.fxml"));
         Scene scene = new Scene(root);
         Image icon = new Image("kitty.jpg");
         stage.getIcons().add(icon);
@@ -35,8 +38,6 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.show();
 
-
-        //Database.addProduct("Картофель", 2.0, 50.0, 0.2, 20.0,0);
     }
 
     public static void main( String[] args ) throws IOException{

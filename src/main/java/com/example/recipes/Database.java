@@ -253,6 +253,8 @@ public class Database {
         }
     }
 
+
+
     //добавить продукт в базу
 
     public static void addProduct(String prod_name, double protein, double carbohydrates,double fats, double calories,

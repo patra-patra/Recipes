@@ -13,6 +13,10 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ListViewWithButton {
 
@@ -30,6 +34,32 @@ public class ListViewWithButton {
                 item = getItem();
                 if (item != null) {
 
+                    Parent root = null;
+                    try {
+                        Data.current_recipe = Database.searchRecipe(item);
+                        root = FXMLLoader.load(getClass().getResource("recipe_scene.fxml"));
+
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                    scene = new Scene(root);
+                    stage.setScene(scene);
+
+                    stage.show();
+
+                }
+            });
+
+
+        }
+        public  ButtonListCell(String word) {
+
+            //String item;
+            button = new Button(word);
+            button.setOnAction(event -> {
+                item = getItem();
+                if (item != null) {
                     Parent root = null;
                     try {
                         Data.current_recipe = Database.searchRecipe(item);

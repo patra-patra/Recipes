@@ -55,6 +55,17 @@ public class AddStep implements Initializable {
 
         ToMain(event);
     }
+    public void SortByAlph(ActionEvent event) throws IOException {
+
+        NewStep.text = Text.getText();
+        NewStep.img = img;
+
+        Data.current_recipe.steps.add(NewStep);
+
+        //Data.AddToTempSteps(NewStep);
+
+        ToMain(event);
+    }
 
     public void ToMain(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("new_recipe.fxml"));

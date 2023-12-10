@@ -30,23 +30,33 @@ public class NewExistProduct implements Initializable {
 
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-
     }
 
     public void Input(ActionEvent event) throws IOException {
 
+
         Product pr = Database.searchProduct(Name.getText());
+
         if (pr == null){
             SwitchToCreateProduct(event);
         }
         else{
-            Data.current_recipe.ingrgredients.add(Name.getText());
+            pr.temp_weight = Double.valueOf(Weight.getText());
+            Data.current_recipe.ingredients.add(pr);
+
+            //System.out.println(pr);
+
+
+
+            Recipe r = new Recipe();
+            Double[] d = r.Count_p_c_f_cl(Data.current_recipe.ingredients);
+
+            for (Double dd: d){
+                System.out.println(dd);
+            }
+
             SwitchToNewRec(event);
-
         }
-        //Database.showProducts(1);
-
     }
     public void SwitchToCreateProduct (ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("new_product.fxml"));

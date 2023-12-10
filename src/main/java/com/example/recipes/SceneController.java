@@ -7,10 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -25,6 +22,14 @@ import java.util.ResourceBundle;
 
 public class SceneController implements Initializable {
     @FXML
+    public Label Protein;
+    @FXML
+    public Label Carb;
+    @FXML
+    public Label Fat;
+    @FXML
+    public Label Calories;
+    @FXML
     public Label Name;
     @FXML
     public Label Time;
@@ -33,9 +38,13 @@ public class SceneController implements Initializable {
     @FXML
     public Label Difficult;
     @FXML
+    public Button Delete;
+    @FXML
+    public Button ToFav;
+    @FXML
+    public Button ToCart;
+    @FXML
     public ImageView CurrentRecipeIMG;
-
-
     private Stage stage;
     private Scene scene;
     private Image img;
@@ -46,22 +55,43 @@ public class SceneController implements Initializable {
         Category.setText(Data.current_recipe.category);
         Difficult.setText(Data.current_recipe.difficulty_level);
 
+        Data.current_recipe.ingredients = Database.showProducts(Data.current_recipe.id);
+
         img = new Image(Data.current_recipe.main_img);
         CurrentRecipeIMG.setImage(img);
 
-        //String[] arr = new String[Data.current_recipe.steps.size()];
 
+        for (Product ss : Data.current_recipe.ingredients) {
+            System.out.println(ss);
+        }
+
+
+        Double[] measures = Data.current_recipe.Count_p_c_f_cl(Data.current_recipe.ingredients);
+
+
+        Calories.setText(measures[3].toString());
+        Fat.setText(measures[2].toString());
+        Protein.setText(measures[0].toString());
+        Carb.setText(measures[1].toString());
 
     }
-    public void SwitchToMain (ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("main_page.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene (root);
+
+    public void SwitchToMain(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("mainpage_scene.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
+    public void Delete(ActionEvent event) throws IOException {
+        Database.deleteRecipe(Data.current_recipe.id);
+    }
 
+    public void AddToCart(ActionEvent event) throws IOException {
+        Data.shopping_bag.addAll(Data.current_recipe.ingredients);
+    }
 
 
 }
+

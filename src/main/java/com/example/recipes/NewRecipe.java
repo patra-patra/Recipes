@@ -7,12 +7,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,6 +21,8 @@ public class NewRecipe implements Initializable {
     public Button ToMain;
     @FXML
     public Button AddIgr;
+    @FXML
+    public Label Ingrediets;
     @FXML
     public Button AddStep;
     @FXML
@@ -39,14 +39,20 @@ public class NewRecipe implements Initializable {
     private ListView NewSteps;
     @FXML
     private ListView Ingredients;
-    @FXML
-    private Label Warning;
-    @FXML
-    private ImageView WarningImg;
-    Recipe NewOne = new Recipe();
+    Stage stage;
+    Scene scene;
+    Recipe NewOne;
 
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+        Ingredients.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
+            @Override
+            public ListCell<String> call(ListView<String> param) {
+                return new ListViewWithButton.ButtonListCell();
+            }
+        });
 
         Name.setText(Data.current_recipe.name);
         Category.setText(Data.current_recipe.category);
@@ -60,13 +66,20 @@ public class NewRecipe implements Initializable {
                 arr[i] = Data.current_recipe.steps.get(i).text;
 
             NewSteps.getItems().addAll(arr);
+            String[] arr2 = new String[Data.current_recipe.ingredients.size()];
 
-            String[] arr2 = new String[Data.current_recipe.ingrgredients.size()];
-
-            for (int i = 0; i < Data.current_recipe.ingrgredients.size(); i++)
-                arr2[i] = Data.current_recipe.ingrgredients.get(i);
+            for (int i = 0; i < Data.current_recipe.ingredients.size(); i++)
+                arr2[i] = Data.current_recipe.ingredients.get(i).temp_weight + " г " + Data.current_recipe.ingredients.get(i).name;
 
             Ingredients.getItems().addAll(arr2);
+
+            String warning = "Не добавлены:\n";
+
+            for (int i = 0; i < Data.ingredients_from_pars.size(); i++){
+                warning += Data.ingredients_from_pars.get(i) + "\n";
+            }
+            Ingrediets.setText(warning);
+
 
             Name.setText(Data.current_recipe.name);
             Category.setText(Data.current_recipe.category);
@@ -74,11 +87,12 @@ public class NewRecipe implements Initializable {
             LinkToMainIMG.setText(Data.current_recipe.main_img);
         }
 
-
-
     }
 
-    public void Input(ActionEvent event){
+    public void Input(ActionEvent event) throws IOException {
+
+        NewOne = new Recipe();
+
         NewOne.name = Name.getText();
         NewOne.time = Time.getText();
         NewOne.main_img = LinkToMainIMG.getText();
@@ -94,20 +108,29 @@ public class NewRecipe implements Initializable {
                 Database.addStep(NewOne.id, step.text);
             }
 
-            for (Step step: Data.current_recipe.steps) {
-                Database.addStep(NewOne.id, step.text);
+            for (Product product: Data.current_recipe.ingredients) {
+                Database.addProductToRecipe(product.id, NewOne.id, product.temp_weight);
             }
 
-            Data.all_recipe.add(Data.current_recipe.name);
+            //Database.addProductToRecipe(Data.current_recipe.id, pr.id, Double.valueOf(Weight.getText()));
 
+            Data.all_recipe.add(Data.current_recipe.name);
             Data.current_recipe = null;
         }
+    }
+
+    private void SwitchToCreateProduct(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("new_product.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
 
     public void SwitchToMain(ActionEvent event) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("main_page.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("mainpage_scene.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene2 = new Scene(root);
         stage.setScene(scene2);

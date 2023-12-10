@@ -27,8 +27,8 @@ public class Pars {
         temp_.main_img = GetMainImg(doc1);
 
         temp_.time = Time(doc1);
-        temp_.ingrgredients = new ArrayList<>(Arrays.asList(Ingridients(doc1)));
-        temp_.steps = new ArrayList<>(Arrays.asList(Steps(doc1)));
+        //temp_.ingredients = Ingridients(doc1);///new ArrayList<>(Arrays.asList(Ingridients(doc1)));
+        temp_.steps = Steps(doc1);//new ArrayList<>(Arrays.asList(Steps(doc1)));
         temp_.category = Category(doc1);
 
         return temp_;
@@ -44,18 +44,28 @@ public class Pars {
 
         return time;
     }
-    private String[] Ingridients(Document doc1) throws IOException {
+    public ArrayList<String> Ingridients(String link) throws IOException {
+        Document doc1 = Jsoup.connect(link).get();
+
         Elements text2 = doc1.getElementsByClass("ingredients");
         String pre_ingr = text2.text();
 
         pre_ingr = pre_ingr.substring(0, pre_ingr.length() - 1);
         String[] ingredients;
+        ArrayList<String> ingredients_fin = new ArrayList<>();
 
         ingredients = pre_ingr.split(", ");
 
-        return ingredients;
+        //Product[] products = new Product[ingredients.length];
+
+        for (int i = 0; i < ingredients.length; i++){
+            ingredients_fin.add(ingredients[i]);
+        }
+
+        //return ingredients;
+        return ingredients_fin;
     }
-    private Step[] Steps(Document doc1) throws IOException {
+    private ArrayList<Step> Steps(Document doc1) throws IOException {
         Elements text23 = doc1.select("ol");
 
         Step[] steps = new Step[0];
@@ -77,13 +87,23 @@ public class Pars {
                     step.text = t;
                 }
                 steps[i] = step;
+
             }
         }
+
+        ArrayList<Step> steps_fin = new ArrayList<>();
+
+        for (Step s : steps) {
+            if (s.text != null){
+                steps_fin.add(s);
+            }
+        }
+
 
         //System.out.println(steps[1].text);
         //String a = "https://saechka.ru/" + steps[1].img.get(0);
         //System.out.println(a);
-        return steps;
+        return steps_fin;
     }
     private String Category(Document doc1) throws IOException {
         Elements text2 = doc1.getElementsByClass("cat_razd");

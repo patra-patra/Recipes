@@ -16,7 +16,7 @@ public class Recipe {
     public Integer favorite;
 
     public List<Step> steps;
-    public List<String> ingrgredients;
+    public List<Product> ingredients;
 
     @Override
     public String toString() {;
@@ -31,6 +31,15 @@ public class Recipe {
                 '}';
     }
     public Recipe() {
+        id = 0;
+        name = "";
+        category = "";
+        main_img = "";
+        time = "";
+        difficulty_level = "";
+        favorite = 0;
+        steps = new ArrayList<>();
+        ingredients = new ArrayList<>();
     }
 
     public Recipe(Integer id, String name, String category, String main_img, String time, String difficulty_level, Integer favorite) {
@@ -45,14 +54,29 @@ public class Recipe {
 
 
 
-    public Double[] Count_p_c_f_cl (ArrayList<Product> Ingr){
+    public Double[] Count_p_c_f_cl (List<Product> Ingr){
         Double[] p_c_f_cl = {0.0, 0.0, 0.0, 0.0};
 
+        ArrayList<Product> f = new ArrayList<>(Ingr);
+/*
+        List<Product> i = new ArrayList<>();
+
+        i.add(Database.searchProduct("Картофель"));
+
+        i.add(Database.searchProduct("Картофель"));
+
+        for (Product p: i){
+            System.out.println(p);
+        }
+*/
+
+        //Database.deleteRecipe(1);
+        f.add(Database.searchProduct("Картофель"));
         for (Product ing: Ingr) {
-            p_c_f_cl[0] += ing.temp_weight/100 * ing.protein;
-            p_c_f_cl[1] += ing.temp_weight/100 * ing.carbohydrates;
-            p_c_f_cl[2] += ing.temp_weight/100 * ing.fats;
-            p_c_f_cl[3] += ing.temp_weight/100 * ing.calories;
+            p_c_f_cl[0] += 1000/100 * ing.protein;
+            p_c_f_cl[1] += 1000/100 * ing.carbohydrates;
+            p_c_f_cl[2] += 1000/100 * ing.fats;
+            p_c_f_cl[3] += 1000/100 * ing.calories;
         }
 
         return p_c_f_cl;
