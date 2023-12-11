@@ -44,7 +44,6 @@ public class NewExistProduct implements Initializable {
             pr.temp_weight = Double.valueOf(Weight.getText());
             Data.current_recipe.ingredients.add(pr);
 
-
             SwitchToNewRec(event);
         }
     }

@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac776215-f60e-4816-bfce-980eb88cf38a" name="Changes" comment="картинки шагов отображаются">
+    <list default="true" id="ac776215-f60e-4816-bfce-980eb88cf38a" name="Changes" comment="Фидбтрация по времени, категориям, сортировка по алфавиту и появлению, вывод избранных">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/SceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/SceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/NewExistProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/NewExistProduct.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/recipes/mainpage_scene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/recipes/mainpage_scene.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/recipes/recipe_scene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/recipes/recipe_scene.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,7 +234,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702227520579</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Фидбтрация по времени, категориям, сортировка по алфавиту и появлению, вывод избранных">
+      <option name="closed" value="true" />
+      <created>1702265149771</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1702265149771</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -260,7 +267,8 @@
     <MESSAGE value="шаги и ингрединты отображаются в приложении" />
     <MESSAGE value="предупрехдение о отсутствии в базе продукта" />
     <MESSAGE value="картинки шагов отображаются" />
-    <option name="LAST_COMMIT_MESSAGE" value="картинки шагов отображаются" />
+    <MESSAGE value="Фидбтрация по времени, категориям, сортировка по алфавиту и появлению, вывод избранных" />
+    <option name="LAST_COMMIT_MESSAGE" value="Фидбтрация по времени, категориям, сортировка по алфавиту и появлению, вывод избранных" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

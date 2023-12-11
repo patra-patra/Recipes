@@ -14,11 +14,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.recipes.Controller">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="808.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.recipes.Controller">
    <content>
       <BorderPane prefHeight="992.0" prefWidth="1294.0">
          <top>
-            <VBox prefHeight="219.0" prefWidth="1164.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="52.0" prefWidth="1141.0" BorderPane.alignment="CENTER">
                <children>
                   <AnchorPane prefHeight="65.0" prefWidth="1194.0" />
                   <HBox alignment="CENTER_LEFT" prefHeight="65.0" prefWidth="1270.0">
@@ -59,11 +59,16 @@
                            <content>
                               <VBox prefHeight="0.0" prefWidth="98.0">
                                  <children>
-                                    <CheckBox fx:id="SortAlph" mnemonicParsing="false" onAction="#Change_2" prefWidth="189.0" style="-fx-padding: 10;" text="Алфавиту" />
-                                    <CheckBox fx:id="FromOldToNew" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#Change_3" prefWidth="189.0" style="-fx-padding: 10;" text="От старых к новым" />
+                                    <CheckBox fx:id="SortAlph" mnemonicParsing="false" onAction="#Change_2" prefHeight="19.0" prefWidth="166.0" style="-fx-padding: 10;" text="Алфавиту" />
+                                    <CheckBox fx:id="FromOldToNew" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#Change_3" prefHeight="22.0" prefWidth="166.0" style="-fx-padding: 10;" text="От старых к новым" />
                                     <CheckBox fx:id="FromNewToOld" layoutX="20.0" layoutY="58.0" mnemonicParsing="false" onAction="#Change" prefWidth="189.0" style="-fx-padding: 10;" text="От новых к старым" />
                                  </children>
                               </VBox>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" text="Сложность">
+                           <content>
+                              <VBox fx:id="Difficulity" prefHeight="0.0" prefWidth="185.0" />
                            </content>
                         </TitledPane>
                     </panes>
@@ -80,7 +85,7 @@
             </VBox>
          </left>
          <center>
-            <VBox prefHeight="814.0" prefWidth="978.0" style="-fx-padding: 20;" BorderPane.alignment="CENTER">
+            <VBox prefHeight="723.0" prefWidth="1108.0" style="-fx-padding: 20;" BorderPane.alignment="CENTER">
                <children>
                   <Label text="Рецепты">
                      <font>

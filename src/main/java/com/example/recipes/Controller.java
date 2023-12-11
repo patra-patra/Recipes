@@ -29,6 +29,8 @@ public class Controller implements Initializable {
     @FXML
     private VBox Time;
     @FXML
+    private VBox Difficulity;
+    @FXML
     public CheckBox SortAlph;
 
     @FXML
@@ -72,6 +74,7 @@ public class Controller implements Initializable {
         try {
             Cat(url, resourceBundle);
             Time(url, resourceBundle);
+            Difficulity(url, resourceBundle);
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -236,6 +239,47 @@ public class Controller implements Initializable {
         myList.getItems().addAll(fin_filtration);
 
     }
+    public void SortByDif(String cat) throws IOException {
+
+        Data.all_recipe = Data.Get();
+        List<Recipe> t = Database.showAllRecipe();
+
+        List<String> time = new ArrayList<>();
+
+        String[] arr = new String[t.size()]; // массив с категориями
+
+        for (int i = 0; i < t.size(); i++) {
+            arr[i] = t.get(i).difficulty_level;
+        }
+
+        List<String> id_ =  new ArrayList<>(Arrays.asList(arr));
+        Set<String> set = new HashSet<>(id_);
+        id_.clear();
+        id_.addAll(set);
+
+
+        List<String> names_by_category = new ArrayList<>();
+
+        for (int i = 0; i < t.size(); i++) {
+
+            if (Objects.equals(t.get(i).difficulty_level, cat)){
+                names_by_category.add(t.get(i).name);
+
+            }
+        }
+
+        String[] fin_filtration = new String[names_by_category.size()];
+
+        for (int i = 0; i < names_by_category.size(); i++) {
+
+            fin_filtration[i] = names_by_category.get(i);
+
+        }
+
+        myList.getItems().clear();
+        myList.getItems().addAll(fin_filtration);
+
+    }
     public void FromNewToOld(ActionEvent event) throws IOException {
 
         Data.all_recipe = Data.Get();
@@ -321,6 +365,36 @@ public class Controller implements Initializable {
                     }
             );
             Time.getChildren().add(checkBox);
+        }
+    }
+ public void Difficulity(URL url, ResourceBundle resourceBundle) throws IOException {
+        Data.all_recipe = Data.Get();
+        List<Recipe> t = Database.showAllRecipe();
+
+        String[] arr = new String[t.size()];
+
+        for (int i = 0; i < t.size(); i++) {
+            arr[i] = t.get(i).difficulty_level;
+        }
+
+        List<String> id_ =  new ArrayList<>(Arrays.asList(arr));
+        Set<String> set = new HashSet<>(id_);
+        id_.clear();
+        id_.addAll(set);
+
+        for (String cat: id_){
+
+            CheckBox checkBox = new CheckBox(cat);
+            checkBox.selectedProperty().addListener(
+                    (ObservableValue<? extends Boolean> ov, Boolean old_val, Boolean new_val) -> {
+                        try {
+                            SortByDif(cat);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+            );
+            Difficulity.getChildren().add(checkBox);
         }
     }
 
