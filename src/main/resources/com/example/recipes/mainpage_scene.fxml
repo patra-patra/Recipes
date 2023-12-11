@@ -47,76 +47,32 @@
                     <panes>
                       <TitledPane animated="false" text="Категория">
                            <content>
-                              <VBox prefHeight="0.0" prefWidth="98.0">
-                                 <children>
-                                    <CheckBox mnemonicParsing="false" prefWidth="189.0" style="-fx-padding: 10;" text="CheckBox" />
-                                    <CheckBox layoutX="20.0" layoutY="20.0" mnemonicParsing="false" prefWidth="189.0" style="-fx-padding: 10;" text="CheckBox" />
-                                    <CheckBox layoutX="20.0" layoutY="58.0" mnemonicParsing="false" prefWidth="189.0" style="-fx-padding: 10;" text="CheckBox" />
-                                 </children>
-                              </VBox>
+                              <VBox fx:id="Cat" prefHeight="0.0" prefWidth="98.0" />
                            </content>
                         </TitledPane>
                         <TitledPane animated="false" layoutX="10.0" layoutY="10.0" text="Время готовки">
                            <content>
-                              <VBox prefHeight="0.0" prefWidth="98.0">
-                                 <children>
-                                    <CheckBox mnemonicParsing="false" prefWidth="189.0" style="-fx-padding: 10;" text="CheckBox" />
-                                    <CheckBox layoutX="20.0" layoutY="20.0" mnemonicParsing="false" prefWidth="189.0" style="-fx-padding: 10;" text="CheckBox" />
-                                    <CheckBox layoutX="20.0" layoutY="58.0" mnemonicParsing="false" prefWidth="189.0" style="-fx-padding: 10;" text="CheckBox" />
-                                 </children>
-                              </VBox>
-                           </content>
-                        </TitledPane>
-                        <TitledPane animated="false" layoutX="10.0" layoutY="172.0" text="Тип блюда">
-                           <content>
-                              <VBox prefHeight="0.0" prefWidth="98.0">
-                                 <children>
-                                    <CheckBox mnemonicParsing="false" prefWidth="189.0" style="-fx-padding: 10;" text="CheckBox" />
-                                    <CheckBox layoutX="20.0" layoutY="20.0" mnemonicParsing="false" prefWidth="189.0" style="-fx-padding: 10;" text="CheckBox" />
-                                    <CheckBox layoutX="20.0" layoutY="58.0" mnemonicParsing="false" prefWidth="189.0" style="-fx-padding: 10;" text="CheckBox" />
-                                 </children>
-                              </VBox>
+                              <VBox fx:id="Time" prefHeight="0.0" prefWidth="98.0" />
                            </content>
                         </TitledPane>
                         <TitledPane animated="false" layoutX="10.0" layoutY="61.0" text="Сортировать ">
                            <content>
                               <VBox prefHeight="0.0" prefWidth="98.0">
                                  <children>
-                                    <CheckBox mnemonicParsing="false" prefWidth="189.0" style="-fx-padding: 10;" text="Алфавиту" />
-                                    <CheckBox layoutX="20.0" layoutY="20.0" mnemonicParsing="false" prefWidth="189.0" style="-fx-padding: 10;" text="От старых к новым" />
-                                    <CheckBox layoutX="20.0" layoutY="58.0" mnemonicParsing="false" prefWidth="189.0" style="-fx-padding: 10;" text="От новых к старым" />
-                                 </children>
-                              </VBox>
-                           </content>
-                        </TitledPane>
-                        <TitledPane animated="false" layoutX="10.0" layoutY="223.0" text="Группировать по">
-                           <content>
-                              <VBox prefHeight="0.0" prefWidth="98.0">
-                                 <children>
-                                    <CheckBox mnemonicParsing="false" prefWidth="189.0" style="-fx-padding: 10;" text="CheckBox" />
-                                    <CheckBox layoutX="20.0" layoutY="20.0" mnemonicParsing="false" prefWidth="189.0" style="-fx-padding: 10;" text="CheckBox" />
-                                    <CheckBox layoutX="20.0" layoutY="58.0" mnemonicParsing="false" prefWidth="189.0" style="-fx-padding: 10;" text="Группировать по" />
+                                    <CheckBox fx:id="SortAlph" mnemonicParsing="false" onAction="#Change_2" prefWidth="189.0" style="-fx-padding: 10;" text="Алфавиту" />
+                                    <CheckBox fx:id="FromOldToNew" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#Change_3" prefWidth="189.0" style="-fx-padding: 10;" text="От старых к новым" />
+                                    <CheckBox fx:id="FromNewToOld" layoutX="20.0" layoutY="58.0" mnemonicParsing="false" onAction="#Change" prefWidth="189.0" style="-fx-padding: 10;" text="От новых к старым" />
                                  </children>
                               </VBox>
                            </content>
                         </TitledPane>
                     </panes>
                   </Accordion>
-                  <CheckBox mnemonicParsing="false" text="Только избранное">
+                  <CheckBox fx:id="Fav" mnemonicParsing="false" onAction="#Change_4" text="Только избранное">
                      <VBox.margin>
                         <Insets bottom="20.0" top="10.0" />
                      </VBox.margin>
                   </CheckBox>
-                  <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="162.0" text="Применить">
-                     <VBox.margin>
-                        <Insets bottom="10.0" top="10.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="165.0" text="Сбросить">
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                  </Button>
                </children>
                <BorderPane.margin>
                   <Insets top="70.0" />

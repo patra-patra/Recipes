@@ -4,18 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac776215-f60e-4816-bfce-980eb88cf38a" name="Changes" comment="предупрехдение о отсутствии в базе продукта">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_12_2023_21_42__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_12_2023_21_42__Changes_.xml" afterDir="false" />
+    <list default="true" id="ac776215-f60e-4816-bfce-980eb88cf38a" name="Changes" comment="картинки шагов отображаются">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Cart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/NewExistProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/NewExistProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/NewRecipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/NewRecipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Pars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Pars.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Recipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/RecipePars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/RecipePars.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/SceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/SceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/recipes/mainpage_scene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/recipes/mainpage_scene.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/recipes/recipe_scene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/recipes/recipe_scene.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -234,7 +227,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701970273246</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="картинки шагов отображаются">
+      <option name="closed" value="true" />
+      <created>1702227520579</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1702227520579</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -258,7 +259,8 @@
     <MESSAGE value="Исправление ошибки у функции поиска по названию" />
     <MESSAGE value="шаги и ингрединты отображаются в приложении" />
     <MESSAGE value="предупрехдение о отсутствии в базе продукта" />
-    <option name="LAST_COMMIT_MESSAGE" value="предупрехдение о отсутствии в базе продукта" />
+    <MESSAGE value="картинки шагов отображаются" />
+    <option name="LAST_COMMIT_MESSAGE" value="картинки шагов отображаются" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

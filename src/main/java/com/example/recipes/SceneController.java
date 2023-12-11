@@ -92,7 +92,6 @@ public class SceneController implements Initializable {
         Steps.setPadding(new Insets(10, 10, 10, 10));
         Steps.setSpacing(10);
 
-
         for (int i = 0; i < Data.current_recipe.steps.size(); i++){
 
             int st = i + 1;
@@ -100,7 +99,8 @@ public class SceneController implements Initializable {
             Steps.getChildren().add(step);
 
                 for (Step_img imgg: Data.current_recipe_img){
-                    if (imgg.step_id == Data.current_recipe.steps.get(i).step_id){
+                    HBox box = new HBox();
+                    if (imgg.step_id == Data.current_recipe.steps.get(i).step_id) {
                         ImageView img_step = new ImageView();
                         img = new Image(imgg.img_url);
 
@@ -108,16 +108,14 @@ public class SceneController implements Initializable {
                         img_step.setFitWidth(250);
 
                         img_step.setImage(img);
-                        Steps.getChildren().add(img_step);
+                        box.getChildren().add(img_step);
 
+                    }
+                    Steps.getChildren().add(box);
                 }
-
-
-        }
-
-
+            }
     }
-    }
+
 
     public void SwitchToMain(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("mainpage_scene.fxml"));
