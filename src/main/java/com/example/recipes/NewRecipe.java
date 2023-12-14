@@ -102,7 +102,7 @@ public class NewRecipe implements Initializable {
         NewOne.difficulty_level = Difflevel.getText();
 
         if (NewOne.name != null && NewOne.time != null && NewOne.main_img != null && NewOne.category != null && NewOne.difficulty_level != null){
-            Database.addRecipe(NewOne.name, NewOne.category, NewOne.main_img, NewOne.time, NewOne.difficulty_level, 0);
+            Database.addRecipe(NewOne);
 
             NewOne.id = Database.searchRecipe(NewOne.name).id;
 

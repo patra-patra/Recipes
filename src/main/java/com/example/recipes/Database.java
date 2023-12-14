@@ -172,19 +172,18 @@ public class Database {
 
 
     //добавить рецепт Recipe recipe
-    public static void addRecipe(String rec_name, String category, String main_img, String time,
-                                 String difficulty_level,int favorite){
+    public static void addRecipe(Recipe recipe){
         String query = "INSERT INTO recipes(rec_name,category,main_img,cooking_time,difficulty_level,favorite) VALUES(?,?,?,?,?,?)";
         try (Connection connection = DBconn.GetConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
 
-            preparedStatement.setString(1,rec_name);
-            preparedStatement.setString(2, category);
-            preparedStatement.setString(3,main_img);
-            preparedStatement.setString(4,time);
-            preparedStatement.setString(5,difficulty_level);
-            preparedStatement.setInt(6,favorite);
+            preparedStatement.setString(1,recipe.name);
+            preparedStatement.setString(2, recipe.category);
+            preparedStatement.setString(3,recipe.main_img);
+            preparedStatement.setString(4,recipe.time);
+            preparedStatement.setString(5,recipe.difficulty_level);
+            preparedStatement.setInt(6,recipe.favorite);
 
             preparedStatement.executeUpdate();
 
@@ -257,20 +256,19 @@ public class Database {
 
     //добавить продукт в базу  Product product
 
-    public static void addProduct(String prod_name, double protein, double carbohydrates,double fats, double calories,
-                                  double temp_weight){
+    public static void addProduct(Product product){
         String query = "INSERT INTO products(prod_name,protein,carbohydrates,fats,calories,temp_weight) " +
                 "VALUES(?,?,?,?,?,?)";
         try (Connection connection = DBconn.GetConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
 
-            preparedStatement.setString(1, prod_name);
-            preparedStatement.setDouble(2, protein);
-            preparedStatement.setDouble(3, carbohydrates);
-            preparedStatement.setDouble(4, fats);
-            preparedStatement.setDouble(5, calories);
-            preparedStatement.setDouble(6, temp_weight);
+            preparedStatement.setString(1, product.name);
+            preparedStatement.setDouble(2, product.protein);
+            preparedStatement.setDouble(3, product.carbohydrates);
+            preparedStatement.setDouble(4, product.fats);
+            preparedStatement.setDouble(5, product.calories);
+            preparedStatement.setDouble(6, product.temp_weight);
 
             preparedStatement.executeUpdate();
 
@@ -398,14 +396,19 @@ public class Database {
 
     }
 
-    //обноывить название рецепта
-    public static void updateRecipe(int id, String rec_name) {
-        String query =  "UPDATE recipes SET rec_name = ? WHERE id = ?";
-        Recipe recipe = null;
+    //обновить рецепт
+    public static void updateRecipe(Recipe recipe) {
+        String query =  "UPDATE recipes SET rec_name = ?,category = ?,main_img = ?,cooking_time = ?," +
+                "difficulty_level = ?,favorite = ? WHERE id = ?";
         try (Connection connection = DBconn.GetConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setString(1, rec_name);
-            preparedStatement.setInt(2, id);
+            preparedStatement.setString(1, recipe.name);
+            preparedStatement.setString(1, recipe.category);
+            preparedStatement.setString(1, recipe.main_img);
+            preparedStatement.setString(1, recipe.time);
+            preparedStatement.setString(1, recipe.difficulty_level);
+            preparedStatement.setInt(1, recipe.favorite);
+            preparedStatement.setInt(2, recipe.id);
             preparedStatement.executeUpdate();
 
         } catch (SQLException throwables) {
@@ -414,72 +417,7 @@ public class Database {
 
     }
 
-    //обноывить категорию рецепта
-    public static void updateRecipeCategory(int id, String category) {
-        String query =  "UPDATE recipes SET category = ? WHERE id = ?";
-        Recipe recipe = null;
-        try (Connection connection = DBconn.GetConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setString(1, category);
-            preparedStatement.setInt(2, id);
-            preparedStatement.executeUpdate();
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-
-    }
-
-    //обновить картинку рецепта
-
-    public static void updateRecipeImg(int id, String main_img) {
-        String query =  "UPDATE recipes SET main_img = ? WHERE id = ?";
-        Recipe recipe = null;
-        try (Connection connection = DBconn.GetConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setString(1, main_img);
-            preparedStatement.setInt(2, id);
-            preparedStatement.executeUpdate();
-
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-
-    }
-
-    //обновить время рецепта
-
-    public static void updateRecipeTime(int id, String cooking_time) {
-        String query =  "UPDATE recipes SET cooking_time = ? WHERE id = ?";
-        Recipe recipe = null;
-        try (Connection connection = DBconn.GetConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setString(1, cooking_time);
-            preparedStatement.setInt(2, id);
-            preparedStatement.executeUpdate();
-
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-
-    }
-
-    //обновить сложность рецепта
-
-    public static void updateRecipeDifficulty(int id, String difficulty_level) {
-        String query =  "UPDATE recipes SET difficulty_level = ? WHERE id = ?";
-        Recipe recipe = null;
-        try (Connection connection = DBconn.GetConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setString(1, difficulty_level);
-            preparedStatement.setInt(2, id);
-            preparedStatement.executeUpdate();
-
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-
-    }
     //получение веса продукта
     public static Double showWeight(int rec_id, int prod_id) {
         String query =  "SELECT weight FROM prod_in_rec WHERE rec_id = ? AND prod_id = ?";

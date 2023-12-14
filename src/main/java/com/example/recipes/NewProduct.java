@@ -57,7 +57,7 @@ public class NewProduct {
         NewOne.protein = Double.valueOf(Protein.getText());
         NewOne.calories = Double.valueOf(Calories.getText());
 
-        Database.addProduct(NewOne.name, NewOne.protein, NewOne.carbohydrates, NewOne.fats, NewOne.calories, 0);
+        Database.addProduct(NewOne);
 
     }
 
