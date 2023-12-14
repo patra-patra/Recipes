@@ -29,7 +29,7 @@ public class RecipeApp extends Application {
         Data data = new Data();
 
         stage.setTitle("Recipes");
-        //Parent root = FXMLLoader.load(getClass().getResource("main_page.fxml"));
+
         Parent root = FXMLLoader.load(getClass().getResource("mainpage_scene.fxml"));
         Scene scene = new Scene(root);
         Image icon = new Image("kitty.jpg");
@@ -37,6 +37,9 @@ public class RecipeApp extends Application {
 
         stage.setScene(scene);
         stage.show();
+
+
+
 
     }
 

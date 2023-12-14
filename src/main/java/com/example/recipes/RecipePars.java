@@ -26,7 +26,7 @@ public class RecipePars implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
     }
     public void SwitchToMain(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("main_page.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("mainpage_scene.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene2 = new Scene(root);
         stage.setScene(scene2);

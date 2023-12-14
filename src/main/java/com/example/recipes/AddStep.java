@@ -85,21 +85,12 @@ public class AddStep implements Initializable {
 
     public void SwitchToMain(ActionEvent event) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("main_page.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene2 = new Scene(root);
-        stage.setScene(scene2);
-        stage.show();
-    }/*
-    public void NewStep(ActionEvent event) throws IOException {
-
-        Parent root = FXMLLoader.load(getClass().getResource("add_step.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("mainpage_scene.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene2 = new Scene(root);
         stage.setScene(scene2);
         stage.show();
     }
-    */
     public void Quit(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("new_recipe.fxml"));

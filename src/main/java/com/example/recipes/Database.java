@@ -171,7 +171,7 @@ public class Database {
     }
 
 
-    //добавить рецепт
+    //добавить рецепт Recipe recipe
     public static void addRecipe(String rec_name, String category, String main_img, String time,
                                  String difficulty_level,int favorite){
         String query = "INSERT INTO recipes(rec_name,category,main_img,cooking_time,difficulty_level,favorite) VALUES(?,?,?,?,?,?)";
@@ -255,7 +255,7 @@ public class Database {
 
 
 
-    //добавить продукт в базу
+    //добавить продукт в базу  Product product
 
     public static void addProduct(String prod_name, double protein, double carbohydrates,double fats, double calories,
                                   double temp_weight){
@@ -265,7 +265,7 @@ public class Database {
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
 
-            preparedStatement.setString(1,prod_name);
+            preparedStatement.setString(1, prod_name);
             preparedStatement.setDouble(2, protein);
             preparedStatement.setDouble(3, carbohydrates);
             preparedStatement.setDouble(4, fats);
@@ -399,7 +399,7 @@ public class Database {
     }
 
     //обноывить название рецепта
-    public static void updateRecipeName(int id, String rec_name) {
+    public static void updateRecipe(int id, String rec_name) {
         String query =  "UPDATE recipes SET rec_name = ? WHERE id = ?";
         Recipe recipe = null;
         try (Connection connection = DBconn.GetConnection();

@@ -130,6 +130,8 @@ public class NewRecipe implements Initializable {
 
             Data.all_recipe.add(Data.current_recipe.name);
             Data.current_recipe = null;
+
+            SwitchToMain(event);
         }
     }
 
@@ -151,6 +153,12 @@ public class NewRecipe implements Initializable {
         stage.show();
     }
     public void NewStep(ActionEvent event) throws IOException {
+
+        Data.current_recipe.name = Name.getText();
+        Data.current_recipe.difficulty_level = Difflevel.getText();
+        Data.current_recipe.time = Time.getText();
+        Data.current_recipe.main_img = LinkToMainIMG.getText();
+        Data.current_recipe.category = Category.getText();
 
         Parent root = FXMLLoader.load(getClass().getResource("add_step.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

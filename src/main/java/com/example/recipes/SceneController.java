@@ -84,7 +84,9 @@ public class SceneController implements Initializable {
         Ingred.setSpacing(10);
 
         for (int i = 0; i < Data.current_recipe.ingredients.size(); i++){
-            Label ing = new Label(Data.current_recipe.ingredients.get(i).name);
+
+            Double weight = Database.showWeight(Data.current_recipe.id, Database.searchProduct(Data.current_recipe.ingredients.get(i).name).id);
+            Label ing = new Label(Data.current_recipe.ingredients.get(i).name + " - " + weight + " г");
             Ingred.getChildren().add(ing);
 
         }

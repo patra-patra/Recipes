@@ -23,12 +23,9 @@ public class Pars {
         Document doc1 = Jsoup.connect(path).get();
 
         temp_.name = NameRecipe(doc1);
-
         temp_.main_img = GetMainImg(doc1);
-
         temp_.time = Time(doc1);
-        //temp_.ingredients = Ingridients(doc1);///new ArrayList<>(Arrays.asList(Ingridients(doc1)));
-        temp_.steps = Steps(doc1);//new ArrayList<>(Arrays.asList(Steps(doc1)));
+        temp_.steps = Steps(doc1);
         temp_.category = Category(doc1);
 
         return temp_;
@@ -100,9 +97,6 @@ public class Pars {
             }
         }
 
-        for (Step s: steps_fin) {
-            System.out.println(s.text + " " + s.img);
-        }
 
         return steps_fin;
     }

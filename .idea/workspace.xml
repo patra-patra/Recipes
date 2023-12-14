@@ -4,11 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac776215-f60e-4816-bfce-980eb88cf38a" name="Changes" comment="Фидбтрация по времени, категориям, сортировка по алфавиту и появлению, вывод избранных">
+    <list default="true" id="ac776215-f60e-4816-bfce-980eb88cf38a" name="Changes" comment="Фильтрация по уровню сложности">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_12_2023_20_20_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_12_2023_20_20__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_12_2023_20_28_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_12_2023_20_28__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/NewExistProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/NewExistProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/recipes/mainpage_scene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/recipes/mainpage_scene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/AddStep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/AddStep.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/NewProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/NewProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/NewRecipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/NewRecipe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Pars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Pars.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/RecipeApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/RecipeApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/RecipePars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/RecipePars.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/SceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/SceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/recipes/cart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/recipes/cart.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/recipes/recipe_scene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/recipes/recipe_scene.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,7 +253,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702265149771</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Фильтрация по уровню сложности">
+      <option name="closed" value="true" />
+      <created>1702266171174</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1702266171174</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -268,7 +287,8 @@
     <MESSAGE value="предупрехдение о отсутствии в базе продукта" />
     <MESSAGE value="картинки шагов отображаются" />
     <MESSAGE value="Фидбтрация по времени, категориям, сортировка по алфавиту и появлению, вывод избранных" />
-    <option name="LAST_COMMIT_MESSAGE" value="Фидбтрация по времени, категориям, сортировка по алфавиту и появлению, вывод избранных" />
+    <MESSAGE value="Фильтрация по уровню сложности" />
+    <option name="LAST_COMMIT_MESSAGE" value="Фильтрация по уровню сложности" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
