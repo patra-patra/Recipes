@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Cart implements Initializable {
+public class CartController implements Initializable {
 
     @FXML
     private ListView<String> myCart;

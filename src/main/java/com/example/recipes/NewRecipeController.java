@@ -8,7 +8,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -18,7 +17,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class NewRecipe implements Initializable {
+public class NewRecipeController implements Initializable {
     @FXML
     public Button ToMain;
     @FXML

@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class RecipePars implements Initializable {
+public class ParsSceneController {
     @FXML
     private TextField LinkToPars;
     @FXML
@@ -23,8 +23,6 @@ public class RecipePars implements Initializable {
     @FXML
     public Button ParseNew;
 
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-    }
     public void SwitchToMain(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("mainpage_scene.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

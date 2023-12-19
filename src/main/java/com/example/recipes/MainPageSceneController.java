@@ -1,6 +1,5 @@
 package com.example.recipes;
 
-import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,7 +10,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -21,7 +19,7 @@ import java.net.URL;
 import java.util.*;
 
 
-public class Controller implements Initializable {
+public class MainPageSceneController implements Initializable {
     @FXML
     public Button ToCart;
     @FXML
@@ -32,34 +30,23 @@ public class Controller implements Initializable {
     private VBox Difficulity;
     @FXML
     public CheckBox SortAlph;
-
     @FXML
     public CheckBox Fav;
-
-
+    @FXML
+    public CheckBox All;
     @FXML
     public CheckBox FromNewToOld;
-
     @FXML
     public CheckBox FromOldToNew;
-
-    @FXML
-    public Button Date;
-
-    @FXML
-    public ImageView MainPageIMG;
     @FXML
     private ListView<String> myList;
-
     @FXML
     private Button ParsButton;
-
     private Stage stage;
     private Scene scene;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         myList.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
             @Override
             public ListCell<String> call(ListView<String> param) {
@@ -68,8 +55,12 @@ public class Controller implements Initializable {
         });
 
         Data.all_recipe = Data.Get();
-
         String[] arr = new String[Data.all_recipe.size()];
+        List<Recipe> t = Database.showAllRecipe();
+
+        for (int i = 0; i < Data.all_recipe.size(); i++) {
+            arr[i] = t.get(i).name;
+        }
 
         try {
             Cat(url, resourceBundle);
@@ -92,7 +83,6 @@ public class Controller implements Initializable {
         });
 
         Data.all_recipe = Data.Get();
-
         String[] arr = new String[Data.all_recipe.size()];
 
         for (int i = 0; i < Data.all_recipe.size(); i++) {
@@ -135,7 +125,14 @@ public class Controller implements Initializable {
             initialize();
         }
     }
-
+    public void Change_5(ActionEvent event) throws IOException{
+        if (All.isSelected()){
+            initialize();
+        }
+        else{
+            initialize();
+        }
+    }
 
     public void SortByAlph(ActionEvent event) throws IOException {
 
@@ -173,29 +170,22 @@ public class Controller implements Initializable {
         id_.clear();
         id_.addAll(set); // массив с категориями без повторов
 
-
         List<String> names_by_category = new ArrayList<>();
 
         for (int i = 0; i < t.size(); i++) {
-
             if (Objects.equals(t.get(i).category, cat)){
                 names_by_category.add(t.get(i).name);
-               // System.out.println(t.get(i).name +  "   " + cat);
             }
         }
-
-
         String[] fin_filtration = new String[names_by_category.size()];
 
         for (int i = 0; i < names_by_category.size(); i++) {
 
             fin_filtration[i] = names_by_category.get(i);
-
         }
 
         myList.getItems().clear();
         myList.getItems().addAll(fin_filtration);
-
     }
     public void SortByTime(String cat) throws IOException {
 
@@ -215,29 +205,24 @@ public class Controller implements Initializable {
         id_.clear();
         id_.addAll(set); // массив с категориями без повторов
 
-
         List<String> names_by_category = new ArrayList<>();
 
         for (int i = 0; i < t.size(); i++) {
 
-            if (Objects.equals(t.get(i).time, cat)){
+            if (Objects.equals(t.get(i).time, cat)) {
                 names_by_category.add(t.get(i).name);
-               // System.out.println(t.get(i).name +  "   " + cat);
             }
         }
-
 
         String[] fin_filtration = new String[names_by_category.size()];
 
         for (int i = 0; i < names_by_category.size(); i++) {
 
             fin_filtration[i] = names_by_category.get(i);
-
         }
 
         myList.getItems().clear();
         myList.getItems().addAll(fin_filtration);
-
     }
     public void SortByDif(String cat) throws IOException {
 
@@ -264,7 +249,6 @@ public class Controller implements Initializable {
 
             if (Objects.equals(t.get(i).difficulty_level, cat)){
                 names_by_category.add(t.get(i).name);
-
             }
         }
 
@@ -273,7 +257,6 @@ public class Controller implements Initializable {
         for (int i = 0; i < names_by_category.size(); i++) {
 
             fin_filtration[i] = names_by_category.get(i);
-
         }
 
         myList.getItems().clear();
@@ -281,14 +264,16 @@ public class Controller implements Initializable {
 
     }
     public void FromNewToOld(ActionEvent event) throws IOException {
-
         Data.all_recipe = Data.Get();
 
         List<Recipe> t = Database.showAllRecipe();
-
         Collections.reverse(t);
 
         String[] arr = new String[Data.all_recipe.size()];
+
+        for (int i = 0; i < t.size(); i++) {
+            arr[i] = t.get(i).name;
+        }
 
         myList.getItems().clear();
         myList.getItems().addAll(arr);
@@ -299,10 +284,9 @@ public class Controller implements Initializable {
         String[] arr = new String[t.size()];
 
         for (int i = 0; i < t.size(); i++) {
-
             arr[i] = t.get(i).name;
-
         }
+
         myList.getItems().clear();
         myList.getItems().addAll(arr);
     }

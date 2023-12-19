@@ -13,15 +13,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
-public class SceneController implements Initializable {
+public class RecipeSceneController implements Initializable {
     @FXML
     public Label Protein;
     @FXML
@@ -60,14 +57,12 @@ public class SceneController implements Initializable {
         Category.setText(Data.current_recipe.category);
         Difficult.setText(Data.current_recipe.difficulty_level);
 
-
         Data.current_recipe.ingredients = Database.showProducts(Data.current_recipe.id);
         Data.current_recipe.steps = Database.showSteps(Data.current_recipe.id);
 
         for (Step step: Data.current_recipe.steps) {
             Data.current_recipe_img.addAll(Database.showStepImg(step.step_id));
         }
-
 
         img = new Image(Data.current_recipe.main_img);
         CurrentRecipeIMG.setImage(img);
@@ -88,7 +83,6 @@ public class SceneController implements Initializable {
             Double weight = Database.showWeight(Data.current_recipe.id, Database.searchProduct(Data.current_recipe.ingredients.get(i).name).id);
             Label ing = new Label(Data.current_recipe.ingredients.get(i).name + " - " + weight + " г");
             Ingred.getChildren().add(ing);
-
         }
 
         Steps.setPadding(new Insets(10, 10, 10, 10));
@@ -116,8 +110,7 @@ public class SceneController implements Initializable {
                     Steps.getChildren().add(box);
                 }
             }
-    }
-
+        }
 
     public void SwitchToMain(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("mainpage_scene.fxml"));
@@ -126,11 +119,9 @@ public class SceneController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
     public void Delete(ActionEvent event) throws IOException {
         Database.deleteRecipe(Data.current_recipe.id);
     }
-
     public void AddToCart(ActionEvent event) throws IOException {
         Data.shopping_bag.addAll(Data.current_recipe.ingredients);
         Database.addRecipeToCart(Data.current_recipe.id);
@@ -138,7 +129,5 @@ public class SceneController implements Initializable {
     public void AddToFav(ActionEvent event) throws IOException {
        Database.addRecipeToFavorite(Data.current_recipe.id);
     }
-
-
 }
 

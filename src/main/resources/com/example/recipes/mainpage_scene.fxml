@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="808.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.recipes.Controller">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="808.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.recipes.MainPageSceneController">
    <content>
       <BorderPane prefHeight="992.0" prefWidth="1294.0">
          <top>
@@ -23,9 +23,9 @@
                   <AnchorPane prefHeight="65.0" prefWidth="1194.0" />
                   <HBox alignment="CENTER_LEFT" prefHeight="65.0" prefWidth="1270.0">
                      <children>
-                        <Button fx:id="Delete11" mnemonicParsing="false" onAction="#SwitchToPars" prefHeight="27.0" prefWidth="148.0" style="-fx-border-radius: 15; -fx-border-color: #6a6a6a; -fx-background-radius: 15; -fx-background-color: #FFFFFF;" text="Спарсить пецепт" />
+                        <Button fx:id="ParsButton" mnemonicParsing="false" onAction="#SwitchToPars" prefHeight="27.0" prefWidth="148.0" style="-fx-border-radius: 15; -fx-border-color: #6a6a6a; -fx-background-radius: 15; -fx-background-color: #FFFFFF;" text="Спарсить пецепт" />
                         <Button fx:id="Delete111" layoutX="251.0" layoutY="10.0" mnemonicParsing="false" onAction="#SwitchToNew" prefHeight="27.0" prefWidth="181.0" style="-fx-border-radius: 15; -fx-border-color: #6a6a6a; -fx-background-radius: 15; -fx-background-color: #FFFFFF;" text="Добавить рецепт вручную" />
-                        <Button fx:id="Delete112" mnemonicParsing="false" onAction="#SwitchToCart" prefHeight="27.0" prefWidth="181.0" style="-fx-border-radius: 15; -fx-border-color: #6a6a6a; -fx-background-radius: 15; -fx-background-color: #FFFFFF;" text="Корзина" />
+                        <Button fx:id="ToCart" mnemonicParsing="false" onAction="#SwitchToCart" prefHeight="27.0" prefWidth="181.0" style="-fx-border-radius: 15; -fx-border-color: #6a6a6a; -fx-background-radius: 15; -fx-background-color: #FFFFFF;" text="Корзина" />
                      </children>
                   </HBox>
                   <HBox />
@@ -73,11 +73,16 @@
                         </TitledPane>
                     </panes>
                   </Accordion>
-                  <CheckBox fx:id="Fav" mnemonicParsing="false" onAction="#Change_4" text="Только избранное">
-                     <VBox.margin>
-                        <Insets bottom="20.0" top="10.0" />
-                     </VBox.margin>
-                  </CheckBox>
+                  <VBox prefHeight="66.0" prefWidth="158.0">
+                     <children>
+                        <CheckBox fx:id="Fav" mnemonicParsing="false" onAction="#Change_4" text="Только избранное">
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="10.0" />
+                           </VBox.margin>
+                        </CheckBox>
+                        <CheckBox fx:id="All" mnemonicParsing="false" onAction="#Change_5" prefHeight="18.0" prefWidth="125.0" text="Все" />
+                     </children>
+                  </VBox>
                </children>
                <BorderPane.margin>
                   <Insets top="70.0" />

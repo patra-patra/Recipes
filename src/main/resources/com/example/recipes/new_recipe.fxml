@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="559.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.recipes.NewRecipe">
+<AnchorPane prefHeight="559.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.recipes.NewRecipeController">
    <children>
       <Button fx:id="Input" layoutX="215.0" layoutY="502.0" mnemonicParsing="false" onAction="#Input" prefHeight="26.0" prefWidth="103.0" text="Добавить" />
       <HBox layoutX="64.0" layoutY="61.0" prefHeight="402.0" prefWidth="448.0">

@@ -1,22 +1,14 @@
 package com.example.recipes;
 
-import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class ListViewWithButton {
 
@@ -47,7 +39,6 @@ public class ListViewWithButton {
                     stage.setScene(scene);
 
                     stage.show();
-
                 }
             });
 

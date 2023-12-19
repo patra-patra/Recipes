@@ -1,5 +1,10 @@
 package com.example.recipes;
 
+import com.example.recipes.Database;
+import com.example.recipes.Product;
+import com.example.recipes.Recipe;
+import com.example.recipes.Step_img;
+
 import java.util.ArrayList;
 import java.util.List;
 

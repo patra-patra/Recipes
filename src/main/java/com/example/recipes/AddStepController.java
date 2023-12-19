@@ -15,11 +15,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ResourceBundle;
 
-public class AddStep implements Initializable {
+public class AddStepController implements Initializable {
     @FXML
     private TextField Text;
     @FXML

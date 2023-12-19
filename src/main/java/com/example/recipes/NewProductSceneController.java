@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class NewProduct {
+public class NewProductSceneController {
     @FXML
     private TextField Protein;
     @FXML

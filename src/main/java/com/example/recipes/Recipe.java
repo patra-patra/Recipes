@@ -1,7 +1,5 @@
 package com.example.recipes;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
