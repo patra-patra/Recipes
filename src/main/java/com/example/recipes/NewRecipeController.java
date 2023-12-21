@@ -24,11 +24,15 @@ public class NewRecipeController implements Initializable {
     @FXML
     public Button ToMain;
     @FXML
-    public Button AddIgr;
+    public Button AddProd;
     @FXML
     public Label Ingrediets;
     @FXML
-    public Button AddStep;
+    public Label wrn;
+    @FXML
+    public Button NewStep;
+    @FXML
+    public Button AddIngrToRec;
     @FXML
     private TextField Name;
     @FXML
@@ -50,12 +54,13 @@ public class NewRecipeController implements Initializable {
     Stage stage;
     Scene scene;
     Recipe NewOne;
+    String[] arr2;
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Ingredients.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
             @Override
             public ListCell<String> call(ListView<String> param) {
-                return new ListViewWithButton.ButtonListCell();
+                return new ListViewWithButton.ButtonListCell("Удалить");
             }
         });
 
@@ -79,13 +84,13 @@ public class NewRecipeController implements Initializable {
                 count = i + 1;
                 arr[i] = "Шаг " + count + ": " + Data.current_recipe.steps.get(i).text;
             }
-
             NewSteps.getItems().addAll(arr);
-            String[] arr2 = new String[Data.current_recipe.ingredients.size()];
 
-            for (int i = 0; i < Data.current_recipe.ingredients.size(); i++)
+            arr2 = new String[Data.current_recipe.ingredients.size()];
+
+            for (int i = 0; i < Data.current_recipe.ingredients.size(); i++) {
                 arr2[i] = Data.current_recipe.ingredients.get(i).temp_weight + " г " + Data.current_recipe.ingredients.get(i).name;
-
+            }
             Ingredients.getItems().addAll(arr2);
 
             String warning = "Не добавлены:\n";
@@ -95,16 +100,19 @@ public class NewRecipeController implements Initializable {
             }
             Ingrediets.setText(warning);
 
+            wrn.setText(
+                    "При парсинге, в случае, если \n" +
+                    "на сайте игредиеты указаны в\n" +
+                    " другом формате, \n" +
+                    "они не будут добавлены  ");
+
             Name.setText(Data.current_recipe.name);
             Category.setText(Data.current_recipe.category);
             Time.setText(Data.current_recipe.time);
             LinkToMainIMG.setText(Data.current_recipe.main_img);
 
-
-
-            Prod2.setItems(FXCollections.observableArrayList("Молоко", "Вода"));
+            Prod2.setItems(FXCollections.observableArrayList("Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Вода"));
             Difflevel.setItems(FXCollections.observableArrayList("Легкий", "Средний", "Сложный"));
-
         }
     }
 
@@ -149,7 +157,7 @@ public class NewRecipeController implements Initializable {
         }
     }
 
-    private void SwitchToCreateProduct(ActionEvent event) throws IOException {
+    public void SwitchToCreateProduct(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("new_product.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -163,13 +171,10 @@ public class NewRecipeController implements Initializable {
         Scene scene2 = new Scene(root);
         stage.setScene(scene2);
         stage.show();
-
-
-
     }
     public void NewStep(ActionEvent event) throws IOException {
         Data.current_recipe.name = Name.getText();
-        Data.current_recipe.difficulty_level = Difflevel.getValue().toString();
+        //Data.current_recipe.difficulty_level = Difflevel.getValue().toString();
         Data.current_recipe.time = Time.getText();
         Data.current_recipe.main_img = LinkToMainIMG.getText();
         Data.current_recipe.category = Category.getText();
@@ -180,11 +185,22 @@ public class NewRecipeController implements Initializable {
         stage.setScene(scene2);
         stage.show();
     }
-    public void NewProd(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("new_exist_product.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene2 = new Scene(root);
-        stage.setScene(scene2);
-        stage.show();
+
+    public void AddIngr(ActionEvent event) throws IOException {
+        Data.current_recipe.name = Name.getText();
+
+        Product pr = new Product();
+        pr.temp_weight =  Double.valueOf(Weight.getText());
+        pr.name = Prod2.getValue().toString();
+
+        Data.current_recipe.ingredients.add(pr);
+
+        arr2 = new String[Data.current_recipe.ingredients.size()];
+
+        for (int i = 0; i < Data.current_recipe.ingredients.size(); i++)
+            arr2[i] = Data.current_recipe.ingredients.get(i).temp_weight + " г " + Data.current_recipe.ingredients.get(i).name;
+
+        Ingredients.getItems().clear();
+        Ingredients.getItems().addAll(arr2);
     }
 }

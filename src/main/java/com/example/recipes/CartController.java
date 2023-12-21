@@ -7,8 +7,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
@@ -18,11 +20,20 @@ public class CartController implements Initializable {
 
     @FXML
     private ListView<String> myCart;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+
+        myCart.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
+            @Override
+            public ListCell<String> call(ListView<String> param) {
+                return new ListViewWithButton.ButtonListCell("Удалить из корзины");
+            }
+        });
+
         Data.shopping_bag = Database.showCart();
+
+        System.out.println(Data.shopping_bag);
 
         String[] arr = new String[Data.shopping_bag.size()];
 

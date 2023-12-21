@@ -7,8 +7,8 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.recipes.CartController">
    <children>
-      <Button fx:id="ToMain" layoutX="263.0" layoutY="361.0" mnemonicParsing="false" onAction="#SwitchToMain" text="К главной" />
-      <Label contentDisplay="CENTER" layoutX="264.0" layoutY="54.0" prefHeight="34.0" prefWidth="71.0" text="Корзина" />
-      <ListView fx:id="myCart" layoutX="189.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button fx:id="ToMain" layoutX="287.0" layoutY="313.0" mnemonicParsing="false" onAction="#SwitchToMain" text="К главной" />
+      <Label contentDisplay="CENTER" layoutX="298.0" layoutY="50.0" prefHeight="34.0" prefWidth="49.0" text="Корзина" />
+      <ListView fx:id="myCart" layoutX="43.0" layoutY="85.0" prefHeight="215.0" prefWidth="544.0" />
    </children>
 </AnchorPane>

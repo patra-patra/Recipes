@@ -74,7 +74,6 @@ public class RecipeSceneController implements Initializable {
         Protein.setText(String.format("%.2f",measures[0]));
         Carb.setText(String.format("%.2f", measures[1]));
 
-
         Ingred.setPadding(new Insets(10, 10, 10, 10));
         Ingred.setSpacing(10);
 

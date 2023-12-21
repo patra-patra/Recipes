@@ -27,7 +27,6 @@ public class NewExistProductController {
 
     public void Input(ActionEvent event) throws IOException {
 
-
         Product pr = Database.searchProduct(Name.getText());
 
         if (pr == null){

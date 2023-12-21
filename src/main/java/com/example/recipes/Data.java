@@ -11,12 +11,9 @@ import java.util.List;
 public class Data {
     public static List<Product> shopping_bag;
     public static List<String> all_recipe;
-
     public static Recipe current_recipe;
     public static List<Step_img> current_recipe_img;
-
     public static ArrayList<String> ingredients_from_pars;
-
 
     public Data() {
         current_recipe = new Recipe();
@@ -47,6 +44,4 @@ public class Data {
 
         return strings;
     }
-
-
 }

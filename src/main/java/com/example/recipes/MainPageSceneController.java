@@ -18,7 +18,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
-
 public class MainPageSceneController implements Initializable {
     @FXML
     public Button ToCart;
@@ -97,19 +96,8 @@ public class MainPageSceneController implements Initializable {
         if (FromNewToOld.isSelected()){
             FromNewToOld(event);
 
-
-            //SortAlph.isSelected() = false;
-                    /*
-            @FXML
-            public CheckBox Fav;
-            @FXML
-            public CheckBox All;
-            @FXML
-            public CheckBox FromNewToOld;
-            @FXML
-            public CheckBox FromOldToNew;*/
-
-
+            SortAlph.setSelected(false);
+            FromOldToNew.setSelected(false);
         }
         else{
             initialize();
@@ -118,6 +106,9 @@ public class MainPageSceneController implements Initializable {
     public void Change_2(ActionEvent event) throws IOException{
         if (SortAlph.isSelected()){
             SortByAlph(event);
+
+            FromNewToOld.setSelected(false);
+            FromOldToNew.setSelected(false);
         }
         else{
             initialize();
@@ -126,6 +117,9 @@ public class MainPageSceneController implements Initializable {
     public void Change_3(ActionEvent event) throws IOException{
         if (FromOldToNew.isSelected()){
             initialize();
+
+            SortAlph.setSelected(false);
+            FromNewToOld.setSelected(false);
         }
         else{
             initialize();
@@ -149,7 +143,6 @@ public class MainPageSceneController implements Initializable {
     }
 
     public void SortByAlph(ActionEvent event) throws IOException {
-
         Data.all_recipe = Data.Get();
 
         List<Recipe> t = Database.showAllRecipe();
@@ -158,20 +151,15 @@ public class MainPageSceneController implements Initializable {
         String[] arr = new String[Data.all_recipe.size()];
 
         for (int i = 0; i < Data.all_recipe.size(); i++) {
-
             arr[i] = t.get(i).name;
-
         }
 
         myList.getItems().clear();
         myList.getItems().addAll(arr);
     }
     public void SortByCat(String cat) throws IOException {
-
         Data.all_recipe = Data.Get();
         List<Recipe> t = Database.showAllRecipe();
-
-        List<String> category = new ArrayList<>();
 
         String[] arr = new String[t.size()]; // массив с категориями
 
@@ -202,11 +190,8 @@ public class MainPageSceneController implements Initializable {
         myList.getItems().addAll(fin_filtration);
     }
     public void SortByTime(String cat) throws IOException {
-
         Data.all_recipe = Data.Get();
         List<Recipe> t = Database.showAllRecipe();
-
-        List<String> time = new ArrayList<>();
 
         String[] arr = new String[t.size()]; // массив с категориями
 
@@ -239,11 +224,8 @@ public class MainPageSceneController implements Initializable {
         myList.getItems().addAll(fin_filtration);
     }
     public void SortByDif(String cat) throws IOException {
-
         Data.all_recipe = Data.Get();
         List<Recipe> t = Database.showAllRecipe();
-
-        List<String> time = new ArrayList<>();
 
         String[] arr = new String[t.size()]; // массив с категориями
 
@@ -256,11 +238,9 @@ public class MainPageSceneController implements Initializable {
         id_.clear();
         id_.addAll(set);
 
-
         List<String> names_by_category = new ArrayList<>();
 
         for (int i = 0; i < t.size(); i++) {
-
             if (Objects.equals(t.get(i).difficulty_level, cat)){
                 names_by_category.add(t.get(i).name);
             }
@@ -269,7 +249,6 @@ public class MainPageSceneController implements Initializable {
         String[] fin_filtration = new String[names_by_category.size()];
 
         for (int i = 0; i < names_by_category.size(); i++) {
-
             fin_filtration[i] = names_by_category.get(i);
         }
 
@@ -329,6 +308,8 @@ public class MainPageSceneController implements Initializable {
                         }
                     }
             );
+            //checkBox.pr
+
             Cat.getChildren().add(checkBox);
         }
     }

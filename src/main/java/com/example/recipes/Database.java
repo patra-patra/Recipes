@@ -396,6 +396,20 @@ public class Database {
 
     }
 
+    public static void deleteFromCart(int id) {
+        String query = "DELETE FROM cart WHERE prod_id = ?";
+        Recipe product = null;
+        try (Connection connection = DBconn.GetConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+    }
+
     //обновить рецепт
     public static void updateRecipe(Recipe recipe) {
         String query =  "UPDATE recipes SET rec_name = ?,category = ?,main_img = ?,cooking_time = ?," +
