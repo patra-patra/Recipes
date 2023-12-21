@@ -1,5 +1,7 @@
 package com.example.recipes;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +15,7 @@ import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -29,26 +32,34 @@ public class NewRecipeController implements Initializable {
     @FXML
     private TextField Name;
     @FXML
+    private TextField Weight;
+    @FXML
     private TextField Category;
     @FXML
     private TextField Time;
     @FXML
     private TextField LinkToMainIMG;
     @FXML
-    private TextField Difflevel;
-    @FXML
     private ListView NewSteps;
     @FXML
     private ListView Ingredients;
+    @FXML
+    private ComboBox Difflevel;
+    @FXML
+    private ComboBox Prod2;
     Stage stage;
     Scene scene;
     Recipe NewOne;
 
-
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-
         Ingredients.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
+            @Override
+            public ListCell<String> call(ListView<String> param) {
+                return new ListViewWithButton.ButtonListCell();
+            }
+        });
+
+        NewSteps.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
             @Override
             public ListCell<String> call(ListView<String> param) {
                 return new ListViewWithButton.ButtonListCell();
@@ -62,9 +73,12 @@ public class NewRecipeController implements Initializable {
 
         if (Data.current_recipe.steps != null){
             String[] arr = new String[Data.current_recipe.steps.size()];
+            int count;
 
-            for (int i = 0; i < Data.current_recipe.steps.size(); i++)
-                arr[i] = Data.current_recipe.steps.get(i).text;
+            for (int i = 0; i < Data.current_recipe.steps.size(); i++) {
+                count = i + 1;
+                arr[i] = "Шаг " + count + ": " + Data.current_recipe.steps.get(i).text;
+            }
 
             NewSteps.getItems().addAll(arr);
             String[] arr2 = new String[Data.current_recipe.ingredients.size()];
@@ -81,24 +95,27 @@ public class NewRecipeController implements Initializable {
             }
             Ingrediets.setText(warning);
 
-
             Name.setText(Data.current_recipe.name);
             Category.setText(Data.current_recipe.category);
             Time.setText(Data.current_recipe.time);
             LinkToMainIMG.setText(Data.current_recipe.main_img);
-        }
 
+
+
+            Prod2.setItems(FXCollections.observableArrayList("Молоко", "Вода"));
+            Difflevel.setItems(FXCollections.observableArrayList("Легкий", "Средний", "Сложный"));
+
+        }
     }
 
     public void Input(ActionEvent event) throws IOException {
-
         NewOne = new Recipe();
 
         NewOne.name = Name.getText();
         NewOne.time = Time.getText();
         NewOne.main_img = LinkToMainIMG.getText();
         NewOne.category = Category.getText();
-        NewOne.difficulty_level = Difflevel.getText();
+        NewOne.difficulty_level = Difflevel.getValue().toString();
 
         if (NewOne.name != null && NewOne.time != null && NewOne.main_img != null && NewOne.category != null && NewOne.difficulty_level != null){
             Database.addRecipe(NewOne);
@@ -110,7 +127,6 @@ public class NewRecipeController implements Initializable {
             }
 
             List<Step> steps = Database.showSteps(NewOne.id);
-
 
             for (Step step: Data.current_recipe.steps) {
                 if (step.img != null){
@@ -125,7 +141,6 @@ public class NewRecipeController implements Initializable {
             for (Product product: Data.current_recipe.ingredients) {
                 Database.addProductToRecipe(product.id, NewOne.id, product.temp_weight);
             }
-
 
             Data.all_recipe.add(Data.current_recipe.name);
             Data.current_recipe = null;
@@ -142,19 +157,19 @@ public class NewRecipeController implements Initializable {
         stage.show();
     }
 
-
     public void SwitchToMain(ActionEvent event) throws IOException {
-
         Parent root = FXMLLoader.load(getClass().getResource("mainpage_scene.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene2 = new Scene(root);
         stage.setScene(scene2);
         stage.show();
+
+
+
     }
     public void NewStep(ActionEvent event) throws IOException {
-
         Data.current_recipe.name = Name.getText();
-        Data.current_recipe.difficulty_level = Difflevel.getText();
+        Data.current_recipe.difficulty_level = Difflevel.getValue().toString();
         Data.current_recipe.time = Time.getText();
         Data.current_recipe.main_img = LinkToMainIMG.getText();
         Data.current_recipe.category = Category.getText();
@@ -166,7 +181,6 @@ public class NewRecipeController implements Initializable {
         stage.show();
     }
     public void NewProd(ActionEvent event) throws IOException {
-
         Parent root = FXMLLoader.load(getClass().getResource("new_exist_product.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene2 = new Scene(root);

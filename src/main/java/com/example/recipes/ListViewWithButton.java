@@ -20,7 +20,6 @@ public class ListViewWithButton {
 
         public  ButtonListCell() {
 
-            //String item;
             button = new Button("Посмотреть");
             button.setOnAction(event -> {
                 item = getItem();
@@ -41,12 +40,9 @@ public class ListViewWithButton {
                     stage.show();
                 }
             });
-
-
         }
         public  ButtonListCell(String word) {
 
-            //String item;
             button = new Button(word);
             button.setOnAction(event -> {
                 item = getItem();

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
@@ -11,10 +12,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="559.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.recipes.NewRecipeController">
+<AnchorPane fx:id="Prod" prefHeight="559.0" prefWidth="1097.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.recipes.NewRecipeController">
    <children>
       <Button fx:id="Input" layoutX="215.0" layoutY="502.0" mnemonicParsing="false" onAction="#Input" prefHeight="26.0" prefWidth="103.0" text="Добавить" />
-      <HBox layoutX="64.0" layoutY="61.0" prefHeight="402.0" prefWidth="448.0">
+      <HBox layoutX="64.0" layoutY="61.0" prefHeight="402.0" prefWidth="687.0">
          <children>
             <VBox prefHeight="100.0" prefWidth="240.0">
                <children>
@@ -25,19 +26,20 @@
                   <Label text="Уровень сложности" />
                   <Label prefHeight="115.0" prefWidth="87.0" text="Шаги" />
                   <Label prefHeight="74.0" prefWidth="74.0" text="Ингредиенты" />
+                  <TextField fx:id="Weight" prefHeight="26.0" prefWidth="70.0" />
                </children>
             </VBox>
-            <VBox prefHeight="386.0" prefWidth="244.0">
+            <VBox prefHeight="402.0" prefWidth="666.0">
                <children>
                   <TextField fx:id="Name" prefHeight="27.0" prefWidth="244.0" />
                   <TextField fx:id="Category" />
                   <TextField fx:id="LinkToMainIMG" />
                   <TextField fx:id="Time" prefHeight="32.0" prefWidth="244.0" />
-                  <TextField fx:id="Difflevel" />
+                  <ComboBox fx:id="Difflevel" prefHeight="26.0" prefWidth="605.0" />
                   <ListView fx:id="NewSteps" prefHeight="177.0" prefWidth="244.0" />
-                  <ListView fx:id="Ingredients" prefHeight="176.0" prefWidth="226.0" />
-                  <Button fx:id="NewStep" mnemonicParsing="false" onAction="#NewStep" prefHeight="26.0" prefWidth="244.0" text="Добавить шаг" />
-                  <Button fx:id="AddIgr" mnemonicParsing="false" onAction="#NewProd" prefHeight="26.0" prefWidth="244.0" text="Добавить ингедиент" />
+                  <Button fx:id="NewStep" mnemonicParsing="false" onAction="#NewStep" prefHeight="26.0" prefWidth="604.0" text="Добавить шаг" />
+                  <ComboBox fx:id="Prod2" prefHeight="26.0" prefWidth="618.0" />
+                  <ListView fx:id="Ingredients" prefHeight="70.0" prefWidth="558.0" />
                </children>
             </VBox>
          </children>
@@ -49,7 +51,8 @@
          </image>
       </ImageView>
       <Label layoutX="520.0" layoutY="361.0" />
-      <TextArea layoutX="520.0" layoutY="61.0" prefHeight="141.0" prefWidth="206.0" text="Вводите игредиенты в формате:&#10;&lt;граммы&gt; г &lt;название в И.п&gt; &#10;&#10;При парсинге, в случае, если &#10;на сайте игредиеты указаны в&#10; другом формате, &#10;они не будут добавлены  " />
-      <Label fx:id="Ingrediets" layoutX="520.0" layoutY="207.0" prefHeight="255.0" prefWidth="206.0" />
+      <TextArea layoutX="1019.0" layoutY="61.0" prefHeight="142.0" prefWidth="30.0" text="Вводите игредиенты в формате:&#10;&lt;граммы&gt; г &lt;название в И.п&gt; &#10;&#10;При парсинге, в случае, если &#10;на сайте игредиеты указаны в&#10; другом формате, &#10;они не будут добавлены  " />
+      <Label fx:id="Ingrediets" layoutX="842.0" layoutY="203.0" prefHeight="210.0" prefWidth="206.0" />
+      <Button fx:id="AddIgr" layoutX="751.0" layoutY="318.0" mnemonicParsing="false" onAction="#NewProd" prefHeight="26.0" prefWidth="244.0" text="Добавить ингедиент" />
    </children>
 </AnchorPane>

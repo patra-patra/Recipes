@@ -96,6 +96,20 @@ public class MainPageSceneController implements Initializable {
     public void Change(ActionEvent event) throws IOException{
         if (FromNewToOld.isSelected()){
             FromNewToOld(event);
+
+
+            //SortAlph.isSelected() = false;
+                    /*
+            @FXML
+            public CheckBox Fav;
+            @FXML
+            public CheckBox All;
+            @FXML
+            public CheckBox FromNewToOld;
+            @FXML
+            public CheckBox FromOldToNew;*/
+
+
         }
         else{
             initialize();
@@ -261,7 +275,6 @@ public class MainPageSceneController implements Initializable {
 
         myList.getItems().clear();
         myList.getItems().addAll(fin_filtration);
-
     }
     public void FromNewToOld(ActionEvent event) throws IOException {
         Data.all_recipe = Data.Get();
@@ -306,7 +319,6 @@ public class MainPageSceneController implements Initializable {
         id_.addAll(set);
 
         for (String cat: id_){
-
             CheckBox checkBox = new CheckBox(cat);
             checkBox.selectedProperty().addListener(
                     (ObservableValue<? extends Boolean> ov, Boolean old_val, Boolean new_val) -> {
@@ -367,7 +379,6 @@ public class MainPageSceneController implements Initializable {
         id_.addAll(set);
 
         for (String cat: id_){
-
             CheckBox checkBox = new CheckBox(cat);
             checkBox.selectedProperty().addListener(
                     (ObservableValue<? extends Boolean> ov, Boolean old_val, Boolean new_val) -> {
@@ -383,31 +394,25 @@ public class MainPageSceneController implements Initializable {
     }
 
     public void SwitchToCart (ActionEvent event) throws IOException {
-
         Parent root2 = FXMLLoader.load(getClass().getResource("cart.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene (root2);
         stage.setScene(scene);
         stage.show();
-
     }
     public void SwitchToNew (ActionEvent event) throws IOException {
-
         Parent root2 = FXMLLoader.load(getClass().getResource("new_recipe.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene (root2);
         stage.setScene(scene);
         stage.show();
-
     }
     public void SwitchToPars (ActionEvent event) throws IOException {
-
         Parent root2 = FXMLLoader.load(getClass().getResource("recipe_pars.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene (root2);
         stage.setScene(scene);
         stage.show();
-
     }
 
 }
