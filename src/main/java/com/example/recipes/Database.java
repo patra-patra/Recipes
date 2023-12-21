@@ -416,12 +416,12 @@ public class Database {
         try (Connection connection = DBconn.GetConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, recipe.name);
-            preparedStatement.setString(1, recipe.category);
-            preparedStatement.setString(1, recipe.main_img);
-            preparedStatement.setString(1, recipe.time);
-            preparedStatement.setString(1, recipe.difficulty_level);
-            preparedStatement.setInt(1, recipe.favorite);
-            preparedStatement.setInt(2, recipe.id);
+            preparedStatement.setString(2, recipe.category);
+            preparedStatement.setString(3, recipe.main_img);
+            preparedStatement.setString(4, recipe.time);
+            preparedStatement.setString(5, recipe.difficulty_level);
+            preparedStatement.setInt(6, recipe.favorite);
+            preparedStatement.setInt(7, recipe.id);
             preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -469,7 +469,7 @@ public class Database {
                 while (res.next()){
                     String prod_name = res.getString("prod_name");
                     double protein = res.getDouble("protein");
-                    double carbohydrates = res.getDouble("protein");
+                    double carbohydrates = res.getDouble("carbohydrates");
                     double fats = res.getDouble("fats");
                     double calories = res.getDouble("calories");
                     double temp_weight = res.getDouble("temp_weight");
@@ -478,6 +478,34 @@ public class Database {
                 }
             }
 
+        } catch(SQLException throwables){
+            throwables.printStackTrace();
+        }
+
+        return products;
+    }
+
+    //просмотр всех продуктов
+    public static List<Product> showAllProducts(){
+        List<Product> products = new ArrayList<>();
+        String query = "SELECT * FROM products";
+        try (Connection connection = DBconn.GetConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()){
+                int id = rs.getInt("prod_id");
+                String prod_name = rs.getString("prod_name");
+                double protein = rs.getDouble("protein");
+                double carbohydrates = rs.getDouble("carbohydrates");
+                double fats = rs.getDouble("fats");
+                double calories = rs.getDouble("calories");
+                double temp_weight = rs.getDouble("temp_weight");
+
+
+                products.add(new Product(id,prod_name,protein,carbohydrates, fats,calories,temp_weight));
+            }
         } catch(SQLException throwables){
             throwables.printStackTrace();
         }
