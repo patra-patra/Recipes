@@ -407,7 +407,6 @@ public class Database {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
     }
 
     //обновить рецепт
@@ -424,11 +423,9 @@ public class Database {
             preparedStatement.setInt(1, recipe.favorite);
             preparedStatement.setInt(2, recipe.id);
             preparedStatement.executeUpdate();
-
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
     }
 
 
@@ -487,7 +484,4 @@ public class Database {
 
         return products;
     }
-
-
-    
 }

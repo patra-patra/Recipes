@@ -8,26 +8,35 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.recipes.AddStepController">
+<AnchorPane prefHeight="229.0" prefWidth="832.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.recipes.AddStepController">
    <children>
-      <Button fx:id="Input" layoutX="182.0" layoutY="300.0" mnemonicParsing="false" onAction="#Input" text="Добавить шаг" />
-      <Button fx:id="Quit" layoutX="276.0" layoutY="300.0" mnemonicParsing="false" onAction="#Quit" text="Назад" />
-      <Button fx:id="AddPicture" layoutX="282.0" layoutY="88.0" mnemonicParsing="false" onAction="#AddToLinks" prefHeight="26.0" prefWidth="135.0" text="Добавить картинку" />
-      <HBox layoutX="82.0" layoutY="63.0" prefHeight="188.0" prefWidth="200.0">
+      <HBox layoutX="14.0" layoutY="63.0" prefHeight="102.0" prefWidth="776.0">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox prefHeight="42.0" prefWidth="100.0">
                <children>
                   <Label prefHeight="32.0" prefWidth="100.0" text="Текст" />
                   <Label prefHeight="18.0" prefWidth="154.0" text="Картинки" />
                </children>
             </VBox>
-            <VBox prefHeight="154.0" prefWidth="100.0">
+            <VBox prefHeight="102.0" prefWidth="676.0">
                <children>
                   <TextField fx:id="Text" />
-                  <TextField fx:id="AddLink" prefHeight="26.0" prefWidth="150.0" />
-                  <ListView fx:id="Links" prefHeight="48.0" prefWidth="100.0" />
+                  <HBox prefHeight="25.0" prefWidth="676.0">
+                     <children>
+                        <TextField fx:id="AddLink" prefHeight="26.0" prefWidth="542.0" />
+                        <Button fx:id="AddPicture" mnemonicParsing="false" onAction="#AddToLinks" prefHeight="26.0" prefWidth="135.0" text="Добавить картинку" />
+                     </children>
+                  </HBox>
+                  <ListView fx:id="Links" prefHeight="86.0" prefWidth="676.0" />
                </children>
             </VBox>
+         </children>
+      </HBox>
+      <HBox layoutX="559.0" layoutY="174.0" prefHeight="18.0" prefWidth="230.0">
+         <children>
+            <Button mnemonicParsing="false" text="Удалить шаг" />
+            <Button fx:id="Input" mnemonicParsing="false" onAction="#Input" text="Добавить шаг" />
+            <Button fx:id="Quit" mnemonicParsing="false" onAction="#Quit" text="Назад" />
          </children>
       </HBox>
    </children>

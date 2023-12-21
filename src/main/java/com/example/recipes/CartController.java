@@ -22,8 +22,6 @@ public class CartController implements Initializable {
     private ListView<String> myCart;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-
         myCart.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
             @Override
             public ListCell<String> call(ListView<String> param) {
@@ -33,14 +31,12 @@ public class CartController implements Initializable {
 
         Data.shopping_bag = Database.showCart();
 
-        System.out.println(Data.shopping_bag);
-
         String[] arr = new String[Data.shopping_bag.size()];
 
         for (int i = 0; i < Data.shopping_bag.size(); i++) {
             arr[i] = Data.shopping_bag.get(i).name;
-
         }
+
         myCart.getItems().addAll(arr);
     }
 

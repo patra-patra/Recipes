@@ -23,6 +23,8 @@ public class AddStepController implements Initializable {
     @FXML
     private Button Input;
     @FXML
+    private Button DeleteStep;
+    @FXML
     private Button Quit;
     @FXML
     private Button AddPicture;

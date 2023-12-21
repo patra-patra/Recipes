@@ -38,6 +38,8 @@ public class RecipeSceneController implements Initializable {
     @FXML
     public Button Delete;
     @FXML
+    public Button Update;
+    @FXML
     public Button ToFav;
     @FXML
     public Button AddToCart;
@@ -104,7 +106,6 @@ public class RecipeSceneController implements Initializable {
 
                         img_step.setImage(img);
                         box.getChildren().add(img_step);
-
                     }
                     Steps.getChildren().add(box);
                 }
@@ -120,6 +121,13 @@ public class RecipeSceneController implements Initializable {
     }
     public void Delete(ActionEvent event) throws IOException {
         Database.deleteRecipe(Data.current_recipe.id);
+    }
+    public void Update(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("new_recipe.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     public void AddToCart(ActionEvent event) throws IOException {
         Data.shopping_bag.addAll(Data.current_recipe.ingredients);

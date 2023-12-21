@@ -67,7 +67,7 @@ public class NewRecipeController implements Initializable {
         NewSteps.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
             @Override
             public ListCell<String> call(ListView<String> param) {
-                return new ListViewWithButton.ButtonListCell();
+                return new ListViewWithButton.ButtonListCell("Посмотреть");
             }
         });
 
@@ -113,6 +113,7 @@ public class NewRecipeController implements Initializable {
 
             Prod2.setItems(FXCollections.observableArrayList("Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Вода"));
             Difflevel.setItems(FXCollections.observableArrayList("Легкий", "Средний", "Сложный"));
+
         }
     }
 
@@ -125,36 +126,45 @@ public class NewRecipeController implements Initializable {
         NewOne.category = Category.getText();
         NewOne.difficulty_level = Difflevel.getValue().toString();
 
-        if (NewOne.name != null && NewOne.time != null && NewOne.main_img != null && NewOne.category != null && NewOne.difficulty_level != null){
-            Database.addRecipe(NewOne);
 
-            NewOne.id = Database.searchRecipe(NewOne.name).id;
+        if (Data.all_recipe.contains(Data.current_recipe.name)){
+            //Database.updateRecipe(Data.current_recipe);
+            System.out.println("ddddddddddddddddd");
+        }
+        else {
+            if (NewOne.name != null && NewOne.time != null && NewOne.main_img != null && NewOne.category != null && NewOne.difficulty_level != null){
+                Database.addRecipe(NewOne);
 
-            for (Step step: Data.current_recipe.steps) {
-                Database.addStep(NewOne.id, step.text);
-            }
+                NewOne.id = Database.searchRecipe(NewOne.name).id;
 
-            List<Step> steps = Database.showSteps(NewOne.id);
+                for (Step step: Data.current_recipe.steps) {
+                    Database.addStep(NewOne.id, step.text);
+                }
 
-            for (Step step: Data.current_recipe.steps) {
-                if (step.img != null){
-                    for (Step step_get: steps){
-                        if (Objects.equals(step_get.text, step.text)){
-                            Database.addStepImg(step_get.step_id, step.img.get(0));
+                List<Step> steps = Database.showSteps(NewOne.id);
+
+                for (Step step: Data.current_recipe.steps) {
+                    if (step.img != null){
+                        for (Step step_get: steps){
+                            if (Objects.equals(step_get.text, step.text)){
+                                Database.addStepImg(step_get.step_id, step.img.get(0));
+                            }
                         }
                     }
                 }
+
+                for (Product product: Data.current_recipe.ingredients) {
+                    Database.addProductToRecipe(product.id, NewOne.id, product.temp_weight);
+                }
+
+                Data.all_recipe.add(Data.current_recipe.name);
+
             }
-
-            for (Product product: Data.current_recipe.ingredients) {
-                Database.addProductToRecipe(product.id, NewOne.id, product.temp_weight);
-            }
-
-            Data.all_recipe.add(Data.current_recipe.name);
-            Data.current_recipe = null;
-
-            SwitchToMain(event);
         }
+
+        Data.current_recipe = null;
+
+        SwitchToMain(event);
     }
 
     public void SwitchToCreateProduct(ActionEvent event) throws IOException {
@@ -174,7 +184,7 @@ public class NewRecipeController implements Initializable {
     }
     public void NewStep(ActionEvent event) throws IOException {
         Data.current_recipe.name = Name.getText();
-        //Data.current_recipe.difficulty_level = Difflevel.getValue().toString();
+        Data.current_recipe.difficulty_level = Difflevel.getValue().toString();
         Data.current_recipe.time = Time.getText();
         Data.current_recipe.main_img = LinkToMainIMG.getText();
         Data.current_recipe.category = Category.getText();

@@ -83,17 +83,18 @@
                               </Label>
                               <HBox prefHeight="287.0" prefWidth="588.0">
                                  <children>
-                                    <Button fx:id="AddToCart" mnemonicParsing="false" onAction="#AddToCart" prefHeight="27.0" prefWidth="294.0" style="-fx-border-radius: 15; -fx-border-color: #6a6a6a; -fx-background-radius: 15; -fx-background-color: #FFFFFF;" text="Добавить в корзину">
+                                    <Button fx:id="AddToCart" mnemonicParsing="false" onAction="#AddToCart" prefHeight="27.0" prefWidth="218.0" style="-fx-border-radius: 15; -fx-border-color: #6a6a6a; -fx-background-radius: 15; -fx-background-color: #FFFFFF;" text="Добавить в корзину">
                                        <HBox.margin>
                                           <Insets right="44.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button fx:id="ToFav" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#AddToFav" prefHeight="32.0" prefWidth="280.0" style="-fx-border-radius: 15; -fx-border-color: #6a6a6a; -fx-background-radius: 15; -fx-background-color: #FFFFFF;" text="Добавить в избранное">
+                                    <Button fx:id="ToFav" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#AddToFav" prefHeight="32.0" prefWidth="138.0" style="-fx-border-radius: 15; -fx-border-color: #6a6a6a; -fx-background-radius: 15; -fx-background-color: #FFFFFF;" text="В избранное">
                                        <HBox.margin>
                                           <Insets right="44.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button fx:id="Delete" layoutX="207.0" layoutY="10.0" mnemonicParsing="false" onAction="#Delete" prefHeight="27.0" prefWidth="246.0" style="-fx-border-radius: 15; -fx-border-color: #6a6a6a; -fx-background-radius: 15; -fx-background-color: #FFFFFF;" text="Удалить рецепт" />
+                                    <Button fx:id="Update" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#Update" prefHeight="27.0" prefWidth="150.0" style="-fx-border-radius: 15; -fx-border-color: #6a6a6a; -fx-background-radius: 15; -fx-background-color: #FFFFFF;" text="Отредактировать" />
+                                    <Button fx:id="Delete" layoutX="207.0" layoutY="10.0" mnemonicParsing="false" onAction="#Delete" prefHeight="27.0" prefWidth="125.0" style="-fx-border-radius: 15; -fx-border-color: #6a6a6a; -fx-background-radius: 15; -fx-background-color: #FFFFFF;" text="Удалить" />
                                  </children>
                                  <VBox.margin>
                                     <Insets top="56.0" />
