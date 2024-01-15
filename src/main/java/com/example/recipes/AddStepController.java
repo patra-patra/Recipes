@@ -8,13 +8,16 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class AddStepController implements Initializable {
@@ -32,39 +35,44 @@ public class AddStepController implements Initializable {
     private TextField AddLink;
     @FXML
     private ListView<String> Links;
-
     Stage stage;
     Scene scene;
     Step NewStep = new Step();
-    ArrayList<String> img = new ArrayList<>();
+    ArrayList<String> img;
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Links.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
+            @Override
+            public ListCell<String> call(ListView<String> param) {
+                return new ListViewWithButton.ButtonListCell("Удалить ссылку");
+            }
+        });
+
+        img = Data.selected_step.img;
+
+        Text.setText(Data.selected_step.text);
         Links.getItems().addAll(img);
     }
     public void initialize() {
         Links.getItems().addAll(img);
     }
     public void Input(ActionEvent event) throws IOException {
-
         NewStep.text = Text.getText();
         NewStep.img = img;
 
         Data.current_recipe.steps.add(NewStep);
-
-        //Data.AddToTempSteps(NewStep);
 
         ToMain(event);
     }
-    public void SortByAlph(ActionEvent event) throws IOException {
 
-        NewStep.text = Text.getText();
-        NewStep.img = img;
+    public void DelStep(ActionEvent event) throws IOException {
+        for (int i = 0; i < Data.current_recipe.steps.size(); i++){
+            Step step = Data.current_recipe.steps.get(i);
 
-        Data.current_recipe.steps.add(NewStep);
-
-        //Data.AddToTempSteps(NewStep);
-
-        ToMain(event);
+            if (Objects.equals(step.text, Text.getText())){
+                Data.current_recipe.steps.remove(step);
+            }
+        }
     }
 
     public void ToMain(ActionEvent event) throws IOException {
@@ -82,22 +90,11 @@ public class AddStepController implements Initializable {
 
         initialize();
     }
-
-    public void SwitchToMain(ActionEvent event) throws IOException {
-
-        Parent root = FXMLLoader.load(getClass().getResource("mainpage_scene.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene2 = new Scene(root);
-        stage.setScene(scene2);
-        stage.show();
-    }
     public void Quit(ActionEvent event) throws IOException {
-
         Parent root = FXMLLoader.load(getClass().getResource("new_recipe.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene2 = new Scene(root);
         stage.setScene(scene2);
         stage.show();
     }
-
 }

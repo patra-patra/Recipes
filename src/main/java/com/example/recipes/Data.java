@@ -14,6 +14,7 @@ public class Data {
     public static Recipe current_recipe;
     public static List<Step_img> current_recipe_img;
     public static ArrayList<String> ingredients_from_pars;
+    public static Step selected_step;
 
     public Data() {
         current_recipe = new Recipe();
@@ -21,6 +22,7 @@ public class Data {
         ingredients_from_pars = new ArrayList<>();
         shopping_bag= new ArrayList<>();
         current_recipe_img = new ArrayList<>();
+        selected_step = new Step();
     }
     public static List<String> Get(){
         List<Recipe> recipes = Database.showAllRecipe();

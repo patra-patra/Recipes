@@ -73,6 +73,28 @@ public class ListViewWithButton {
                             stage.show();
 
                             break;
+                        case "Удалить ссылку":
+                            for (int i = 0; i < Data.selected_step.img.size(); i++){
+                                String img = Data.selected_step.img.get(i);
+
+                                if (Objects.equals(img, item)){
+                                    Data.selected_step.img.remove(img);
+                                }
+                            }
+
+                            try {
+                                root = FXMLLoader.load(getClass().getResource("add_step.fxml"));
+                            }
+                            catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+                            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                            scene = new Scene(root);
+                            stage.setScene(scene);
+
+                            stage.show();
+
+                            break;
                         case "Удалить из корзины":
                             for (int i = 0; i < Data.shopping_bag.size(); i++){
                                 Product pr = Data.shopping_bag.get(i);
@@ -97,6 +119,14 @@ public class ListViewWithButton {
 
                             break;
                         case "Посмотреть":
+                            String step = item.replace("Шаг ", "");
+                            step = item.split(": ")[1];
+
+                            for (int i = 0; i < Data.current_recipe.steps.size(); i++){
+                                if (Objects.equals(Data.current_recipe.steps.get(i).text, step)){
+                                    Data.selected_step = Data.current_recipe.steps.get(i);
+                                }
+                            }
 
                             try {
                                 root = FXMLLoader.load(getClass().getResource("add_step.fxml"));

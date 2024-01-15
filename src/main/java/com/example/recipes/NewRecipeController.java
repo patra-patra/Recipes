@@ -55,6 +55,7 @@ public class NewRecipeController implements Initializable {
     Scene scene;
     Recipe NewOne;
     String[] arr2;
+    List<Product> all_prod;
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Ingredients.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
@@ -100,20 +101,22 @@ public class NewRecipeController implements Initializable {
             }
             Ingrediets.setText(warning);
 
-            wrn.setText(
-                    "При парсинге, в случае, если \n" +
-                    "на сайте игредиеты указаны в\n" +
-                    " другом формате, \n" +
-                    "они не будут добавлены  ");
-
             Name.setText(Data.current_recipe.name);
             Category.setText(Data.current_recipe.category);
             Time.setText(Data.current_recipe.time);
             LinkToMainIMG.setText(Data.current_recipe.main_img);
 
-            Prod2.setItems(FXCollections.observableArrayList("Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Молоко", "Вода"));
-            Difflevel.setItems(FXCollections.observableArrayList("Легкий", "Средний", "Сложный"));
+            all_prod = Database.showAllProducts();
+            List<String> all_prod_for_inrf = new ArrayList<>();
 
+            for (int i = 0; i < all_prod.size(); i++) {
+                all_prod_for_inrf.add(all_prod.get(i).name);
+            }
+
+            System.out.println(all_prod);
+
+            Prod2.setItems(FXCollections.observableArrayList(all_prod_for_inrf));
+            Difflevel.setItems(FXCollections.observableArrayList("Легкий", "Средний", "Сложный"));
         }
     }
 
@@ -126,10 +129,43 @@ public class NewRecipeController implements Initializable {
         NewOne.category = Category.getText();
         NewOne.difficulty_level = Difflevel.getValue().toString();
 
-
         if (Data.all_recipe.contains(Data.current_recipe.name)){
-            //Database.updateRecipe(Data.current_recipe);
-            System.out.println("ddddddddddddddddd");
+            Data.current_recipe.name = Name.getText();
+            Data.current_recipe.time = Time.getText();
+            Data.current_recipe.main_img = LinkToMainIMG.getText();
+            Data.current_recipe.category = Category.getText();
+            Data.current_recipe.difficulty_level = Difflevel.getValue().toString();
+
+            List<Step> temp = Database.showSteps(Data.current_recipe.id);
+
+            for (Step step: temp) {
+                Database.deleteImgs(step.step_id);
+            }
+
+            Database.deleteSteps(Data.current_recipe.id);
+            Database.deleteProductsFromRec(Data.current_recipe.id);
+
+            for (Step step: Data.current_recipe.steps) {
+                Database.addStep(Data.current_recipe.id, step.text);
+            }
+
+            List<Step> steps = Database.showSteps(Data.current_recipe.id);
+
+            for (Step step: Data.current_recipe.steps) {
+                if (step.img != null){
+                    for (Step step_get: steps){
+                        if (Objects.equals(step_get.text, step.text)){
+                            Database.addStepImg(step_get.step_id, step.img.get(0));
+                        }
+                    }
+                }
+            }
+
+            for (Product product: Data.current_recipe.ingredients) {
+                Database.addProductToRecipe(product.id, Data.current_recipe.id, product.temp_weight);
+            }
+
+            Database.updateRecipe(Data.current_recipe);
         }
         else {
             if (NewOne.name != null && NewOne.time != null && NewOne.main_img != null && NewOne.category != null && NewOne.difficulty_level != null){
@@ -156,12 +192,10 @@ public class NewRecipeController implements Initializable {
                 for (Product product: Data.current_recipe.ingredients) {
                     Database.addProductToRecipe(product.id, NewOne.id, product.temp_weight);
                 }
-
                 Data.all_recipe.add(Data.current_recipe.name);
-
             }
         }
-
+        System.out.println(Data.current_recipe.ingredients);
         Data.current_recipe = null;
 
         SwitchToMain(event);
@@ -203,7 +237,13 @@ public class NewRecipeController implements Initializable {
         pr.temp_weight =  Double.valueOf(Weight.getText());
         pr.name = Prod2.getValue().toString();
 
-        Data.current_recipe.ingredients.add(pr);
+
+        for (Product product: all_prod){
+            if(Objects.equals(product.name, pr.name)){
+                pr.id = product.id;
+                Data.current_recipe.ingredients.add(pr);
+            }
+        }
 
         arr2 = new String[Data.current_recipe.ingredients.size()];
 

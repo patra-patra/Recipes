@@ -23,6 +23,10 @@ public class RecipeApp extends Application {
         Image icon = new Image("kitty.jpg");
         stage.getIcons().add(icon);
 
+
+        Database.deleteImgs(400);
+        Database.deleteImgs(407);
+
         stage.setScene(scene);
         stage.show();
     }

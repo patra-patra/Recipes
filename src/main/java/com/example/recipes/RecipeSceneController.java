@@ -76,8 +76,8 @@ public class RecipeSceneController implements Initializable {
         Protein.setText(String.format("%.2f",measures[0]));
         Carb.setText(String.format("%.2f", measures[1]));
 
-        Ingred.setPadding(new Insets(10, 10, 10, 10));
-        Ingred.setSpacing(10);
+        Ingred.setPadding(new Insets(10, 5, 10, 5));
+        Ingred.setSpacing(Data.current_recipe.ingredients.size());
 
         for (int i = 0; i < Data.current_recipe.ingredients.size(); i++){
 
@@ -86,8 +86,8 @@ public class RecipeSceneController implements Initializable {
             Ingred.getChildren().add(ing);
         }
 
-        Steps.setPadding(new Insets(10, 10, 10, 10));
-        Steps.setSpacing(10);
+        Steps.setPadding(new Insets(10, 5, 10, 5));
+        Steps.setSpacing(2);
 
         for (int i = 0; i < Data.current_recipe.steps.size(); i++){
 
@@ -101,8 +101,8 @@ public class RecipeSceneController implements Initializable {
                         ImageView img_step = new ImageView();
                         img = new Image(imgg.img_url);
 
-                        img_step.setFitHeight(250);
-                        img_step.setFitWidth(250);
+                        img_step.setFitHeight(100);
+                        img_step.setFitWidth(100);
 
                         img_step.setImage(img);
                         box.getChildren().add(img_step);

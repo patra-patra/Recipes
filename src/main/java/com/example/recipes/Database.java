@@ -147,6 +147,47 @@ public class Database {
         return steps;
     }
 
+    public static void deleteSteps(int id){
+        String query = "DELETE FROM steps WHERE rec_id = ?";
+
+        try (Connection connection = DBconn.GetConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+    }
+    public static void deleteImgs(int step_id){
+        String query = "DELETE FROM step_img WHERE step_id = ?";
+
+        try (Connection connection = DBconn.GetConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, step_id);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+    }
+    public static void deleteProductsFromRec(int id){
+        String query = "DELETE FROM prod_in_rec WHERE rec_id = ?";
+        Recipe recipe = null;
+        try (Connection connection = DBconn.GetConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+
+    }
+
     //показать картинку шага
 
     public static List<Step_img> showStepImg(int step_id){
@@ -176,7 +217,6 @@ public class Database {
         String query = "INSERT INTO recipes(rec_name,category,main_img,cooking_time,difficulty_level,favorite) VALUES(?,?,?,?,?,?)";
         try (Connection connection = DBconn.GetConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-
 
             preparedStatement.setString(1,recipe.name);
             preparedStatement.setString(2, recipe.category);
@@ -394,6 +434,9 @@ public class Database {
             throwables.printStackTrace();
         }
 
+        deleteSteps(id);
+        deleteProductsFromRec(id);
+
     }
 
     public static void deleteFromCart(int id) {
@@ -423,6 +466,7 @@ public class Database {
             preparedStatement.setInt(6, recipe.favorite);
             preparedStatement.setInt(7, recipe.id);
             preparedStatement.executeUpdate();
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

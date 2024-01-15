@@ -4,9 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac776215-f60e-4816-bfce-980eb88cf38a" name="Changes" comment="удалить списки из классов">
+    <list default="true" id="ac776215-f60e-4816-bfce-980eb88cf38a" name="Changes" comment="промежуточная фиксация">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_20_29_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_20_29__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_12_2023_18_25_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_12_2023_18_25__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_20_05_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_20_05__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/AddStepController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/AddStepController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Data.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/ListViewWithButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/ListViewWithButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/MainPageSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/MainPageSceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/NewRecipeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/NewRecipeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/ParsSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/ParsSceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/RecipeApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/RecipeApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipes/RecipeSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipes/RecipeSceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/recipes/add_step.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/recipes/add_step.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,11 +32,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/resources/com/example/recipes/recipe_scene.fxml" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -29,6 +48,9 @@
         <option name="mavenHome" value="Use Maven wrapper" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -43,19 +65,60 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Alinochka/Desktop/mysql-connector-j-8.2.0/mysql-connector-j-8.2.0.jar&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/user/IdeaProjects/Recipes/src/main/java/com/example/recipes&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Distr/mysql-connector-j-8.2.0/mysql-connector-j-8.2.0/mysql-connector-j-8.2.0.jar&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pathVariables&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
-  <component name="RunManager">
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.recipes.Test" />
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\IdeaProjects\Recipes\src\main\resources\com\example\recipes" />
+      <recent name="C:\Users\user\IdeaProjects\Recipes\src\main\resources" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.recipes" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.RecipeApp">
+    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.recipes.HelloApplication" />
       <module name="Recipes" />
       <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.recipes.presentation.*" />
+          <option name="ENABLED" value="false" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ListViewWithButton" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.recipes.ListViewWithButton" />
+      <module name="Recipes" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.recipes.presentation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RecipeApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.recipes.RecipeApp" />
+      <module name="Recipes" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.recipes.presentation.*" />
+          <option name="ENABLED" value="false" />
+        </pattern>
         <pattern>
           <option name="PATTERN" value="com.example.recipes.*" />
           <option name="ENABLED" value="true" />
@@ -65,9 +128,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.recipes.Test" />
+      <module name="Recipes" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.recipes.presentation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.HelloApplication" />
+      <item itemvalue="Application.ListViewWithButton" />
+      <item itemvalue="Application.RecipeApp" />
+      <item itemvalue="Application.Test" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RecipeApp" />
+        <item itemvalue="Application.HelloApplication" />
         <item itemvalue="Application.Test" />
+        <item itemvalue="Application.ListViewWithButton" />
       </list>
     </recent_temporary>
   </component>
@@ -112,13 +197,154 @@
       <option name="project" value="LOCAL" />
       <updated>1701678124397</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary=" первая попытка соединения">
+      <option name="closed" value="true" />
+      <created>1701919862139</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1701919862139</updated>
+    </task>
+    <task id="LOCAL-00006" summary=" первая попытка соединения">
+      <option name="closed" value="true" />
+      <created>1701919870402</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1701919870402</updated>
+    </task>
+    <task id="LOCAL-00007" summary="добавление рецептов в базу через приложение с помощью ручного ввода и парсинга">
+      <option name="closed" value="true" />
+      <created>1701930369247</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1701930369247</updated>
+    </task>
+    <task id="LOCAL-00008" summary="кнопки для просмотра на главном экране">
+      <option name="closed" value="true" />
+      <created>1701936700217</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1701936700217</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Исправление ошибки у функции поиска по названию">
+      <option name="closed" value="true" />
+      <created>1701944728481</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1701944728481</updated>
+    </task>
+    <task id="LOCAL-00010" summary="шаги и ингрединты отображаются в приложении">
+      <option name="closed" value="true" />
+      <created>1701948430731</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1701948430731</updated>
+    </task>
+    <task id="LOCAL-00011" summary="предупрехдение о отсутствии в базе продукта">
+      <option name="closed" value="true" />
+      <created>1701970273246</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1701970273246</updated>
+    </task>
+    <task id="LOCAL-00012" summary="картинки шагов отображаются">
+      <option name="closed" value="true" />
+      <created>1702227520579</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1702227520579</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Фидбтрация по времени, категориям, сортировка по алфавиту и появлению, вывод избранных">
+      <option name="closed" value="true" />
+      <created>1702265149771</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1702265149771</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Фильтрация по уровню сложности">
+      <option name="closed" value="true" />
+      <created>1702266171174</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1702266171174</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Новые имена для контроллеров и исправленное отображение после сортировки и запуске приложения">
+      <option name="closed" value="true" />
+      <created>1702980074687</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1702980074687</updated>
+    </task>
+    <task id="LOCAL-00016" summary="промежуточная фиксация">
+      <option name="closed" value="true" />
+      <created>1703129684558</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1703129684558</updated>
+    </task>
+    <task id="LOCAL-00017" summary="удаление из корзины и новые кнопки для удаления">
+      <option name="closed" value="true" />
+      <created>1703138851941</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1703138851941</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="абдя" />
     <MESSAGE value="изменение класса рецептов и парсинг" />
     <MESSAGE value="удалить списки из классов" />
-    <option name="LAST_COMMIT_MESSAGE" value="удалить списки из классов" />
+    <MESSAGE value=" первая попытка соединения" />
+    <MESSAGE value="добавление рецептов в базу через приложение с помощью ручного ввода и парсинга" />
+    <MESSAGE value="кнопки для просмотра на главном экране" />
+    <MESSAGE value="Исправление ошибки у функции поиска по названию" />
+    <MESSAGE value="шаги и ингрединты отображаются в приложении" />
+    <MESSAGE value="предупрехдение о отсутствии в базе продукта" />
+    <MESSAGE value="картинки шагов отображаются" />
+    <MESSAGE value="Фидбтрация по времени, категориям, сортировка по алфавиту и появлению, вывод избранных" />
+    <MESSAGE value="Фильтрация по уровню сложности" />
+    <MESSAGE value="Новые имена для контроллеров и исправленное отображение после сортировки и запуске приложения" />
+    <MESSAGE value="промежуточная фиксация" />
+    <MESSAGE value="удаление из корзины и новые кнопки для удаления" />
+    <option name="LAST_COMMIT_MESSAGE" value="удаление из корзины и новые кнопки для удаления" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

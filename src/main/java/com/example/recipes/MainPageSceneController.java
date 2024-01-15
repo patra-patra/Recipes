@@ -88,7 +88,6 @@ public class MainPageSceneController implements Initializable {
             arr[i] = Data.all_recipe.get(i);
         }
 
-        myList.getItems().clear();
         myList.getItems().addAll(arr);
     }
 
@@ -308,7 +307,6 @@ public class MainPageSceneController implements Initializable {
                         }
                     }
             );
-            //checkBox.pr
 
             Cat.getChildren().add(checkBox);
         }
